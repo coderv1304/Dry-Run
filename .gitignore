@@ -1,0 +1,33 @@
+# Environment and Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+build/
+dev.db
+*.sqlite
+*.sqlite3
+
+# Flutter and Dart
+.dart_tool/
+.packages
+build/
+app/build/
+packages/api_client/.dart_tool/
+packages/api_client/.packages
+
+# Operating System & IDE
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
