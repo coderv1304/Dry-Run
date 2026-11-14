@@ -1,9 +1,11 @@
 {
   "gate": "1",
-  "commit": "8819c673826cdb3b9fe1ba0034a340d42576fec2",
-  "timestamp": "2026-11-14T13:43:35.431538+00:00",
+  "commit": "d007c47d559f2faa62497641448efa5f7ad6ab81",
+  "timestamp": "2026-11-14T13:59:25.513834+00:00",
   "commands": [
     "make gate-1",
+    "make pg-check",
+    "make pg-live",
     "python scripts/drill_check.py",
     "python scripts/bench_turns.py",
     "python tool/validate_contracts.py"
@@ -17,7 +19,7 @@
     {
       "command": "backend_test",
       "status": "passed",
-      "detail": "192 tests, 96% coverage (fail-under 80)"
+      "detail": "205 tests, 96.28% coverage (fail-under 80), full suite on Postgres"
     },
     {
       "command": "backend_audit",
@@ -37,7 +39,22 @@
     {
       "command": "bench",
       "status": "passed",
-      "detail": "120 samples; p50 11.24 ms, p95 12.39 ms, max 22.10 ms under 300 ms"
+      "detail": "120 samples; p50 11.65 ms, p95 12.77 ms, max 21.99 ms under 300 ms"
+    },
+    {
+      "command": "postgres_migration",
+      "status": "passed",
+      "detail": "Alembic upgrade head on Postgres 16; seed column is bigint"
+    },
+    {
+      "command": "postgres_concurrency",
+      "status": "passed",
+      "detail": "same turn id yields identical replies and one event; distinct ids yield one 200 plus 409s; invite cap holds at 3 of 8"
+    },
+    {
+      "command": "live_cross_process",
+      "status": "passed",
+      "detail": "Uvicorn HTTP race: identical duplicate responses, one winner per index, 3 created and 5 rejected at invite cap"
     },
     {
       "command": "gate_1_verification",
