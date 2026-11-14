@@ -1,0 +1,47 @@
+{
+  "gate": "1",
+  "commit": "8819c673826cdb3b9fe1ba0034a340d42576fec2",
+  "timestamp": "2026-11-14T13:43:35.431538+00:00",
+  "commands": [
+    "make gate-1",
+    "python scripts/drill_check.py",
+    "python scripts/bench_turns.py",
+    "python tool/validate_contracts.py"
+  ],
+  "results": [
+    {
+      "command": "backend_lint",
+      "status": "passed",
+      "detail": "ruff check app tests alembic; mypy app"
+    },
+    {
+      "command": "backend_test",
+      "status": "passed",
+      "detail": "192 tests, 96% coverage (fail-under 80)"
+    },
+    {
+      "command": "backend_audit",
+      "status": "passed",
+      "detail": "bandit clean; pip-audit no known vulnerabilities"
+    },
+    {
+      "command": "contract_check",
+      "status": "passed",
+      "detail": "generated OpenAPI equals contracts/openapi.yaml; examples valid"
+    },
+    {
+      "command": "drill_check",
+      "status": "passed",
+      "detail": "en, hi, hinglish end complied_transfer at 7 turns with LLM disabled"
+    },
+    {
+      "command": "bench",
+      "status": "passed",
+      "detail": "120 samples; p50 11.24 ms, p95 12.39 ms, max 22.10 ms under 300 ms"
+    },
+    {
+      "command": "gate_1_verification",
+      "status": "passed"
+    }
+  ]
+}
