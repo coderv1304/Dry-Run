@@ -61,6 +61,18 @@ drill-check:
 	@echo "Running three-language LLM-off drill..."
 	@$(PYTHON) scripts/drill_check.py
 
+pg-check:
+	@echo "Running Postgres integration suite (starts compose db)..."
+	@$(PYTHON) scripts/pg_check.py
+
+pg-live:
+	@echo "Running live cross-process concurrency check (starts Uvicorn)..."
+	@$(PYTHON) scripts/live_concurrency_check.py --spawn
+
+bench:
+	@echo "Benchmarking scripted turn latency..."
+	@$(PYTHON) scripts/bench_turns.py
+
 design-tokens:
 	@echo "Regenerating design tokens and icons from design/tokens.json..."
 	@$(PYTHON) tool/gen_tokens.py
