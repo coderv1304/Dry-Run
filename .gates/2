@@ -1,0 +1,63 @@
+{
+  "gate": "2",
+  "commit": "df5c90a8104e2a8e13766ea5a9723bbd853ee80f",
+  "timestamp": "2026-11-14T15:28:34.520449+00:00",
+  "commands": [
+    "make gate-2",
+    "make lint-ui",
+    "make test",
+    "cd app && flutter test",
+    "cd app && flutter test --update-goldens"
+  ],
+  "results": [
+    {
+      "command": "token_generation",
+      "status": "passed",
+      "detail": "gen_tokens --check and gen_icons --check report every generated file current (byte for byte reproducible)"
+    },
+    {
+      "command": "font_coverage",
+      "status": "passed",
+      "detail": "Poppins 400/500/600/700 carry Devanagari U+0905..U+0966; Noto Sans Devanagari present as fallback only"
+    },
+    {
+      "command": "contrast",
+      "status": "passed",
+      "detail": "224 token pairings across light and dark, plus 4 gradient stops; no failures at 4.5:1 body or 3:1 large/UI"
+    },
+    {
+      "command": "design_lint",
+      "status": "passed",
+      "detail": "20 rules over app/lib, app/web, landing, scenario YAML and ARB; zero violations, zero recorded default assets"
+    },
+    {
+      "command": "design_lint_tests",
+      "status": "passed",
+      "detail": "6 tests: one bad fixture per rule plus clean fixture, gradient allowlist scoping, scale source, emoji exclusions"
+    },
+    {
+      "command": "flutter_analyze",
+      "status": "passed",
+      "detail": "No issues found"
+    },
+    {
+      "command": "flutter_test",
+      "status": "passed",
+      "detail": "33 tests: theme overrides, static hover, press feedback, token invariants, 18 goldens (8 components and the gallery, light and dark)"
+    },
+    {
+      "command": "make_test",
+      "status": "passed",
+      "detail": "backend pytest and api_client dart tests unchanged and green"
+    },
+    {
+      "command": "skill_checklists",
+      "status": "passed",
+      "detail": "both design skill checklists run; failures adapted or logged in docs/CHECKLIST_2.md"
+    },
+    {
+      "command": "gate_2_verification",
+      "status": "passed"
+    }
+  ]
+}
