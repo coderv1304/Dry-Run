@@ -333,10 +333,10 @@ def main(argv: list[str]) -> int:
     content = render_dart(icons)
     current = None
     if os.path.exists(OUT_PATH):
-        with open(OUT_PATH, "r", encoding="utf-8", newline="") as handle:
+        with open(OUT_PATH, "r", encoding="utf-8") as handle:
             current = handle.read()
     if "--check" in argv:
-        if current != content:
+        if current is None or current.replace("\r\n", "\n") != content.replace("\r\n", "\n"):
             print("app/lib/design/icons.g.dart is stale. Run python tool/gen_icons.py")
             return 1
         print("Icon generation is reproducible: %d icons current." % len(icons))

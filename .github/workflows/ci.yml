@@ -81,7 +81,7 @@ jobs:
           cache: true
 
       - name: Install Python tooling dependencies
-        run: pip install pyyaml
+        run: pip install pyyaml pytest
 
       - name: Run the design lint and token checks
         run: make lint-ui

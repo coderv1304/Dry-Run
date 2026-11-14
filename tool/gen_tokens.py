@@ -321,10 +321,10 @@ def main(argv: list[str]) -> int:
     for path, content in outputs.items():
         current = None
         if os.path.exists(path):
-            with open(path, "r", encoding="utf-8", newline="") as handle:
+            with open(path, "r", encoding="utf-8") as handle:
                 current = handle.read()
         if check_only:
-            if current != content:
+            if current is None or current.replace("\r\n", "\n") != content.replace("\r\n", "\n"):
                 stale.append(path)
         else:
             os.makedirs(os.path.dirname(path), exist_ok=True)

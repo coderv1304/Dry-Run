@@ -1,0 +1,11 @@
+# Enforce LF line endings for all text files across platforms
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
