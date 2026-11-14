@@ -15,3 +15,6 @@
 13. Add Docker, compose, hashed lock, audit targets, Railway/keep-warm README.
 14. Run make gate-1, drill all languages with LLM off, benchmark p95, write .gates/1.
 15. Commit and tag gate-1.
+16. With Docker available, migrate Postgres, run the full suite against it, add
+    concurrency tests and a live Uvicorn race check, and fix the 63-bit seed
+    column plus stale identity-map reads behind row locks.

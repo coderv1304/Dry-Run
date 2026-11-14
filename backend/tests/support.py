@@ -2,7 +2,22 @@
 
 from __future__ import annotations
 
+from urllib.parse import urlparse
+
 from fastapi.testclient import TestClient
+
+
+def assert_safe_test_database(url: str) -> None:
+    """Refuse to truncate anything that is not clearly a local test database."""
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower()
+    name = (parsed.path or "").lstrip("/")
+    if host in {"localhost", "127.0.0.1", "::1"} or "test" in name.lower():
+        return
+    raise RuntimeError(
+        "refusing to truncate a non-local database; use a localhost Postgres "
+        "or a database whose name contains 'test'"
+    )
 
 
 def new_invite(client: TestClient, language: str = "en", cohort: str | None = "tryout") -> str:

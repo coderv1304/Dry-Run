@@ -46,7 +46,12 @@ class BudgetTracker:
         )
         day: date = utcnow().date()
         with self._database.transaction() as db:
-            row = db.scalar(select(LlmBudget).where(LlmBudget.day == day).with_for_update())
+            row = db.scalar(
+                select(LlmBudget)
+                .where(LlmBudget.day == day)
+                .with_for_update()
+                .execution_options(populate_existing=True)
+            )
             if row is None:
                 row = LlmBudget(day=day, spent_usd=0.0, calls=0)
                 db.add(row)

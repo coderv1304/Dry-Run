@@ -7,6 +7,7 @@ from typing import Any
 
 from sqlalchemy import (
     JSON,
+    BigInteger,
     Boolean,
     Date,
     DateTime,
@@ -54,7 +55,7 @@ class DrillSession(Base):
     mode: Mapped[str] = mapped_column(String(16))
     stats_opt_in: Mapped[bool] = mapped_column(Boolean, default=False)
     share_consent: Mapped[bool] = mapped_column(Boolean, default=False)
-    seed: Mapped[int] = mapped_column(Integer)
+    seed: Mapped[int] = mapped_column(BigInteger)
 
     status: Mapped[str] = mapped_column(String(16), default="active")
     stage: Mapped[str] = mapped_column(String(16), default="contact")

@@ -1,5 +1,6 @@
 .PHONY: all test lint ci preflight gate-0 gate-1 gate-2 gate-3 gate-3b gate-4 gate-4b gate-5 \
-	audit backend-audit backend-lint backend-test contract-check drill-check bench
+	audit backend-audit backend-lint backend-test contract-check drill-check bench \
+	pg-check pg-live
 
 PYTHON ?= python
 DART ?= dart
@@ -59,6 +60,14 @@ contract-check:
 drill-check:
 	@echo "Running three-language LLM-off drill..."
 	@$(PYTHON) scripts/drill_check.py
+
+pg-check:
+	@echo "Running Postgres integration suite (starts compose db)..."
+	@$(PYTHON) scripts/pg_check.py
+
+pg-live:
+	@echo "Running live cross-process concurrency check (starts Uvicorn)..."
+	@$(PYTHON) scripts/live_concurrency_check.py --spawn
 
 bench:
 	@echo "Benchmarking scripted turn latency..."

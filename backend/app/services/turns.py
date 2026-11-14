@@ -120,7 +120,10 @@ async def process_participant_turn(
         return _stored(duplicate)
 
     locked = db.scalar(
-        select(DrillSession).where(DrillSession.id == session.id).with_for_update()
+        select(DrillSession)
+        .where(DrillSession.id == session.id)
+        .with_for_update()
+        .execution_options(populate_existing=True)
     )
     if locked is not None:
         session = locked

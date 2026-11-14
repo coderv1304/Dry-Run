@@ -45,7 +45,7 @@ def upgrade() -> None:
         sa.Column("mode", sa.String(length=16), nullable=False),
         sa.Column("stats_opt_in", sa.Boolean(), nullable=False, server_default=sa.false()),
         sa.Column("share_consent", sa.Boolean(), nullable=False, server_default=sa.false()),
-        sa.Column("seed", sa.Integer(), nullable=False),
+        sa.Column("seed", sa.BigInteger(), nullable=False),
         sa.Column("status", sa.String(length=16), nullable=False, server_default="active"),
         sa.Column("stage", sa.String(length=16), nullable=False, server_default="contact"),
         sa.Column("pressure", sa.Integer(), nullable=False, server_default="0"),

@@ -22,6 +22,23 @@ TOKEN_PEPPER="$(python -c 'import secrets; print(secrets.token_urlsafe(48))')" d
 curl http://localhost:8000/healthz
 ```
 
+## Postgres concurrency verification
+
+SQLite is fine for fast unit tests but does not exercise row locks. With Docker
+running, verify the real database path:
+
+```sh
+make pg-check    # compose Postgres + Alembic + tests/test_postgres.py
+make pg-live     # spawn Uvicorn, race requests from a separate client process
+python scripts/pg_check.py --full   # whole backend suite on Postgres
+```
+
+The checks assert that a duplicate `turn_id` race returns identical responses
+and persists one event, that distinct turn ids racing for one index produce one
+200 plus 409 conflicts, and that eight simultaneous session creations still
+stop at the three-session invite cap. Locked rows are refreshed with
+`populate_existing` so the check cannot pass on a stale in-memory object.
+
 ## Railway (recommended)
 
 1. Create a Railway project and add the Postgres plugin.

@@ -35,7 +35,15 @@ def create_session(request: Request, body: SessionCreateRequest) -> SessionCreat
     raw = header(request, "X-Invite-Token")
     with request.app.state.db.transaction() as db:
         invite = resolve_invite(db, raw, settings)
-        invite = db.scalar(select(Invite).where(Invite.id == invite.id).with_for_update()) or invite
+        invite = (
+            db.scalar(
+                select(Invite)
+                .where(Invite.id == invite.id)
+                .with_for_update()
+                .execution_options(populate_existing=True)
+            )
+            or invite
+        )
         return create_session_row(
             db,
             settings,
@@ -79,7 +87,12 @@ async def finish_session(id: str, request: Request, body: SessionEndRequest) -> 
     with request.app.state.db.transaction() as db:
         drill = resolve_session(db, id, raw, settings)
         drill = (
-            db.scalar(select(DrillSession).where(DrillSession.id == id).with_for_update())
+            db.scalar(
+                select(DrillSession)
+                .where(DrillSession.id == id)
+                .with_for_update()
+                .execution_options(populate_existing=True)
+            )
             or drill
         )
         return await end_session(
