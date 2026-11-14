@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DebriefResponse",
+  "type": "object",
+  "required": [
+    "status",
+    "quality",
+    "debrief"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "ready"
+      ]
+    },
+    "quality": {
+      "type": "string",
+      "enum": [
+        "quick",
+        "full"
+      ]
+    },
+    "debrief": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "quality",
+            "low_confidence",
+            "state_path",
+            "events",
+            "first_compliance",
+            "did_well_ids",
+            "habit_id"
+          ],
+          "properties": {
+            "quality": {
+              "type": "string",
+              "enum": [
+                "quick",
+                "full"
+              ]
+            },
+            "low_confidence": {
+              "type": "boolean"
+            },
+            "state_path": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "stage_id",
+                  "turn_index"
+                ],
+                "properties": {
+                  "stage_id": {
+                    "type": "string",
+                    "enum": [
+                      "contact",
+                      "accusation",
+                      "isolation",
+                      "urgency",
+                      "transfer"
+                    ]
+                  },
+                  "turn_index": {
+                    "type": "integer"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "turn_index",
+                  "label",
+                  "confidence",
+                  "quote"
+                ],
+                "properties": {
+                  "turn_index": {
+                    "type": "integer"
+                  },
+                  "label": {
+                    "type": "string",
+                    "enum": [
+                      "P1",
+                      "P2",
+                      "P3",
+                      "P4",
+                      "C1",
+                      "C2",
+                      "C3",
+                      "C4"
+                    ]
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "quote": {
+                    "type": [
+                      "object",
+                      "null"
+                    ],
+                    "required": [
+                      "text",
+                      "start",
+                      "end"
+                    ],
+                    "properties": {
+                      "text": {
+                        "type": "string"
+                      },
+                      "start": {
+                        "type": "integer"
+                      },
+                      "end": {
+                        "type": "integer"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "first_compliance": {
+              "type": [
+                "object",
+                "null"
+              ],
+              "required": [
+                "turn_index",
+                "stage_id",
+                "label"
+              ],
+              "properties": {
+                "turn_index": {
+                  "type": "integer"
+                },
+                "stage_id": {
+                  "type": "string",
+                  "enum": [
+                    "contact",
+                    "accusation",
+                    "isolation",
+                    "urgency",
+                    "transfer"
+                  ]
+                },
+                "label": {
+                  "type": "string",
+                  "enum": [
+                    "P1",
+                    "P2",
+                    "P3",
+                    "P4",
+                    "C1",
+                    "C2",
+                    "C3",
+                    "C4"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "did_well_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "habit_id": {
+              "type": "string",
+              "enum": [
+                "hang_up",
+                "call_back_official",
+                "tell_family"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

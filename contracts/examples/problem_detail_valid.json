@@ -1,0 +1,7 @@
+{
+  "type": "https://dryrun.in/errors/invalid_token",
+  "title": "Invalid Token",
+  "status": 401,
+  "detail": "Provided session token is invalid or expired.",
+  "code": "invalid_token"
+}

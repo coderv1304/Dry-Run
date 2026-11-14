@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ProblemDetail",
+  "type": "object",
+  "required": [
+    "type",
+    "title",
+    "status",
+    "detail",
+    "code"
+  ],
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "integer"
+    },
+    "detail": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "enum": [
+        "invalid_token",
+        "token_expired",
+        "session_limit_reached",
+        "turn_index_mismatch",
+        "rate_limited",
+        "payload_too_large",
+        "consent_required",
+        "session_ended",
+        "internal"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

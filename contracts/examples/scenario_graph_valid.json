@@ -1,0 +1,19 @@
+{
+  "stage_ids": [
+    "contact",
+    "accusation",
+    "isolation",
+    "urgency",
+    "transfer"
+  ],
+  "labels": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ]
+}

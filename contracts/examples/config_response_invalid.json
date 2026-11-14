@@ -1,0 +1,8 @@
+{
+  "flags": {
+    "llm_enabled": "not_bool"
+  },
+  "languages": [
+    "en"
+  ]
+}

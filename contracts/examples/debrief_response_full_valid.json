@@ -1,0 +1,39 @@
+{
+  "status": "ready",
+  "quality": "full",
+  "debrief": {
+    "quality": "full",
+    "low_confidence": false,
+    "state_path": [
+      {
+        "stage_id": "contact",
+        "turn_index": 0
+      },
+      {
+        "stage_id": "accusation",
+        "turn_index": 1
+      }
+    ],
+    "events": [
+      {
+        "turn_index": 1,
+        "label": "C1",
+        "confidence": 0.92,
+        "quote": {
+          "text": "my aadhaar number is",
+          "start": 0,
+          "end": 20
+        }
+      }
+    ],
+    "first_compliance": {
+      "turn_index": 1,
+      "stage_id": "accusation",
+      "label": "C1"
+    },
+    "did_well_ids": [
+      "refused_money_transfer"
+    ],
+    "habit_id": "call_back_official"
+  }
+}

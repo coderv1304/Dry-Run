@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TurnResponse",
+  "type": "object",
+  "required": [
+    "stage_id",
+    "pressure",
+    "status",
+    "turn_index",
+    "fallback_used",
+    "pii_warning"
+  ],
+  "properties": {
+    "officer_line": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "display",
+        "speak",
+        "language"
+      ],
+      "properties": {
+        "display": {
+          "type": "string"
+        },
+        "speak": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "stage_id": {
+      "type": "string",
+      "enum": [
+        "contact",
+        "accusation",
+        "isolation",
+        "urgency",
+        "transfer"
+      ]
+    },
+    "pressure": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "ended"
+      ]
+    },
+    "end_reason": {
+      "type": "string",
+      "enum": [
+        "hung_up",
+        "verified_callback",
+        "complied_transfer",
+        "turn_cap",
+        "timeout",
+        "participant_ended"
+      ]
+    },
+    "turn_index": {
+      "type": "integer"
+    },
+    "fallback_used": {
+      "type": "boolean"
+    },
+    "pii_warning": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

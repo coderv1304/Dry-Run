@@ -1,0 +1,641 @@
+openapi: 3.1.0
+info:
+  title: Dry Run API
+  version: 1.0.0
+  description: API contract for Dry Run digital arrest scam simulation drill.
+paths:
+  /healthz:
+    get:
+      summary: Liveness probe
+      operationId: getHealthz
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+                    example: ok
+
+  /readyz:
+    get:
+      summary: Readiness probe
+      operationId: getReadyz
+      responses:
+        '200':
+          description: Service is ready to serve traffic
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status:
+                    type: string
+                    example: ready
+
+  /v1/config:
+    get:
+      summary: Service configuration and feature flags
+      operationId: getConfig
+      responses:
+        '200':
+          description: Service configuration
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConfigResponse'
+
+  /v1/scenario/graph:
+    get:
+      summary: Scenario graph structure (stage IDs and labels only)
+      operationId: getScenarioGraph
+      responses:
+        '200':
+          description: Scenario graph stages and labels
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScenarioGraphResponse'
+
+  /v1/invites:
+    post:
+      summary: Create invite token (rate limited)
+      operationId: createInvite
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InviteCreateRequest'
+      responses:
+        '201':
+          description: Invite created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InviteResponse'
+        '429':
+          $ref: '#/components/responses/ProblemRateLimited'
+
+  /v1/invites/current:
+    get:
+      summary: Inspect current invite token
+      operationId: getCurrentInvite
+      parameters:
+        - $ref: '#/components/parameters/HeaderInviteToken'
+      responses:
+        '200':
+          description: Current invite details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrentInviteResponse'
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+  /v1/sessions:
+    post:
+      summary: Create a drill session with practice call consent
+      operationId: createSession
+      parameters:
+        - $ref: '#/components/parameters/HeaderInviteToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionCreateRequest'
+      responses:
+        '201':
+          description: Session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionCreateResponse'
+        '400':
+          $ref: '#/components/responses/ProblemConsentRequired'
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+  /v1/sessions/{id}/turn:
+    post:
+      summary: Submit a participant turn and receive officer response
+      operationId: submitTurn
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/HeaderSessionToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TurnRequest'
+      responses:
+        '200':
+          description: Turn processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TurnResponse'
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+        '409':
+          $ref: '#/components/responses/ProblemTurnIndexMismatch'
+
+  /v1/sessions/{id}/end:
+    post:
+      summary: Explicitly end a drill session
+      operationId: endSession
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/HeaderSessionToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionEndRequest'
+      responses:
+        '200':
+          description: Session ended
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status, reason]
+                properties:
+                  status:
+                    type: string
+                    enum: [ended]
+                  reason:
+                    type: string
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+  /v1/sessions/{id}/debrief:
+    get:
+      summary: Retrieve session debrief
+      operationId: getDebrief
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/HeaderSessionToken'
+      responses:
+        '200':
+          description: Debrief report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DebriefResponse'
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+  /v1/sessions/{id}/share:
+    post:
+      summary: Generate report token for sharing with organizer
+      operationId: shareSession
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/HeaderSessionToken'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShareRequest'
+      responses:
+        '200':
+          description: Report token created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShareResponse'
+        '400':
+          $ref: '#/components/responses/ProblemConsentRequired'
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+  /v1/sessions/{id}:
+    delete:
+      summary: Delete session and invalidate report token
+      operationId: deleteSession
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - $ref: '#/components/parameters/HeaderSessionToken'
+      responses:
+        '204':
+          description: Session deleted successfully
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+  /v1/reports/current:
+    get:
+      summary: View shared debrief report
+      operationId: getCurrentReport
+      parameters:
+        - $ref: '#/components/parameters/HeaderReportToken'
+      responses:
+        '200':
+          description: Shared report details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResponse'
+        '401':
+          $ref: '#/components/responses/ProblemInvalidToken'
+
+components:
+  parameters:
+    HeaderInviteToken:
+      name: X-Invite-Token
+      in: header
+      required: true
+      schema:
+        type: string
+    HeaderSessionToken:
+      name: X-Session-Token
+      in: header
+      required: true
+      schema:
+        type: string
+    HeaderReportToken:
+      name: X-Report-Token
+      in: header
+      required: true
+      schema:
+        type: string
+
+  schemas:
+    ProblemDetail:
+      type: object
+      required: [type, title, status, detail, code]
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        code:
+          type: string
+          enum:
+            - invalid_token
+            - token_expired
+            - session_limit_reached
+            - turn_index_mismatch
+            - rate_limited
+            - payload_too_large
+            - consent_required
+            - session_ended
+            - internal
+
+    ConfigResponse:
+      type: object
+      required: [flags, languages, limits]
+      properties:
+        flags:
+          type: object
+          required: [llm_enabled, voice_enabled]
+          properties:
+            llm_enabled:
+              type: boolean
+            voice_enabled:
+              type: boolean
+        languages:
+          type: array
+          items:
+            type: string
+        limits:
+          type: object
+          required: [max_turns, max_duration_seconds, idle_timeout_seconds, max_request_body_bytes, retention_days]
+          properties:
+            max_turns:
+              type: integer
+            max_duration_seconds:
+              type: integer
+            idle_timeout_seconds:
+              type: integer
+            max_request_body_bytes:
+              type: integer
+            retention_days:
+              type: integer
+
+    ScenarioGraphResponse:
+      type: object
+      required: [stage_ids, labels]
+      properties:
+        stage_ids:
+          type: array
+          items:
+            type: string
+            enum: [contact, accusation, isolation, urgency, transfer]
+        labels:
+          type: array
+          items:
+            type: string
+            enum: [P1, P2, P3, P4, C1, C2, C3, C4]
+
+    InviteCreateRequest:
+      type: object
+      required: [language]
+      properties:
+        language:
+          type: string
+          enum: [en, hi, hinglish]
+        cohort:
+          type: string
+          pattern: '^[a-z0-9-]{1,24}$'
+
+    InviteResponse:
+      type: object
+      required: [invite_token, expires_at]
+      properties:
+        invite_token:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+
+    CurrentInviteResponse:
+      type: object
+      required: [language, created_at, expires_at]
+      properties:
+        cohort:
+          type: string
+        language:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        expires_at:
+          type: string
+          format: date-time
+
+    SessionCreateRequest:
+      type: object
+      required: [consent, mode]
+      properties:
+        consent:
+          type: boolean
+        stats_opt_in:
+          type: boolean
+          default: false
+        mode:
+          type: string
+          enum: [chat, voice]
+
+    OfficerLine:
+      type: object
+      required: [display, speak, language]
+      properties:
+        display:
+          type: string
+        speak:
+          type: string
+        language:
+          type: string
+
+    TurnResponse:
+      type: object
+      required: [stage_id, pressure, status, turn_index, fallback_used, pii_warning]
+      properties:
+        officer_line:
+          anyOf:
+            - $ref: '#/components/schemas/OfficerLine'
+            - type: 'null'
+        stage_id:
+          type: string
+          enum: [contact, accusation, isolation, urgency, transfer]
+        pressure:
+          type: integer
+          minimum: 0
+          maximum: 3
+        status:
+          type: string
+          enum: [active, ended]
+        end_reason:
+          type: string
+          enum: [hung_up, verified_callback, complied_transfer, turn_cap, timeout, participant_ended]
+        turn_index:
+          type: integer
+        fallback_used:
+          type: boolean
+        pii_warning:
+          type: boolean
+
+    SessionCreateResponse:
+      type: object
+      required: [session_id, session_token, first_turn, limits]
+      properties:
+        session_id:
+          type: string
+        session_token:
+          type: string
+        first_turn:
+          $ref: '#/components/schemas/TurnResponse'
+        limits:
+          type: object
+          required: [max_turns, max_duration_seconds, idle_timeout_seconds]
+          properties:
+            max_turns:
+              type: integer
+            max_duration_seconds:
+              type: integer
+            idle_timeout_seconds:
+              type: integer
+
+    TurnRequest:
+      type: object
+      required: [turn_id, expected_turn_index, text]
+      properties:
+        turn_id:
+          type: string
+        expected_turn_index:
+          type: integer
+        text:
+          type: string
+          maxLength: 4096
+
+    SessionEndRequest:
+      type: object
+      required: [reason]
+      properties:
+        reason:
+          type: string
+          enum: [participant_ended, timeout]
+
+    QuoteReference:
+      type: object
+      required: [text, start, end]
+      properties:
+        text:
+          type: string
+        start:
+          type: integer
+        end:
+          type: integer
+
+    DebriefEvent:
+      type: object
+      required: [turn_index, label, confidence, quote]
+      properties:
+        turn_index:
+          type: integer
+        label:
+          type: string
+          enum: [P1, P2, P3, P4, C1, C2, C3, C4]
+        confidence:
+          type: number
+        quote:
+          anyOf:
+            - $ref: '#/components/schemas/QuoteReference'
+            - type: 'null'
+
+    StatePathItem:
+      type: object
+      required: [stage_id, turn_index]
+      properties:
+        stage_id:
+          type: string
+          enum: [contact, accusation, isolation, urgency, transfer]
+        turn_index:
+          type: integer
+
+    FirstCompliance:
+      type: object
+      required: [turn_index, stage_id, label]
+      properties:
+        turn_index:
+          type: integer
+        stage_id:
+          type: string
+          enum: [contact, accusation, isolation, urgency, transfer]
+        label:
+          type: string
+          enum: [P1, P2, P3, P4, C1, C2, C3, C4]
+
+    DebriefContent:
+      type: object
+      required: [quality, low_confidence, state_path, events, first_compliance, did_well_ids, habit_id]
+      properties:
+        quality:
+          type: string
+          enum: [quick, full]
+        low_confidence:
+          type: boolean
+        state_path:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatePathItem'
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/DebriefEvent'
+        first_compliance:
+          anyOf:
+            - $ref: '#/components/schemas/FirstCompliance'
+            - type: 'null'
+        did_well_ids:
+          type: array
+          items:
+            type: string
+        habit_id:
+          type: string
+          enum: [hang_up, call_back_official, tell_family]
+
+    DebriefResponse:
+      type: object
+      required: [status, quality, debrief]
+      properties:
+        status:
+          type: string
+          enum: [pending, ready]
+        quality:
+          type: string
+          enum: [quick, full]
+        debrief:
+          anyOf:
+            - $ref: '#/components/schemas/DebriefContent'
+            - type: 'null'
+
+    ShareRequest:
+      type: object
+      required: [consent]
+      properties:
+        consent:
+          type: boolean
+
+    ShareResponse:
+      type: object
+      required: [report_token, expires_at]
+      properties:
+        report_token:
+          type: string
+        expires_at:
+          type: string
+          format: date-time
+
+    ReportResponse:
+      type: object
+      required: [report_token, shared_at, debrief]
+      properties:
+        report_token:
+          type: string
+        shared_at:
+          type: string
+          format: date-time
+        debrief:
+          $ref: '#/components/schemas/DebriefContent'
+
+  responses:
+    ProblemInvalidToken:
+      description: Unauthorized or invalid token
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetail'
+    ProblemConsentRequired:
+      description: Explicit user consent is missing
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetail'
+    ProblemTurnIndexMismatch:
+      description: Turn index does not match server expectation
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetail'
+    ProblemRateLimited:
+      description: Request rate limit exceeded
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetail'

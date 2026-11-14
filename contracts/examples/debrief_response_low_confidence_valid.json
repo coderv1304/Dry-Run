@@ -1,0 +1,20 @@
+{
+  "status": "ready",
+  "quality": "full",
+  "debrief": {
+    "quality": "full",
+    "low_confidence": true,
+    "state_path": [
+      {
+        "stage_id": "contact",
+        "turn_index": 0
+      }
+    ],
+    "events": [],
+    "first_compliance": null,
+    "did_well_ids": [
+      "tell_family"
+    ],
+    "habit_id": "tell_family"
+  }
+}

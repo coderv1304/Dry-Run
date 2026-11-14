@@ -1,0 +1,7 @@
+{
+  "type": "https://dryrun.in/errors/unknown",
+  "title": "Bad Error",
+  "status": "not_an_int",
+  "detail": "Missing fields",
+  "code": "unrecognized_code"
+}

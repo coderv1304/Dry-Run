@@ -1,0 +1,31 @@
+{
+  "status": "ready",
+  "quality": "quick",
+  "debrief": {
+    "quality": "quick",
+    "low_confidence": false,
+    "state_path": [
+      {
+        "stage_id": "contact",
+        "turn_index": 0
+      }
+    ],
+    "events": [
+      {
+        "turn_index": 0,
+        "label": "P1",
+        "confidence": 0.95,
+        "quote": {
+          "text": "hello",
+          "start": 0,
+          "end": 5
+        }
+      }
+    ],
+    "first_compliance": null,
+    "did_well_ids": [
+      "asked_badge_number"
+    ],
+    "habit_id": "hang_up"
+  }
+}

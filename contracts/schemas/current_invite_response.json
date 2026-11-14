@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CurrentInviteResponse",
+  "type": "object",
+  "required": [
+    "language",
+    "created_at",
+    "expires_at"
+  ],
+  "properties": {
+    "cohort": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "expires_at": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

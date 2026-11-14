@@ -1,0 +1,18 @@
+{
+  "flags": {
+    "llm_enabled": false,
+    "voice_enabled": false
+  },
+  "languages": [
+    "en",
+    "hi",
+    "hinglish"
+  ],
+  "limits": {
+    "max_turns": 12,
+    "max_duration_seconds": 900,
+    "idle_timeout_seconds": 600,
+    "max_request_body_bytes": 4096,
+    "retention_days": 7
+  }
+}

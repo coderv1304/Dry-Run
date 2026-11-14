@@ -1,0 +1,22 @@
+{
+  "session_id": "ses_0123456789abcdef0123456789abcdef",
+  "session_token": "tok_0123456789abcdef0123456789abcdef",
+  "first_turn": {
+    "officer_line": {
+      "display": "Identify yourself.",
+      "speak": "Identify yourself.",
+      "language": "en"
+    },
+    "stage_id": "contact",
+    "pressure": 0,
+    "status": "active",
+    "turn_index": 0,
+    "fallback_used": true,
+    "pii_warning": false
+  },
+  "limits": {
+    "max_turns": 12,
+    "max_duration_seconds": 900,
+    "idle_timeout_seconds": 600
+  }
+}

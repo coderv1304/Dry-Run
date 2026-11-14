@@ -1,0 +1,13 @@
+{
+  "officer_line": {
+    "display": "Who is speaking?",
+    "speak": "Who is speaking?",
+    "language": "en"
+  },
+  "stage_id": "contact",
+  "pressure": 0,
+  "status": "active",
+  "turn_index": 0,
+  "fallback_used": false,
+  "pii_warning": false
+}

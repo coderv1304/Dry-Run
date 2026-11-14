@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConfigResponse",
+  "type": "object",
+  "required": [
+    "flags",
+    "languages",
+    "limits"
+  ],
+  "properties": {
+    "flags": {
+      "type": "object",
+      "required": [
+        "llm_enabled",
+        "voice_enabled"
+      ],
+      "properties": {
+        "llm_enabled": {
+          "type": "boolean"
+        },
+        "voice_enabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limits": {
+      "type": "object",
+      "required": [
+        "max_turns",
+        "max_duration_seconds",
+        "idle_timeout_seconds",
+        "max_request_body_bytes",
+        "retention_days"
+      ],
+      "properties": {
+        "max_turns": {
+          "type": "integer"
+        },
+        "max_duration_seconds": {
+          "type": "integer"
+        },
+        "idle_timeout_seconds": {
+          "type": "integer"
+        },
+        "max_request_body_bytes": {
+          "type": "integer"
+        },
+        "retention_days": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

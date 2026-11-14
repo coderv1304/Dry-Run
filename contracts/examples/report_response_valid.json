@@ -1,0 +1,20 @@
+{
+  "report_token": "rep_0123456789abcdef0123456789abcdef",
+  "shared_at": "2026-11-14T12:00:00Z",
+  "debrief": {
+    "quality": "quick",
+    "low_confidence": false,
+    "state_path": [
+      {
+        "stage_id": "contact",
+        "turn_index": 0
+      }
+    ],
+    "events": [],
+    "first_compliance": null,
+    "did_well_ids": [
+      "asked_badge_number"
+    ],
+    "habit_id": "hang_up"
+  }
+}
