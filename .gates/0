@@ -1,0 +1,39 @@
+{
+  "gate": "0",
+  "commit": "2552b5d80151d04e1b258789a82179ca661445ca",
+  "timestamp": "2026-11-14T12:03:54.781494+00:00",
+  "commands": [
+    "python scripts/doctor.py",
+    "python tool/validate_contracts.py",
+    "flutter analyze app",
+    "pytest backend/tests",
+    "dart test packages/api_client",
+    "make gate-0"
+  ],
+  "results": [
+    {
+      "command": "doctor",
+      "status": "passed"
+    },
+    {
+      "command": "validate_contracts",
+      "status": "passed"
+    },
+    {
+      "command": "flutter_analyze",
+      "status": "passed"
+    },
+    {
+      "command": "backend_tests",
+      "status": "passed"
+    },
+    {
+      "command": "api_client_tests",
+      "status": "passed"
+    },
+    {
+      "command": "gate_0_verification",
+      "status": "passed"
+    }
+  ]
+}
