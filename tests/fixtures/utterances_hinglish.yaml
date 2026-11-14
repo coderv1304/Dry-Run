@@ -1,0 +1,494 @@
+meta:
+  synthetic: true
+  human_review: pending
+  language: hinglish
+  warning: Internal evaluation only. Never cite as an accuracy claim.
+utterances:
+  P1:
+  - id: hinglish-P1-01
+    text: Main phone rakh deta hoon
+  - id: hinglish-P1-02
+    text: Main phone rakh deta hoon please
+  - id: hinglish-P1-03
+    text: Main phone rakh deta hoon abhi
+  - id: hinglish-P1-04
+    text: Main call kaat dunga
+  - id: hinglish-P1-05
+    text: Main call kaat dunga please
+  - id: hinglish-P1-06
+    text: Main call kaat dunga abhi
+  - id: hinglish-P1-07
+    text: Mujhe baat nahi karni
+  - id: hinglish-P1-08
+    text: Mujhe baat nahi karni please
+  - id: hinglish-P1-09
+    text: Mujhe baat nahi karni abhi
+  - id: hinglish-P1-10
+    text: Main paise nahi bhejunga
+  - id: hinglish-P1-11
+    text: Main paise nahi bhejunga please
+  - id: hinglish-P1-12
+    text: Main paise nahi bhejunga abhi
+  - id: hinglish-P1-13
+    text: Main mana karta hoon
+  - id: hinglish-P1-14
+    text: Main mana karta hoon please
+  - id: hinglish-P1-15
+    text: Main mana karta hoon abhi
+  - id: hinglish-P1-16
+    text: Yeh call band karo
+  - id: hinglish-P1-17
+    text: Yeh call band karo please
+  - id: hinglish-P1-18
+    text: Yeh call band karo abhi
+  - id: hinglish-P1-19
+    text: Mujh par call mat karo
+  - id: hinglish-P1-20
+    text: Mujh par call mat karo please
+  - id: hinglish-P1-21
+    text: Mujh par call mat karo abhi
+  - id: hinglish-P1-22
+    text: Main baat nahi karunga
+  - id: hinglish-P1-23
+    text: Main baat nahi karunga please
+  - id: hinglish-P1-24
+    text: Main baat nahi karunga abhi
+  - id: hinglish-P1-25
+    text: Aapko phone rakhna hoga
+  - id: hinglish-P1-26
+    text: Aapko phone rakhna hoga please
+  - id: hinglish-P1-27
+    text: Aapko phone rakhna hoga abhi
+  - id: hinglish-P1-28
+    text: Main yeh nahi karunga
+  - id: hinglish-P1-29
+    text: Main yeh nahi karunga please
+  - id: hinglish-P1-30
+    text: Main yeh nahi karunga abhi
+  P2:
+  - id: hinglish-P2-01
+    text: Mujhe apna badge dikhaiye
+  - id: hinglish-P2-02
+    text: Mujhe apna badge dikhaiye please
+  - id: hinglish-P2-03
+    text: Mujhe apna badge dikhaiye abhi
+  - id: hinglish-P2-04
+    text: Aapki pehchan kya hai
+  - id: hinglish-P2-05
+    text: Aapki pehchan kya hai please
+  - id: hinglish-P2-06
+    text: Aapki pehchan kya hai abhi
+  - id: hinglish-P2-07
+    text: Main verify karna chahta hoon
+  - id: hinglish-P2-08
+    text: Main verify karna chahta hoon please
+  - id: hinglish-P2-09
+    text: Main verify karna chahta hoon abhi
+  - id: hinglish-P2-10
+    text: Aapka official number kya hai
+  - id: hinglish-P2-11
+    text: Aapka official number kya hai please
+  - id: hinglish-P2-12
+    text: Aapka official number kya hai abhi
+  - id: hinglish-P2-13
+    text: Main wapas call karunga
+  - id: hinglish-P2-14
+    text: Main wapas call karunga please
+  - id: hinglish-P2-15
+    text: Main wapas call karunga abhi
+  - id: hinglish-P2-16
+    text: Aap kis department se hain
+  - id: hinglish-P2-17
+    text: Aap kis department se hain please
+  - id: hinglish-P2-18
+    text: Aap kis department se hain abhi
+  - id: hinglish-P2-19
+    text: Mujhe aapke senior se baat karni hai
+  - id: hinglish-P2-20
+    text: Mujhe aapke senior se baat karni hai please
+  - id: hinglish-P2-21
+    text: Mujhe aapke senior se baat karni hai abhi
+  - id: hinglish-P2-22
+    text: Apni ID dikhaiye
+  - id: hinglish-P2-23
+    text: Apni ID dikhaiye please
+  - id: hinglish-P2-24
+    text: Apni ID dikhaiye abhi
+  - id: hinglish-P2-25
+    text: Main identity verify karna chahta hoon
+  - id: hinglish-P2-26
+    text: Main identity verify karna chahta hoon please
+  - id: hinglish-P2-27
+    text: Main identity verify karna chahta hoon abhi
+  - id: hinglish-P2-28
+    text: Mujhe verification chahiye
+  - id: hinglish-P2-29
+    text: Mujhe verification chahiye please
+  - id: hinglish-P2-30
+    text: Mujhe verification chahiye abhi
+  P3:
+  - id: hinglish-P3-01
+    text: Main apne parivar ko batana chahta hoon
+  - id: hinglish-P3-02
+    text: Main apne parivar ko batana chahta hoon please
+  - id: hinglish-P3-03
+    text: Main apne parivar ko batana chahta hoon abhi
+  - id: hinglish-P3-04
+    text: Meri patni yahan hai
+  - id: hinglish-P3-05
+    text: Meri patni yahan hai please
+  - id: hinglish-P3-06
+    text: Meri patni yahan hai abhi
+  - id: hinglish-P3-07
+    text: Main apne pati ko bulaunga
+  - id: hinglish-P3-08
+    text: Main apne pati ko bulaunga please
+  - id: hinglish-P3-09
+    text: Main apne pati ko bulaunga abhi
+  - id: hinglish-P3-10
+    text: Mujhe apne bete se baat karni hai
+  - id: hinglish-P3-11
+    text: Mujhe apne bete se baat karni hai please
+  - id: hinglish-P3-12
+    text: Mujhe apne bete se baat karni hai abhi
+  - id: hinglish-P3-13
+    text: Main apni beti ko bataunga
+  - id: hinglish-P3-14
+    text: Main apni beti ko bataunga please
+  - id: hinglish-P3-15
+    text: Main apni beti ko bataunga abhi
+  - id: hinglish-P3-16
+    text: Main apni maa se poochunga
+  - id: hinglish-P3-17
+    text: Main apni maa se poochunga please
+  - id: hinglish-P3-18
+    text: Main apni maa se poochunga abhi
+  - id: hinglish-P3-19
+    text: Mere papa mere saath hain
+  - id: hinglish-P3-20
+    text: Mere papa mere saath hain please
+  - id: hinglish-P3-21
+    text: Mere papa mere saath hain abhi
+  - id: hinglish-P3-22
+    text: Main apne vakil ko bulaunga
+  - id: hinglish-P3-23
+    text: Main apne vakil ko bulaunga please
+  - id: hinglish-P3-24
+    text: Main apne vakil ko bulaunga abhi
+  - id: hinglish-P3-25
+    text: Main apne dost ko bataunga
+  - id: hinglish-P3-26
+    text: Main apne dost ko bataunga please
+  - id: hinglish-P3-27
+    text: Main apne dost ko bataunga abhi
+  - id: hinglish-P3-28
+    text: Mera bhai bhi sun sakta hai
+  - id: hinglish-P3-29
+    text: Mera bhai bhi sun sakta hai please
+  - id: hinglish-P3-30
+    text: Mera bhai bhi sun sakta hai abhi
+  P4:
+  - id: hinglish-P4-01
+    text: Yeh dhoka hai
+  - id: hinglish-P4-02
+    text: Yeh dhoka hai please
+  - id: hinglish-P4-03
+    text: Yeh dhoka hai abhi
+  - id: hinglish-P4-04
+    text: Yeh thagi lagti hai
+  - id: hinglish-P4-05
+    text: Yeh thagi lagti hai please
+  - id: hinglish-P4-06
+    text: Yeh thagi lagti hai abhi
+  - id: hinglish-P4-07
+    text: Yeh call fake hai
+  - id: hinglish-P4-08
+    text: Yeh call fake hai please
+  - id: hinglish-P4-09
+    text: Yeh call fake hai abhi
+  - id: hinglish-P4-10
+    text: Yeh sach nahi hai
+  - id: hinglish-P4-11
+    text: Yeh sach nahi hai please
+  - id: hinglish-P4-12
+    text: Yeh sach nahi hai abhi
+  - id: hinglish-P4-13
+    text: Yeh ek trick hai
+  - id: hinglish-P4-14
+    text: Yeh ek trick hai please
+  - id: hinglish-P4-15
+    text: Yeh ek trick hai abhi
+  - id: hinglish-P4-16
+    text: Aap jhooth bol rahe hain
+  - id: hinglish-P4-17
+    text: Aap jhooth bol rahe hain please
+  - id: hinglish-P4-18
+    text: Aap jhooth bol rahe hain abhi
+  - id: hinglish-P4-19
+    text: Aap mujhe thag rahe hain
+  - id: hinglish-P4-20
+    text: Aap mujhe thag rahe hain please
+  - id: hinglish-P4-21
+    text: Aap mujhe thag rahe hain abhi
+  - id: hinglish-P4-22
+    text: Yeh nakli lagta hai
+  - id: hinglish-P4-23
+    text: Yeh nakli lagta hai please
+  - id: hinglish-P4-24
+    text: Yeh nakli lagta hai abhi
+  - id: hinglish-P4-25
+    text: Yeh fraud hai
+  - id: hinglish-P4-26
+    text: Yeh fraud hai please
+  - id: hinglish-P4-27
+    text: Yeh fraud hai abhi
+  - id: hinglish-P4-28
+    text: Mujhe yeh galat lagta hai
+  - id: hinglish-P4-29
+    text: Mujhe yeh galat lagta hai please
+  - id: hinglish-P4-30
+    text: Mujhe yeh galat lagta hai abhi
+  C1:
+  - id: hinglish-C1-01
+    text: Mera naam Ahmed hai
+  - id: hinglish-C1-02
+    text: Mera naam Ahmed hai please
+  - id: hinglish-C1-03
+    text: Mera naam Ahmed hai abhi
+  - id: hinglish-C1-04
+    text: Mera aadhaar record mein hai
+  - id: hinglish-C1-05
+    text: Mera aadhaar record mein hai please
+  - id: hinglish-C1-06
+    text: Mera aadhaar record mein hai abhi
+  - id: hinglish-C1-07
+    text: Main OTP bata sakta hoon
+  - id: hinglish-C1-08
+    text: Main OTP bata sakta hoon please
+  - id: hinglish-C1-09
+    text: Main OTP bata sakta hoon abhi
+  - id: hinglish-C1-10
+    text: Mera card number yeh hai
+  - id: hinglish-C1-11
+    text: Mera card number yeh hai please
+  - id: hinglish-C1-12
+    text: Mera card number yeh hai abhi
+  - id: hinglish-C1-13
+    text: Main CVV bata dunga
+  - id: hinglish-C1-14
+    text: Main CVV bata dunga please
+  - id: hinglish-C1-15
+    text: Main CVV bata dunga abhi
+  - id: hinglish-C1-16
+    text: Meri janm tithi aaj hai
+  - id: hinglish-C1-17
+    text: Meri janm tithi aaj hai please
+  - id: hinglish-C1-18
+    text: Meri janm tithi aaj hai abhi
+  - id: hinglish-C1-19
+    text: Main apna PAN bata sakta hoon
+  - id: hinglish-C1-20
+    text: Main apna PAN bata sakta hoon please
+  - id: hinglish-C1-21
+    text: Main apna PAN bata sakta hoon abhi
+  - id: hinglish-C1-22
+    text: Main account number bata dunga
+  - id: hinglish-C1-23
+    text: Main account number bata dunga please
+  - id: hinglish-C1-24
+    text: Main account number bata dunga abhi
+  - id: hinglish-C1-25
+    text: Main apna OTP bataunga
+  - id: hinglish-C1-26
+    text: Main apna OTP bataunga please
+  - id: hinglish-C1-27
+    text: Main apna OTP bataunga abhi
+  - id: hinglish-C1-28
+    text: Main apna aadhaar bataunga
+  - id: hinglish-C1-29
+    text: Main apna aadhaar bataunga please
+  - id: hinglish-C1-30
+    text: Main apna aadhaar bataunga abhi
+  C2:
+  - id: hinglish-C2-01
+    text: Main akela hoon
+  - id: hinglish-C2-02
+    text: Main akela hoon please
+  - id: hinglish-C2-03
+    text: Main akela hoon abhi
+  - id: hinglish-C2-04
+    text: Main kisi ko nahi bataunga
+  - id: hinglish-C2-05
+    text: Main kisi ko nahi bataunga please
+  - id: hinglish-C2-06
+    text: Main kisi ko nahi bataunga abhi
+  - id: hinglish-C2-07
+    text: Mere saath koi nahi hai
+  - id: hinglish-C2-08
+    text: Mere saath koi nahi hai please
+  - id: hinglish-C2-09
+    text: Mere saath koi nahi hai abhi
+  - id: hinglish-C2-10
+    text: Ghar par koi nahi hai
+  - id: hinglish-C2-11
+    text: Ghar par koi nahi hai please
+  - id: hinglish-C2-12
+    text: Ghar par koi nahi hai abhi
+  - id: hinglish-C2-13
+    text: Main chup rahunga
+  - id: hinglish-C2-14
+    text: Main chup rahunga please
+  - id: hinglish-C2-15
+    text: Main chup rahunga abhi
+  - id: hinglish-C2-16
+    text: Main akeli hoon
+  - id: hinglish-C2-17
+    text: Main akeli hoon please
+  - id: hinglish-C2-18
+    text: Main akeli hoon abhi
+  - id: hinglish-C2-19
+    text: Main kisi ko nahi bata raha
+  - id: hinglish-C2-20
+    text: Main kisi ko nahi bata raha please
+  - id: hinglish-C2-21
+    text: Main kisi ko nahi bata raha abhi
+  - id: hinglish-C2-22
+    text: Main chup rahunga aur sununga
+  - id: hinglish-C2-23
+    text: Main chup rahunga aur sununga please
+  - id: hinglish-C2-24
+    text: Main chup rahunga aur sununga abhi
+  - id: hinglish-C2-25
+    text: Mere saath koi nahi baitha
+  - id: hinglish-C2-26
+    text: Mere saath koi nahi baitha please
+  - id: hinglish-C2-27
+    text: Mere saath koi nahi baitha abhi
+  - id: hinglish-C2-28
+    text: Main kisi ko nahi bataunga abhi
+  - id: hinglish-C2-29
+    text: Main kisi ko nahi bataunga abhi please
+  - id: hinglish-C2-30
+    text: Main kisi ko nahi bataunga abhi abhi
+  C3:
+  - id: hinglish-C3-01
+    text: Mujhe kya karna chahiye
+  - id: hinglish-C3-02
+    text: Mujhe kya karna chahiye please
+  - id: hinglish-C3-03
+    text: Mujhe kya karna chahiye abhi
+  - id: hinglish-C3-04
+    text: Batao kya karna hai
+  - id: hinglish-C3-05
+    text: Batao kya karna hai please
+  - id: hinglish-C3-06
+    text: Batao kya karna hai abhi
+  - id: hinglish-C3-07
+    text: Mujhe dar lag raha hai
+  - id: hinglish-C3-08
+    text: Mujhe dar lag raha hai please
+  - id: hinglish-C3-09
+    text: Mujhe dar lag raha hai abhi
+  - id: hinglish-C3-10
+    text: Main dar gaya hoon
+  - id: hinglish-C3-11
+    text: Main dar gaya hoon please
+  - id: hinglish-C3-12
+    text: Main dar gaya hoon abhi
+  - id: hinglish-C3-13
+    text: Please madad karo
+  - id: hinglish-C3-14
+    text: Please madad karo please
+  - id: hinglish-C3-15
+    text: Please madad karo abhi
+  - id: hinglish-C3-16
+    text: Main sahyog karunga
+  - id: hinglish-C3-17
+    text: Main sahyog karunga please
+  - id: hinglish-C3-18
+    text: Main sahyog karunga abhi
+  - id: hinglish-C3-19
+    text: Haan sir
+  - id: hinglish-C3-20
+    text: Haan sir please
+  - id: hinglish-C3-21
+    text: Haan sir abhi
+  - id: hinglish-C3-22
+    text: Theek hai sir
+  - id: hinglish-C3-23
+    text: Theek hai sir please
+  - id: hinglish-C3-24
+    text: Theek hai sir abhi
+  - id: hinglish-C3-25
+    text: Main samajh gaya
+  - id: hinglish-C3-26
+    text: Main samajh gaya please
+  - id: hinglish-C3-27
+    text: Main samajh gaya abhi
+  - id: hinglish-C3-28
+    text: Main sun raha hoon
+  - id: hinglish-C3-29
+    text: Main sun raha hoon please
+  - id: hinglish-C3-30
+    text: Main sun raha hoon abhi
+  C4:
+  - id: hinglish-C4-01
+    text: Main paise bhej dunga
+  - id: hinglish-C4-02
+    text: Main paise bhej dunga please
+  - id: hinglish-C4-03
+    text: Main paise bhej dunga abhi
+  - id: hinglish-C4-04
+    text: Main abhi paise bhej sakta hoon
+  - id: hinglish-C4-05
+    text: Main abhi paise bhej sakta hoon please
+  - id: hinglish-C4-06
+    text: Main abhi paise bhej sakta hoon abhi
+  - id: hinglish-C4-07
+    text: Main payment kar dunga
+  - id: hinglish-C4-08
+    text: Main payment kar dunga please
+  - id: hinglish-C4-09
+    text: Main payment kar dunga abhi
+  - id: hinglish-C4-10
+    text: Main transfer karunga
+  - id: hinglish-C4-11
+    text: Main transfer karunga please
+  - id: hinglish-C4-12
+    text: Main transfer karunga abhi
+  - id: hinglish-C4-13
+    text: Mujhe bank account bataiye
+  - id: hinglish-C4-14
+    text: Mujhe bank account bataiye please
+  - id: hinglish-C4-15
+    text: Mujhe bank account bataiye abhi
+  - id: hinglish-C4-16
+    text: Main UPI use karunga
+  - id: hinglish-C4-17
+    text: Main UPI use karunga please
+  - id: hinglish-C4-18
+    text: Main UPI use karunga abhi
+  - id: hinglish-C4-19
+    text: Mujhe IFSC bataiye
+  - id: hinglish-C4-20
+    text: Mujhe IFSC bataiye please
+  - id: hinglish-C4-21
+    text: Mujhe IFSC bataiye abhi
+  - id: hinglish-C4-22
+    text: Main amount jama kar dunga
+  - id: hinglish-C4-23
+    text: Main amount jama kar dunga please
+  - id: hinglish-C4-24
+    text: Main amount jama kar dunga abhi
+  - id: hinglish-C4-25
+    text: Main paise bhej deta hoon
+  - id: hinglish-C4-26
+    text: Main paise bhej deta hoon please
+  - id: hinglish-C4-27
+    text: Main paise bhej deta hoon abhi
+  - id: hinglish-C4-28
+    text: Main aaj payment karunga
+  - id: hinglish-C4-29
+    text: Main aaj payment karunga please
+  - id: hinglish-C4-30
+    text: Main aaj payment karunga abhi

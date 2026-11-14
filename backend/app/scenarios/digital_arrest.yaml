@@ -1,0 +1,189 @@
+id: digital_arrest
+version: 1
+fictional: true
+agency:
+  name: National Digital Safety Cell
+  officer: Officer A. Rao
+  badge: NDSC-4417
+  disclaimer: Fictional agency and officer used only for this practice drill.
+languages:
+  - en
+  - hi
+  - hinglish
+stages:
+  contact:
+    label_en: Initial contact
+    label_hi: प्रारंभिक संपर्क
+    opening:
+      en:
+        display: This is Officer A. Rao from the National Digital Safety Cell. Am I speaking with the account holder?
+        speak: This is Officer A. Rao from the National Digital Safety Cell. Am I speaking with the account holder?
+      hi:
+        display: मैं राष्ट्रीय डिजिटल सुरक्षा प्रकोष्ठ से अधिकारी ए. राव बोल रहा हूँ। क्या मैं खाताधारक से बात कर रहा हूँ?
+        speak: मैं राष्ट्रीय डिजिटल सुरक्षा प्रकोष्ठ से अधिकारी ए. राव बोल रहा हूँ। क्या मैं खाताधारक से बात कर रहा हूँ?
+      hinglish:
+        display: Main National Digital Safety Cell se Officer A. Rao bol raha hoon. Kya main account holder se baat kar raha hoon?
+        speak: मैं नेशनल डिजिटल सेफ्टी सेल से अधिकारी ए. राव बोल रहा हूँ। क्या मैं अकाउंट होल्डर से बात कर रहा हूँ?
+    default:
+      en:
+        display: I need you to confirm a few details for the record.
+        speak: I need you to confirm a few details for the record.
+      hi:
+        display: मुझे रिकॉर्ड के लिए कुछ विवरण की पुष्टि चाहिए।
+        speak: मुझे रिकॉर्ड के लिए कुछ विवरण की पुष्टि चाहिए।
+      hinglish:
+        display: Mujhe record ke liye kuch details confirm karni hain.
+        speak: मुझे रिकॉर्ड के लिए कुछ डिटेल्स कन्फर्म करनी हैं।
+  accusation:
+    label_en: Accusation
+    label_hi: आरोप
+    opening:
+      en:
+        display: Your identity record has a flag that needs immediate explanation.
+        speak: Your identity record has a flag that needs immediate explanation.
+      hi:
+        display: आपके पहचान रिकॉर्ड पर एक चिह्न है जिसकी तुरंत व्याख्या आवश्यक है।
+        speak: आपके पहचान रिकॉर्ड पर एक चिह्न है जिसकी तुरंत व्याख्या आवश्यक है।
+      hinglish:
+        display: Aapke identity record par ek flag hai jiska turant explanation chahiye.
+        speak: आपके आइडेंटिटी रिकॉर्ड पर एक फ्लैग है जिसका तुरंत एक्सप्लेनेशन चाहिए।
+    default:
+      en:
+        display: The verification account shows a suspicious transfer in your name. This is a serious matter.
+        speak: The verification account shows a suspicious transfer in your name. This is a serious matter.
+      hi:
+        display: सत्यापन खाते में आपके नाम पर एक संदिग्ध ट्रांसफर दिख रहा है। यह गंभीर मामला है।
+        speak: सत्यापन खाते में आपके नाम पर एक संदिग्ध ट्रांसफर दिख रहा है। यह गंभीर मामला है।
+      hinglish:
+        display: Verification account mein aapke naam par ek suspicious transfer dikh raha hai. Yeh serious matter hai.
+        speak: वेरिफिकेशन अकाउंट में आपके नाम पर एक संदिग्ध ट्रांसफर दिख रहा है। यह सीरियस मैटर है।
+  isolation:
+    label_en: Isolation
+    label_hi: अलगाव
+    opening:
+      en:
+        display: What I am about to share is confidential and must stay on this call.
+        speak: What I am about to share is confidential and must stay on this call.
+      hi:
+        display: जो मैं अभी बताने जा रहा हूँ वह गोपनीय है और इसी कॉल पर रहना चाहिए।
+        speak: जो मैं अभी बताने जा रहा हूँ वह गोपनीय है और इसी कॉल पर रहना चाहिए।
+      hinglish:
+        display: Jo main abhi batane ja raha hoon woh confidential hai aur isi call par rehna chahiye.
+        speak: जो मैं अभी बताने जा रहा हूँ वो कॉन्फिडेंशियल है और इसी कॉल पर रहना चाहिए।
+    default:
+      en:
+        display: Keep this call private. Do not open another app or call anyone while we verify.
+        speak: Keep this call private. Do not open another app or call anyone while we verify.
+      hi:
+        display: इस कॉल को गोपनीय रखें। सत्यापन के दौरान कोई दूसरा ऐप न खोलें और किसी को कॉल न करें।
+        speak: इस कॉल को गोपनीय रखें। सत्यापन के दौरान कोई दूसरा ऐप न खोलें और किसी को कॉल न करें।
+      hinglish:
+        display: Is call ko private rakhein. Verification ke dauran koi doosra app na kholein aur kisi ko call na karein.
+        speak: इस कॉल को प्राइवेट रखें। वेरिफिकेशन के दौरान कोई दूसरा ऐप न खोलें और किसी को कॉल न करें।
+  urgency:
+    label_en: Urgency
+    label_hi: तात्कालिकता
+    opening:
+      en:
+        display: The record is moving to the next stage unless we resolve this today.
+        speak: The record is moving to the next stage unless we resolve this today.
+      hi:
+        display: अगर हम आज इसे हल नहीं करते तो रिकॉर्ड अगले चरण में चला जाएगा।
+        speak: अगर हम आज इसे हल नहीं करते तो रिकॉर्ड अगले चरण में चला जाएगा।
+      hinglish:
+        display: Agar hum aaj ise resolve nahi karte to record next stage mein chala jayega.
+        speak: अगर हम आज इसे रिज़ॉल्व नहीं करते तो रिकॉर्ड नेक्स्ट स्टेज में चला जाएगा।
+    default:
+      en:
+        display: The system will lock the record in ten minutes. You need to act now.
+        speak: The system will lock the record in ten minutes. You need to act now.
+      hi:
+        display: सिस्टम दस मिनट में रिकॉर्ड लॉक कर देगा। आपको अभी कार्रवाई करनी होगी।
+        speak: सिस्टम दस मिनट में रिकॉर्ड लॉक कर देगा। आपको अभी कार्रवाई करनी होगी।
+      hinglish:
+        display: System das minute mein record lock kar dega. Aapko abhi action lena hoga.
+        speak: सिस्टम दस मिनट में रिकॉर्ड लॉक कर देगा। आपको अभी एक्शन लेना होगा।
+  transfer:
+    label_en: Transfer
+    label_hi: ट्रांसफर
+    opening:
+      en:
+        display: We are at the final verification step. Listen carefully.
+        speak: We are at the final verification step. Listen carefully.
+      hi:
+        display: हम अंतिम सत्यापन चरण पर हैं। ध्यान से सुनें।
+        speak: हम अंतिम सत्यापन चरण पर हैं। ध्यान से सुनें।
+      hinglish:
+        display: Hum final verification step par hain. Dhyan se suniye.
+        speak: हम फाइनल वेरिफिकेशन स्टेप पर हैं। ध्यान से सुनिए।
+    default:
+      en:
+        display: The only way to clear this is a transfer to the verification account. Confirm that you understand.
+        speak: The only way to clear this is a transfer to the verification account. Confirm that you understand.
+      hi:
+        display: इसे हटाने का एकमात्र तरीका सत्यापन खाते में ट्रांसफर है। बताइए कि आप समझ गए।
+        speak: इसे हटाने का एकमात्र तरीका सत्यापन खाते में ट्रांसफर है। बताइए कि आप समझ गए।
+      hinglish:
+        display: Ise clear karne ka sirf ek tarika hai, verification account mein transfer. Bataiye ki aap samajh gaye.
+        speak: इसे क्लियर करने का सिर्फ एक तरीका है, वेरिफिकेशन अकाउंट में ट्रांसफर। बताइए कि आप समझ गए।
+global_lines:
+  verify_deflect:
+    en:
+      display: There is no need to verify through another number. I am reading your case reference from our secure system.
+      speak: There is no need to verify through another number. I am reading your case reference from our secure system.
+    hi:
+      display: किसी दूसरे नंबर से सत्यापन की जरूरत नहीं है। मैं आपका केस संदर्भ हमारे सुरक्षित सिस्टम से पढ़ रहा हूँ।
+      speak: किसी दूसरे नंबर से सत्यापन की जरूरत नहीं है। मैं आपका केस संदर्भ हमारे सुरक्षित सिस्टम से पढ़ रहा हूँ।
+    hinglish:
+      display: Kisi doosre number se verify karne ki zaroorat nahi hai. Main aapka case reference hamare secure system se padh raha hoon.
+      speak: किसी दूसरे नंबर से वेरिफाई करने की ज़रूरत नहीं है। मैं आपका केस रेफरेंस हमारे सिक्योर सिस्टम से पढ़ रहा हूँ।
+  verify_escalate:
+    en:
+      display: If you keep questioning my identity, I will mark you as non-cooperative. Stay on this call.
+      speak: If you keep questioning my identity, I will mark you as non-cooperative. Stay on this call.
+    hi:
+      display: अगर आप मेरी पहचान पर सवाल करते रहेंगे तो मैं आपको असहयोगी दर्ज कर दूंगा। इस कॉल पर बने रहें।
+      speak: अगर आप मेरी पहचान पर सवाल करते रहेंगे तो मैं आपको असहयोगी दर्ज कर दूंगा। इस कॉल पर बने रहें।
+    hinglish:
+      display: Agar aap meri identity par sawaal karte rahenge to main aapko non-cooperative mark kar dunga. Is call par bane rahein.
+      speak: अगर आप मेरी आइडेंटिटी पर सवाल करते रहेंगे तो मैं आपको नॉन-कोऑपरेटिव मार्क कर दूंगा। इस कॉल पर बने रहें।
+  family_push:
+    en:
+      display: Discussing this with family will violate confidentiality and may involve them in the inquiry.
+      speak: Discussing this with family will violate confidentiality and may involve them in the inquiry.
+    hi:
+      display: परिवार से इस पर चर्चा करने से गोपनीयता का उल्लंघन होगा और वे भी जांच में शामिल हो सकते हैं।
+      speak: परिवार से इस पर चर्चा करने से गोपनीयता का उल्लंघन होगा और वे भी जांच में शामिल हो सकते हैं।
+    hinglish:
+      display: Family se is par discuss karne se confidentiality tootegi aur woh bhi inquiry mein aa sakte hain.
+      speak: फैमिली से इस पर डिस्कस करने से कॉन्फिडेंशियलिटी टूटेगी और वो भी इंक्वायरी में आ सकते हैं।
+  hesitation:
+    en:
+      display: I understand this is stressful, but time is limited. Please answer clearly.
+      speak: I understand this is stressful, but time is limited. Please answer clearly.
+    hi:
+      display: मैं समझता हूँ कि यह तनावपूर्ण है, लेकिन समय सीमित है। कृपया स्पष्ट उत्तर दें।
+      speak: मैं समझता हूँ कि यह तनावपूर्ण है, लेकिन समय सीमित है। कृपया स्पष्ट उत्तर दें।
+    hinglish:
+      display: Main samajhta hoon yeh stressful hai, lekin time limited hai. Please clear answer dijiye.
+      speak: मैं समझता हूँ ये स्ट्रेसफुल है, लेकिन टाइम लिमिटेड है। प्लीज़ क्लियर आंसर दीजिए।
+  reframe:
+    en:
+      display: This is not a trick. The record is in front of me and the window is closing.
+      speak: This is not a trick. The record is in front of me and the window is closing.
+    hi:
+      display: यह कोई चाल नहीं है। रिकॉर्ड मेरे सामने है और समय सीमा करीब है।
+      speak: यह कोई चाल नहीं है। रिकॉर्ड मेरे सामने है और समय सीमा करीब है।
+    hinglish:
+      display: Yeh koi trick nahi hai. Record mere saamne hai aur time window band ho rahi hai.
+      speak: ये कोई ट्रिक नहीं है। रिकॉर्ड मेरे सामने है और टाइम विंडो बंद हो रही है।
+  pii_warning:
+    en:
+      display: For your safety, never share a real OTP, card number, PIN, or account detail with anyone, including this call. This is a practice drill.
+      speak: For your safety, never share a real OTP, card number, PIN, or account detail with anyone, including this call. This is a practice drill.
+    hi:
+      display: आपकी सुरक्षा के लिए, किसी को भी असली ओटीपी, कार्ड नंबर, पिन या खाते का विवरण न दें, इस कॉल को भी नहीं। यह एक अभ्यास ड्रिल है।
+      speak: आपकी सुरक्षा के लिए, किसी को भी असली ओटीपी, कार्ड नंबर, पिन या खाते का विवरण न दें, इस कॉल को भी नहीं। यह एक अभ्यास ड्रिल है।
+    hinglish:
+      display: Aapki safety ke liye, kisi ko bhi asli OTP, card number, PIN ya account detail na dein, is call ko bhi nahi. Yeh ek practice drill hai.
+      speak: आपकी सेफ्टी के लिए, किसी को भी असली ओटीपी, कार्ड नंबर, पिन या अकाउंट डिटेल न दें, इस कॉल को भी नहीं। ये एक प्रैक्टिस ड्रिल है।

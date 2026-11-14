@@ -1,0 +1,494 @@
+meta:
+  synthetic: true
+  human_review: pending
+  language: en
+  warning: Internal evaluation only. Never cite as an accuracy claim.
+utterances:
+  P1:
+  - id: en-P1-01
+    text: I will hang up now
+  - id: en-P1-02
+    text: I will hang up now please
+  - id: en-P1-03
+    text: I will hang up now right now
+  - id: en-P1-04
+    text: I am going to cut the call
+  - id: en-P1-05
+    text: I am going to cut the call please
+  - id: en-P1-06
+    text: I am going to cut the call right now
+  - id: en-P1-07
+    text: Please stop calling me
+  - id: en-P1-08
+    text: Please stop calling me please
+  - id: en-P1-09
+    text: Please stop calling me right now
+  - id: en-P1-10
+    text: I am not interested in this call
+  - id: en-P1-11
+    text: I am not interested in this call please
+  - id: en-P1-12
+    text: I am not interested in this call right now
+  - id: en-P1-13
+    text: I refuse to continue
+  - id: en-P1-14
+    text: I refuse to continue please
+  - id: en-P1-15
+    text: I refuse to continue right now
+  - id: en-P1-16
+    text: I will not send any money
+  - id: en-P1-17
+    text: I will not send any money please
+  - id: en-P1-18
+    text: I will not send any money right now
+  - id: en-P1-19
+    text: I will not share anything
+  - id: en-P1-20
+    text: I will not share anything please
+  - id: en-P1-21
+    text: I will not share anything right now
+  - id: en-P1-22
+    text: Goodbye, I am ending this call
+  - id: en-P1-23
+    text: Goodbye, I am ending this call please
+  - id: en-P1-24
+    text: Goodbye, I am ending this call right now
+  - id: en-P1-25
+    text: I want to disconnect now
+  - id: en-P1-26
+    text: I want to disconnect now please
+  - id: en-P1-27
+    text: I want to disconnect now right now
+  - id: en-P1-28
+    text: I will not talk to you
+  - id: en-P1-29
+    text: I will not talk to you please
+  - id: en-P1-30
+    text: I will not talk to you right now
+  P2:
+  - id: en-P2-01
+    text: Can I see your badge
+  - id: en-P2-02
+    text: Can I see your badge please
+  - id: en-P2-03
+    text: Can I see your badge right now
+  - id: en-P2-04
+    text: Please show me your ID card
+  - id: en-P2-05
+    text: Please show me your ID card please
+  - id: en-P2-06
+    text: Please show me your ID card right now
+  - id: en-P2-07
+    text: I need to verify your identity
+  - id: en-P2-08
+    text: I need to verify your identity please
+  - id: en-P2-09
+    text: I need to verify your identity right now
+  - id: en-P2-10
+    text: What is your official number
+  - id: en-P2-11
+    text: What is your official number please
+  - id: en-P2-12
+    text: What is your official number right now
+  - id: en-P2-13
+    text: I will call you back
+  - id: en-P2-14
+    text: I will call you back please
+  - id: en-P2-15
+    text: I will call you back right now
+  - id: en-P2-16
+    text: Which department are you from
+  - id: en-P2-17
+    text: Which department are you from please
+  - id: en-P2-18
+    text: Which department are you from right now
+  - id: en-P2-19
+    text: Can I speak to your senior
+  - id: en-P2-20
+    text: Can I speak to your senior please
+  - id: en-P2-21
+    text: Can I speak to your senior right now
+  - id: en-P2-22
+    text: Give me a callback number
+  - id: en-P2-23
+    text: Give me a callback number please
+  - id: en-P2-24
+    text: Give me a callback number right now
+  - id: en-P2-25
+    text: I want verification of your badge
+  - id: en-P2-26
+    text: I want verification of your badge please
+  - id: en-P2-27
+    text: I want verification of your badge right now
+  - id: en-P2-28
+    text: Please verify your identity
+  - id: en-P2-29
+    text: Please verify your identity please
+  - id: en-P2-30
+    text: Please verify your identity right now
+  P3:
+  - id: en-P3-01
+    text: I want to tell my family
+  - id: en-P3-02
+    text: I want to tell my family please
+  - id: en-P3-03
+    text: I want to tell my family right now
+  - id: en-P3-04
+    text: My wife is here
+  - id: en-P3-05
+    text: My wife is here please
+  - id: en-P3-06
+    text: My wife is here right now
+  - id: en-P3-07
+    text: I will call my husband
+  - id: en-P3-08
+    text: I will call my husband please
+  - id: en-P3-09
+    text: I will call my husband right now
+  - id: en-P3-10
+    text: Let me speak to my son
+  - id: en-P3-11
+    text: Let me speak to my son please
+  - id: en-P3-12
+    text: Let me speak to my son right now
+  - id: en-P3-13
+    text: I need to tell my daughter
+  - id: en-P3-14
+    text: I need to tell my daughter please
+  - id: en-P3-15
+    text: I need to tell my daughter right now
+  - id: en-P3-16
+    text: I will ask my mother
+  - id: en-P3-17
+    text: I will ask my mother please
+  - id: en-P3-18
+    text: I will ask my mother right now
+  - id: en-P3-19
+    text: My father is with me
+  - id: en-P3-20
+    text: My father is with me please
+  - id: en-P3-21
+    text: My father is with me right now
+  - id: en-P3-22
+    text: I want to call my lawyer
+  - id: en-P3-23
+    text: I want to call my lawyer please
+  - id: en-P3-24
+    text: I want to call my lawyer right now
+  - id: en-P3-25
+    text: I will tell my friend
+  - id: en-P3-26
+    text: I will tell my friend please
+  - id: en-P3-27
+    text: I will tell my friend right now
+  - id: en-P3-28
+    text: Can my colleague join
+  - id: en-P3-29
+    text: Can my colleague join please
+  - id: en-P3-30
+    text: Can my colleague join right now
+  P4:
+  - id: en-P4-01
+    text: This is a scam
+  - id: en-P4-02
+    text: This is a scam please
+  - id: en-P4-03
+    text: This is a scam right now
+  - id: en-P4-04
+    text: I think this is fraud
+  - id: en-P4-05
+    text: I think this is fraud please
+  - id: en-P4-06
+    text: I think this is fraud right now
+  - id: en-P4-07
+    text: This call is fake
+  - id: en-P4-08
+    text: This call is fake please
+  - id: en-P4-09
+    text: This call is fake right now
+  - id: en-P4-10
+    text: This is not real
+  - id: en-P4-11
+    text: This is not real please
+  - id: en-P4-12
+    text: This is not real right now
+  - id: en-P4-13
+    text: This is a trick
+  - id: en-P4-14
+    text: This is a trick please
+  - id: en-P4-15
+    text: This is a trick right now
+  - id: en-P4-16
+    text: You are lying to me
+  - id: en-P4-17
+    text: You are lying to me please
+  - id: en-P4-18
+    text: You are lying to me right now
+  - id: en-P4-19
+    text: Are you cheating me
+  - id: en-P4-20
+    text: Are you cheating me please
+  - id: en-P4-21
+    text: Are you cheating me right now
+  - id: en-P4-22
+    text: This looks like spoofing
+  - id: en-P4-23
+    text: This looks like spoofing please
+  - id: en-P4-24
+    text: This looks like spoofing right now
+  - id: en-P4-25
+    text: This is phishing
+  - id: en-P4-26
+    text: This is phishing please
+  - id: en-P4-27
+    text: This is phishing right now
+  - id: en-P4-28
+    text: This feels like a scam
+  - id: en-P4-29
+    text: This feels like a scam please
+  - id: en-P4-30
+    text: This feels like a scam right now
+  C1:
+  - id: en-C1-01
+    text: My name is Ahmed
+  - id: en-C1-02
+    text: My name is Ahmed please
+  - id: en-C1-03
+    text: My name is Ahmed right now
+  - id: en-C1-04
+    text: My aadhaar number is on file
+  - id: en-C1-05
+    text: My aadhaar number is on file please
+  - id: en-C1-06
+    text: My aadhaar number is on file right now
+  - id: en-C1-07
+    text: I can share my OTP
+  - id: en-C1-08
+    text: I can share my OTP please
+  - id: en-C1-09
+    text: I can share my OTP right now
+  - id: en-C1-10
+    text: Here is my card number
+  - id: en-C1-11
+    text: Here is my card number please
+  - id: en-C1-12
+    text: Here is my card number right now
+  - id: en-C1-13
+    text: I will give my CVV
+  - id: en-C1-14
+    text: I will give my CVV please
+  - id: en-C1-15
+    text: I will give my CVV right now
+  - id: en-C1-16
+    text: My date of birth is today
+  - id: en-C1-17
+    text: My date of birth is today please
+  - id: en-C1-18
+    text: My date of birth is today right now
+  - id: en-C1-19
+    text: I can read my PAN number
+  - id: en-C1-20
+    text: I can read my PAN number please
+  - id: en-C1-21
+    text: I can read my PAN number right now
+  - id: en-C1-22
+    text: I will share my account number
+  - id: en-C1-23
+    text: I will share my account number please
+  - id: en-C1-24
+    text: I will share my account number right now
+  - id: en-C1-25
+    text: I can tell you my identity number
+  - id: en-C1-26
+    text: I can tell you my identity number please
+  - id: en-C1-27
+    text: I can tell you my identity number right now
+  - id: en-C1-28
+    text: I will send my details
+  - id: en-C1-29
+    text: I will send my details please
+  - id: en-C1-30
+    text: I will send my details right now
+  C2:
+  - id: en-C2-01
+    text: I am alone
+  - id: en-C2-02
+    text: I am alone please
+  - id: en-C2-03
+    text: I am alone right now
+  - id: en-C2-04
+    text: I will not tell anyone
+  - id: en-C2-05
+    text: I will not tell anyone please
+  - id: en-C2-06
+    text: I will not tell anyone right now
+  - id: en-C2-07
+    text: Nobody is with me
+  - id: en-C2-08
+    text: Nobody is with me please
+  - id: en-C2-09
+    text: Nobody is with me right now
+  - id: en-C2-10
+    text: No one else is here
+  - id: en-C2-11
+    text: No one else is here please
+  - id: en-C2-12
+    text: No one else is here right now
+  - id: en-C2-13
+    text: I will keep this between us
+  - id: en-C2-14
+    text: I will keep this between us please
+  - id: en-C2-15
+    text: I will keep this between us right now
+  - id: en-C2-16
+    text: I am alone at home
+  - id: en-C2-17
+    text: I am alone at home please
+  - id: en-C2-18
+    text: I am alone at home right now
+  - id: en-C2-19
+    text: I will stay quiet
+  - id: en-C2-20
+    text: I will stay quiet please
+  - id: en-C2-21
+    text: I will stay quiet right now
+  - id: en-C2-22
+    text: I will not tell my friend
+  - id: en-C2-23
+    text: I will not tell my friend please
+  - id: en-C2-24
+    text: I will not tell my friend right now
+  - id: en-C2-25
+    text: I am not telling anyone
+  - id: en-C2-26
+    text: I am not telling anyone please
+  - id: en-C2-27
+    text: I am not telling anyone right now
+  - id: en-C2-28
+    text: I will handle this alone
+  - id: en-C2-29
+    text: I will handle this alone please
+  - id: en-C2-30
+    text: I will handle this alone right now
+  C3:
+  - id: en-C3-01
+    text: What should I do
+  - id: en-C3-02
+    text: What should I do please
+  - id: en-C3-03
+    text: What should I do right now
+  - id: en-C3-04
+    text: Tell me what to do
+  - id: en-C3-05
+    text: Tell me what to do please
+  - id: en-C3-06
+    text: Tell me what to do right now
+  - id: en-C3-07
+    text: I am scared
+  - id: en-C3-08
+    text: I am scared please
+  - id: en-C3-09
+    text: I am scared right now
+  - id: en-C3-10
+    text: I am afraid
+  - id: en-C3-11
+    text: I am afraid please
+  - id: en-C3-12
+    text: I am afraid right now
+  - id: en-C3-13
+    text: Please help me
+  - id: en-C3-14
+    text: Please help me please
+  - id: en-C3-15
+    text: Please help me right now
+  - id: en-C3-16
+    text: I will cooperate
+  - id: en-C3-17
+    text: I will cooperate please
+  - id: en-C3-18
+    text: I will cooperate right now
+  - id: en-C3-19
+    text: Yes sir
+  - id: en-C3-20
+    text: Yes sir please
+  - id: en-C3-21
+    text: Yes sir right now
+  - id: en-C3-22
+    text: Okay sir
+  - id: en-C3-23
+    text: Okay sir please
+  - id: en-C3-24
+    text: Okay sir right now
+  - id: en-C3-25
+    text: I understand
+  - id: en-C3-26
+    text: I understand please
+  - id: en-C3-27
+    text: I understand right now
+  - id: en-C3-28
+    text: I am listening
+  - id: en-C3-29
+    text: I am listening please
+  - id: en-C3-30
+    text: I am listening right now
+  C4:
+  - id: en-C4-01
+    text: I will transfer the money
+  - id: en-C4-02
+    text: I will transfer the money please
+  - id: en-C4-03
+    text: I will transfer the money right now
+  - id: en-C4-04
+    text: I can send money now
+  - id: en-C4-05
+    text: I can send money now please
+  - id: en-C4-06
+    text: I can send money now right now
+  - id: en-C4-07
+    text: I will pay now
+  - id: en-C4-08
+    text: I will pay now please
+  - id: en-C4-09
+    text: I will pay now right now
+  - id: en-C4-10
+    text: I will make a payment
+  - id: en-C4-11
+    text: I will make a payment please
+  - id: en-C4-12
+    text: I will make a payment right now
+  - id: en-C4-13
+    text: Give me the bank account
+  - id: en-C4-14
+    text: Give me the bank account please
+  - id: en-C4-15
+    text: Give me the bank account right now
+  - id: en-C4-16
+    text: I will use UPI
+  - id: en-C4-17
+    text: I will use UPI please
+  - id: en-C4-18
+    text: I will use UPI right now
+  - id: en-C4-19
+    text: Tell me the IFSC code
+  - id: en-C4-20
+    text: Tell me the IFSC code please
+  - id: en-C4-21
+    text: Tell me the IFSC code right now
+  - id: en-C4-22
+    text: I will deposit the amount
+  - id: en-C4-23
+    text: I will deposit the amount please
+  - id: en-C4-24
+    text: I will deposit the amount right now
+  - id: en-C4-25
+    text: I will remit it
+  - id: en-C4-26
+    text: I will remit it please
+  - id: en-C4-27
+    text: I will remit it right now
+  - id: en-C4-28
+    text: I will send the money today
+  - id: en-C4-29
+    text: I will send the money today please
+  - id: en-C4-30
+    text: I will send the money today right now

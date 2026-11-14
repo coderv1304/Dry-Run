@@ -121,6 +121,8 @@ paths:
           $ref: '#/components/responses/ProblemConsentRequired'
         '401':
           $ref: '#/components/responses/ProblemInvalidToken'
+        '409':
+          $ref: '#/components/responses/ProblemSessionLimit'
 
   /v1/sessions/{id}/turn:
     post:
@@ -314,6 +316,7 @@ components:
             - payload_too_large
             - consent_required
             - session_ended
+            - validation_error
             - internal
 
     ConfigResponse:
@@ -635,6 +638,12 @@ components:
             $ref: '#/components/schemas/ProblemDetail'
     ProblemRateLimited:
       description: Request rate limit exceeded
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetail'
+    ProblemSessionLimit:
+      description: Invite has reached its maximum number of sessions
       content:
         application/problem+json:
           schema:

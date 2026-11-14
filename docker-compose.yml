@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: dryrun
+      POSTGRES_PASSWORD: dryrun_local_password
+      POSTGRES_DB: dryrun
+    ports:
+      - "5432:5432"
+    volumes:
+      - dryrun_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dryrun -d dryrun"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: production
+      DATABASE_URL: postgresql+psycopg://dryrun:dryrun_local_password@db:5432/dryrun
+      TOKEN_PEPPER: ${TOKEN_PEPPER:?set a 32+ character TOKEN_PEPPER}
+      LLM_ENABLED: "false"
+      VOICE_ENABLED: "false"
+      TRUSTED_PROXY_COUNT: "1"
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://app.example}
+      RETENTION_DAYS: "7"
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+volumes:
+  dryrun_pgdata:

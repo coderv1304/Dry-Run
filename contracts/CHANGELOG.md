@@ -2,6 +2,14 @@
 
 All changes to the OpenAPI contract, schemas, and example fixtures must be documented here.
 
+## [Unreleased]
+
+### Changed
+- Added stable error code `validation_error` for request-body and parameter
+  failures that map to HTTP 400.
+- Documented `409 session_limit_reached` on `POST /v1/sessions` via the new
+  `ProblemSessionLimit` response.
+
 ## [1.0.0] - 2026-11-14
 
 ### Added
@@ -15,6 +23,7 @@ All changes to the OpenAPI contract, schemas, and example fixtures must be docum
   - `payload_too_large`
   - `consent_required`
   - `session_ended`
+  - `validation_error`
   - `internal`
 - Endpoints:
   - `POST /v1/invites`

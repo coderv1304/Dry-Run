@@ -1,0 +1,16 @@
+fastapi==0.162.7
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
+sqlalchemy==2.0.52
+alembic==1.18.2
+pyyaml==6.0.3
+httpx==0.28.1
+jsonschema==4.26.0
+psycopg[binary]==3.2.13
+pytest==9.2.0
+pytest-cov==7.1.0
+hypothesis==6.170.15
+ruff==0.17.5
+mypy==2.4.1
+bandit==1.9.4
+pip-audit==2.10.1
