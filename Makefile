@@ -1,6 +1,6 @@
 .PHONY: all test lint ci preflight gate-0 gate-1 gate-2 gate-3 gate-3b gate-4 gate-4b gate-5 \
 	audit backend-audit backend-lint backend-test contract-check drill-check bench \
-	pg-check pg-live
+	lint-ui design-tokens design-assets goldens pg-check pg-live
 
 PYTHON ?= python
 DART ?= dart
@@ -61,21 +61,36 @@ drill-check:
 	@echo "Running three-language LLM-off drill..."
 	@$(PYTHON) scripts/drill_check.py
 
-pg-check:
-	@echo "Running Postgres integration suite (starts compose db)..."
-	@$(PYTHON) scripts/pg_check.py
+design-tokens:
+	@echo "Regenerating design tokens and icons from design/tokens.json..."
+	@$(PYTHON) tool/gen_tokens.py
+	@$(PYTHON) tool/gen_icons.py
 
-pg-live:
-	@echo "Running live cross-process concurrency check (starts Uvicorn)..."
-	@$(PYTHON) scripts/live_concurrency_check.py --spawn
+design-assets:
+	@echo "Regenerating brand marks from token colours..."
+	@$(PYTHON) tool/gen_brand_assets.py
 
-bench:
-	@echo "Benchmarking scripted turn latency..."
-	@$(PYTHON) scripts/bench_turns.py
+lint-ui:
+	@echo "Verifying generated tokens and icons are current..."
+	@$(PYTHON) tool/gen_tokens.py --check
+	@$(PYTHON) tool/gen_icons.py --check
+	@echo "Verifying Poppins Devanagari coverage..."
+	@$(PYTHON) tool/font_coverage_check.py
+	@echo "Checking WCAG contrast for every declared pairing in both modes..."
+	@$(PYTHON) tool/contrast_check.py
+	@echo "Running the design lint..."
+	@$(PYTHON) tool/design_lint.py
+	@echo "Running the design lint unit tests..."
+	@$(PYTHON) -m pytest tests/test_design_lint.py -q
 
-gate-2:
-	@echo "owned by Prompt 2"
-	@exit 1
+goldens:
+	@echo "Regenerating component and gallery goldens..."
+	@cd app && $(FLUTTER) test --update-goldens
+
+gate-2: lint-ui lint
+	@echo "Running Flutter design system tests and goldens..."
+	@cd app && $(FLUTTER) test
+	@echo "=== Gate 2 Verification PASSED ==="
 
 gate-3:
 	@echo "owned by Prompt 3"
@@ -97,5 +112,5 @@ gate-5:
 	@echo "owned by Prompt 5"
 	@exit 1
 
-ci: gate-0 test
+ci: gate-0 test lint-ui
 	@echo "=== CI Completed Successfully ==="

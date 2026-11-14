@@ -58,3 +58,41 @@ jobs:
         env:
           DATABASE_URL: postgresql://dryrun:dryrun_password@localhost:5432/dryrun_test
         run: make ci
+
+  design-system:
+    # Goldens are rasterised per platform, so the design gate runs on the same
+    # image the baselines were generated on. Regenerate with: make goldens
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.9'
+          channel: 'stable'
+          cache: true
+
+      - name: Install Python tooling dependencies
+        run: pip install pyyaml
+
+      - name: Run the design lint and token checks
+        run: make lint-ui
+
+      - name: Analyse the app
+        run: |
+          cd app
+          flutter pub get
+          flutter analyze --no-fatal-infos
+
+      - name: Run component and gallery goldens
+        run: |
+          cd app
+          flutter test
