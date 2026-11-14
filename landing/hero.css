@@ -1,0 +1,40 @@
+/* The one gradient exception in the system, on the hero heading text only.
+   Stops come from the generated gradient tokens. */
+
+.hero-heading {
+  max-width: var(--content-max);
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-hero-light-from),
+    var(--gradient-hero-light-to)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-heading {
+    background-image: linear-gradient(
+      to right,
+      var(--gradient-hero-dark-from),
+      var(--gradient-hero-dark-to)
+    );
+  }
+}
+
+[data-theme="dark"] .hero-heading {
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-hero-dark-from),
+    var(--gradient-hero-dark-to)
+  );
+}
+
+[data-theme="light"] .hero-heading {
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-hero-light-from),
+    var(--gradient-hero-light-to)
+  );
+}

@@ -1,58 +1,53 @@
 {
-  "title": "Dry Run - Digital Arrest Scam Practice Drill",
-  "disclaimer": "Practice, not protection. Never claim it measures real-world vulnerability, prevents fraud, or is validated.",
+  "title": "Dry Run, practice drill for digital arrest scam calls",
+  "disclaimer": "This is practice, not protection. It does not measure your risk or prevent fraud.",
   "hero": {
-    "headline": "Practice Before You Get Scammed",
-    "subheadline": "A kind and realistic drill for digital arrest scam calls. Experience the intimidation in a safe space and learn the one habit that saves you.",
-    "cta_try": "Try Drill Yourself",
-    "cta_invite": "Send Invite to Family Member"
-  },
-  "facts": {
-    "headline": "The Reality of Digital Arrest",
-    "stat_value": "Over Rs 54,000 Crore",
-    "stat_label": "estimated losses to digital arrest and intimidation scams in India annually."
+    "headline": "Practice before you get the call",
+    "subheadline": "A kind and realistic drill for digital arrest scam calls. Hear the intimidation in a safe space, then keep the one habit that helps.",
+    "cta_try": "Try the drill yourself",
+    "cta_invite": "Send an invite to a family member"
   },
   "how_it_works": {
-    "headline": "How Dry Run Works",
+    "headline": "How Dry Run works",
     "steps": [
       {
         "number": 1,
-        "title": "Send a Private Link",
-        "description": "An organizer creates a private invite link for their family member."
+        "title": "Send a private link",
+        "description": "An organizer creates a private invite link for one family member."
       },
       {
         "number": 2,
-        "title": "Take the Drill Call",
+        "title": "Take the drill call",
         "description": "The participant takes a simulated call from a fictional officer of a fictional agency."
       },
       {
         "number": 3,
-        "title": "Receive Kind Debrief",
-        "description": "A kind analysis highlights where compliance happened and reinforces safe habits."
+        "title": "Read the kind debrief",
+        "description": "The debrief shows where compliance happened and reinforces the safe habit to keep."
       }
     ]
   },
   "habits": {
-    "headline": "Three Safety Habits",
+    "headline": "Three safety habits",
     "items": [
       {
         "id": "hang_up",
-        "title": "Hang Up Immediately",
-        "description": "Real law enforcement officers never hold court or threaten arrest over video calls."
+        "title": "Hang up immediately",
+        "description": "Real officers never hold court or threaten arrest over a video call."
       },
       {
         "id": "call_back_official",
-        "title": "Verify via Official Channels",
-        "description": "Call the national cybercrime helpline 1930 or visit an official police station."
+        "title": "Verify through official channels",
+        "description": "Call the national cybercrime helpline 1930 or walk into a police station."
       },
       {
         "id": "tell_family",
-        "title": "Talk to Family",
-        "description": "Scammers demand secrecy. Breaking isolation immediately breaks the scam."
+        "title": "Talk to family",
+        "description": "Scammers demand secrecy. Breaking the isolation immediately breaks the scam."
       }
     ]
   },
   "footer": {
-    "notice": "Dry Run is an educational practice drill. It does not certify security or guarantee fraud prevention."
+    "notice": "Dry Run is an educational practice drill. It does not certify safety or guarantee that fraud is prevented."
   }
 }

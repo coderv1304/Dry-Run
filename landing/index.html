@@ -3,45 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dry Run - Digital Arrest Scam Practice Drill</title>
+  <meta name="description" content="Dry Run is a practice drill for digital arrest scam calls. Take a fictional call, then read a kind debrief.">
+  <title>Dry Run, practice drill for digital arrest scam calls</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="hero.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <aside class="disclaimer-banner" id="disclaimer-banner"></aside>
+    <nav class="nav" aria-label="Main">
+      <span class="nav-brand title-3">Dry Run</span>
+      <ul class="nav-links">
+        <li><a class="nav-link body-6" href="#how-it-works">How it works</a></li>
+        <li><a class="nav-link body-6" href="#habits">Safety habits</a></li>
+      </ul>
+    </nav>
 
-    <header>
-      <h1 id="hero-headline"></h1>
-      <p class="lead" id="hero-subheadline"></p>
+    <aside class="drill-notice" aria-live="polite">
+      <span class="drill-badge caption-3">DRILL</span>
+      <span class="body-5" id="disclaimer-banner"></span>
+    </aside>
+
+    <header class="site-header">
+      <h1 class="heading-1 hero-heading" id="hero-headline"></h1>
+      <p class="body-2 lead" id="hero-subheadline"></p>
       <div class="cta-group">
-        <button class="btn btn-primary" id="btn-try"></button>
-        <button class="btn btn-secondary" id="btn-invite"></button>
+        <button class="btn btn-primary button-md" id="btn-try" type="button"></button>
+        <button class="btn btn-secondary button-md" id="btn-invite" type="button"></button>
       </div>
+      <div class="rule"></div>
     </header>
 
     <main>
-      <section>
-        <h2 id="facts-headline"></h2>
-        <div class="fact-box">
-          <span class="stat-number" id="stat-value"></span>
-          <p id="stat-label"></p>
-        </div>
+      <section id="how-it-works" aria-labelledby="how-headline">
+        <h2 class="heading-3 section-title" id="how-headline"></h2>
+        <ol class="vertical-list" id="how-steps"></ol>
       </section>
 
-      <section>
-        <h2 id="how-headline"></h2>
-        <div class="vertical-list" id="how-steps"></div>
-      </section>
-
-      <section>
-        <h2 id="habits-headline"></h2>
-        <div class="vertical-list" id="habits-items"></div>
+      <section id="habits" aria-labelledby="habits-headline">
+        <h2 class="heading-3 section-title" id="habits-headline"></h2>
+        <ul class="vertical-list" id="habits-items"></ul>
       </section>
     </main>
 
     <footer>
-      <p id="footer-notice"></p>
+      <p class="caption-2" id="footer-notice"></p>
     </footer>
   </div>
 

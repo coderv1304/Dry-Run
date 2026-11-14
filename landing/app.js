@@ -1,9 +1,9 @@
-// Dry Run Landing Page Plain JS
+// Dry Run landing page. Copy comes from content.json; strings are never built by hand.
 
 document.addEventListener('DOMContentLoaded', function () {
   fetch('content.json')
-    .then(function (res) {
-      return res.json();
+    .then(function (response) {
+      return response.json();
     })
     .then(function (content) {
       document.getElementById('disclaimer-banner').textContent = content.disclaimer;
@@ -12,31 +12,53 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('btn-try').textContent = content.hero.cta_try;
       document.getElementById('btn-invite').textContent = content.hero.cta_invite;
 
-      document.getElementById('facts-headline').textContent = content.facts.headline;
-      document.getElementById('stat-value').textContent = content.facts.stat_value;
-      document.getElementById('stat-label').textContent = content.facts.stat_label;
-
       document.getElementById('how-headline').textContent = content.how_it_works.headline;
-      var stepsContainer = document.getElementById('how-steps');
+      var steps = document.getElementById('how-steps');
       content.how_it_works.steps.forEach(function (step) {
-        var el = document.createElement('div');
-        el.className = 'list-item';
-        el.innerHTML = '<h3><span class="step-number">' + step.number + '.</span> ' + step.title + '</h3><p>' + step.description + '</p>';
-        stepsContainer.appendChild(el);
+        var item = document.createElement('li');
+        item.className = 'list-item';
+
+        var title = document.createElement('h3');
+        title.className = 'title-3 list-title';
+
+        var number = document.createElement('span');
+        number.className = 'step-number caption-1';
+        number.textContent = step.number + '.';
+        title.appendChild(number);
+        title.appendChild(document.createTextNode(step.title));
+
+        var detail = document.createElement('p');
+        detail.className = 'body-6 list-detail';
+        detail.textContent = step.description;
+
+        item.appendChild(title);
+        item.appendChild(detail);
+        steps.appendChild(item);
       });
 
       document.getElementById('habits-headline').textContent = content.habits.headline;
-      var habitsContainer = document.getElementById('habits-items');
+      var habits = document.getElementById('habits-items');
       content.habits.items.forEach(function (habit) {
-        var el = document.createElement('div');
-        el.className = 'list-item';
-        el.innerHTML = '<h3>' + habit.title + '</h3><p>' + habit.description + '</p>';
-        habitsContainer.appendChild(el);
+        var item = document.createElement('li');
+        item.className = 'list-item';
+
+        var title = document.createElement('h3');
+        title.className = 'title-3 list-title';
+        title.textContent = habit.title;
+
+        var detail = document.createElement('p');
+        detail.className = 'body-6 list-detail';
+        detail.textContent = habit.description;
+
+        item.appendChild(title);
+        item.appendChild(detail);
+        habits.appendChild(item);
       });
 
       document.getElementById('footer-notice').textContent = content.footer.notice;
     })
-    .catch(function (err) {
-      console.error('Failed to load content.json:', err);
+    .catch(function () {
+      var banner = document.getElementById('disclaimer-banner');
+      banner.textContent = 'Copy could not load. Reload the page to try again.';
     });
 });
