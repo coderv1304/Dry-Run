@@ -1,0 +1,4 @@
+.link:hover {
+  background: var(--color-surface-secondary);
+  transform: scale(1.02);
+}

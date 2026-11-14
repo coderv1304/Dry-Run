@@ -1,0 +1,3 @@
+.panel {
+  background: linear-gradient(to right, var(--gradient-hero-dark-from), var(--gradient-hero-dark-to));
+}
