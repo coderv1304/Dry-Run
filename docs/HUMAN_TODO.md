@@ -40,3 +40,9 @@ Tasks that require human credentials, physical hardware, or manual account confi
   - Install debug APK on target Android 11+ device.
   - Test voice recognition opt-in and system audio loopback.
   - Test OS share sheet launch when report token link is generated.
+
+## 5. Design System Review
+- [ ] **Verify facts before any data section ships**: every row in `docs/FACTS.md` currently has `verified_by_human: false`, so the landing page renders no statistic. Confirm a source, set the flag, then reintroduce the section.
+- [ ] **Visual pass of the landing page** at 390, 768 and 1440 px, checking no horizontal overflow and that the primary action sits in the first screen.
+- [ ] **Review the design gallery** on a phone and on desktop (`flutter run` opens it): it is the visual spec for every token and state.
+- [ ] **CI golden image**: goldens were generated on Windows and are compared on `windows-latest`. If CI moves to another OS, run `make goldens` on that image and commit the result.

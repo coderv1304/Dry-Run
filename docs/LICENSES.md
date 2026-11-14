@@ -23,3 +23,9 @@ Dry Run project source code is licensed under the Apache License, Version 2.0.
 ## Typography and Design Assets
 - **Manrope**: SIL Open Font License, Version 1.1 (Mikhail Sharanda)
 - **Phosphor Icons**: MIT License (Phosphor Icons core team)
+
+## Bundled Design Assets
+
+- **Poppins** (Indian Type Foundry): SIL Open Font License 1.1. Bundled as static weights 400, 500, 600 and 700 in `app/assets/fonts` and as `woff2` subsets in `landing/fonts`. Licence text: `app/assets/fonts/Poppins-OFL.txt`, `landing/fonts/Poppins-OFL.txt`.
+- **Noto Sans Devanagari** (Google): SIL Open Font License 1.1. Bundled as a variable font used only as a glyph fallback. Licence text: `app/assets/fonts/NotoSansDevanagari-OFL.txt`.
+- **Phosphor Icons**: MIT. Vendored SVGs in `app/assets/icons`, flattened to Dart contours by `tool/gen_icons.py`. Licence text: `app/assets/icons/Phosphor-LICENSE.txt`.

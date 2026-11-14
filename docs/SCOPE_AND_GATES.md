@@ -7,9 +7,9 @@ Per Standing Rule 3 (CLAUDE.md), no TODOs, stubs, `pass` bodies, fake data, or c
 
 | Gate ID | Target Name | Owner | Verification Scope | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| `0` | `gate-0` | Prompt 0 | Scaffolding, contracts, gates, docs, doctor, skeleton tests | IN PROGRESS |
-| `1` | `gate-1` | Prompt 1 | Pure engine state machine, deterministic rules, replay without LLM | Owned by Prompt 1 |
-| `2` | `gate-2` | Prompt 2 | Backend API endpoints, session auth, turn processing, sqlite/postgres | Owned by Prompt 2 |
+| `0` | `gate-0` | Prompt 0 | Scaffolding, contracts, gates, docs, doctor, skeleton tests | PASSED |
+| `1` | `gate-1` | Prompt 1 | Pure engine state machine, deterministic rules, replay without LLM | PASSED |
+| `2` | `gate-2` | Prompt 2 | Design system: tokens, generated code, component library, contrast and design lint | PASSED |
 | `3` | `gate-3` | Prompt 3 | LLM provider adapters, fallback lines, daily budget enforcement | Owned by Prompt 3 |
 | `3b` | `gate-3b` | Prompt 3b | Debrief scoring engine, quote extraction, rule vs LLM agreement | Owned by Prompt 3b |
 | `4` | `gate-4` | Prompt 4 | Flutter app (Android + Web), pure Dart API client, UI flows | Owned by Prompt 4 |
