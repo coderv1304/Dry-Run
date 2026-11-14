@@ -1,0 +1,14 @@
+b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c  app/android/app/src/debug/AndroidManifest.xml
+7ead7dd5fe5027812488d94d8a7e790af5007c0e82fd08d9eee249d182a39901  app/android/app/src/main/AndroidManifest.xml
+6a7c8f0d703e3682108f9662f813302236240d3f8f638bb391e32bfb96055fef  app/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+c7c0c0189145e4e32a401c61c9bdc615754b0264e7afae24e834bb81049eaf81  app/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+e14aa40904929bf313fded22cf7e7ffcbf1d1aac4263b5ef1be8bfce650397aa  app/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+4d470bf22d5c17d84edc5f82516d1ba8a1c09559cd761cefb792f86d9f52b540  app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+3c34e1f298d0c9ea3455d46db6b7759c8211a49e9ec6e44b635fc5c87dfb4180  app/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+b01a4541a8144c15bc617bab7eb267c99fa1476368fbbda5a12cdbf4e316a34c  app/android/app/src/profile/AndroidManifest.xml
+7ab2525f4b86b65d3e4c70358a17e5a1aaf6f437f99cbcc046dad73d59bb9015  app/web/favicon.png
+893d2dd02d8f96c2ea393641af6104167541063a878da4a783b3266416e65b6c  app/web/manifest.json
+3dce99077602f70421c1c6b2a240bc9b83d64d86681d45f2154143310c980be3  app/web/icons/Icon-192.png
+baccb205ae45f0b421be1657259b4943ac40c95094ab877f3bcbe12cd544dcbe  app/web/icons/Icon-512.png
+d2c842e22a9f4ec9d996b23373a905c88d9a203b220c5c151885ad621f974b5c  app/web/icons/Icon-maskable-192.png
+6aee06cdcab6b2aef74b1734c4778f4421d2da100b0ff9e52b21b55240202929  app/web/icons/Icon-maskable-512.png
