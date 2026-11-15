@@ -76,8 +76,7 @@ make preflight   # prints a pass or fail table
 
 | What | Link |
 | :--- | :--- |
-| Live demo | paste the demo URL in this cell |
-| Walkthrough video | paste the video URL in this cell |
+| Walkthrough video |https://drive.google.com/file/d/1lQWNLrFOX4GQo5q_eI48R_zZAlEh1txf/view?usp=drivesdk |
 
 Both cells are blank on purpose. Nothing here claims to be deployed.
 
