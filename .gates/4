@@ -1,0 +1,41 @@
+{
+  "gate": "4",
+  "commit": "b7e16bc",
+  "timestamp": "2026-11-15T06:18:08.362508+00:00",
+  "commands": [
+    "make test",
+    "make gate-4"
+  ],
+  "results": [
+    {
+      "command": "make test",
+      "status": "passed",
+      "detail": "backend pytest and api_client dart tests, including the scripted end to end run"
+    },
+    {
+      "command": "lint-ui",
+      "status": "passed",
+      "detail": "generated tokens and icons current, Poppins Devanagari coverage, 224 contrast pairings, design lint clean on app, web, landing and scenarios, 6 lint unit tests"
+    },
+    {
+      "command": "lint",
+      "status": "passed",
+      "detail": "OpenAPI contracts and examples valid, flutter analyze clean"
+    },
+    {
+      "command": "flutter_test",
+      "status": "passed",
+      "detail": "94 tests: flows, voice, demo mode, secure screen, call states, reveal, haptics, Hindi at 200 percent, screenshots and goldens"
+    },
+    {
+      "command": "screenshots",
+      "status": "passed",
+      "detail": "tool/check_screenshots.py: 12 PNGs at 390x844, six screens, light and dark differ"
+    },
+    {
+      "command": "skill_checklists",
+      "status": "passed",
+      "detail": "docs/CHECKLIST_4.md records both skill checklists with no open failure"
+    }
+  ]
+}
