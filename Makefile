@@ -1,6 +1,7 @@
 .PHONY: all test lint ci preflight gate-0 gate-1 gate-2 gate-3 gate-3b gate-4 gate-4b gate-5 \
 	audit backend-audit backend-lint backend-test contract-check drill-check bench \
-	lint-ui design-tokens design-assets goldens pg-check pg-live web
+	lint-ui design-tokens design-assets goldens pg-check pg-live web \
+	keystore apk apk-debug manifest-check demo-check
 
 PYTHON ?= python
 DART ?= dart
@@ -119,9 +120,42 @@ gate-3: lint-ui lint test
 	@$(PYTHON) -c "import os; assert os.path.exists('docs/PERF.md') and os.path.getsize('docs/PERF.md') > 0, 'docs/PERF.md missing or empty'"
 	@echo "=== Gate 3 Verification PASSED ==="
 
-gate-3b:
-	@echo "owned by Prompt 3b"
-	@exit 1
+keystore:
+	@echo "Generating the local release keystore (gitignored)..."
+	@$(PYTHON) tool/make_keystore.py
+
+apk: keystore
+	@echo "Building the signed release APK with obfuscation..."
+	@cd app && $(FLUTTER) build apk --release --obfuscate --split-debug-info=build/symbols
+	@$(PYTHON) -c "import os; path = 'app/build/app/outputs/flutter-apk/app-release.apk'; assert os.path.exists(path) and os.path.getsize(path) > 0, 'release APK missing'; print('Release APK ready: ' + path)"
+
+apk-debug:
+	@echo "Building a debug APK for a machine without the Android release toolchain..."
+	@cd app && $(FLUTTER) build apk --debug
+	@$(PYTHON) -c "import os; path = 'app/build/app/outputs/flutter-apk/app-debug.apk'; assert os.path.exists(path) and os.path.getsize(path) > 0, 'debug APK missing'; print('Debug APK ready: ' + path)"
+
+manifest-check:
+	@$(PYTHON) tool/check_android_manifest.py
+
+demo-check:
+	@$(PYTHON) tool/check_demo_strings.py
+
+gate-3b: lint-ui
+	@echo "Running flutter analyze with infos fatal..."
+	@cd app && $(FLUTTER) analyze
+	@echo "Running the full Flutter app suite..."
+	@cd app && $(FLUTTER) test
+	@echo "Building the signed release APK..."
+	@$(PYTHON) tool/make_keystore.py
+	@cd app && $(FLUTTER) build apk --release --obfuscate --split-debug-info=build/symbols
+	@$(PYTHON) -c "import os; path = 'app/build/app/outputs/flutter-apk/app-release.apk'; assert os.path.exists(path) and os.path.getsize(path) > 0, 'release APK missing'"
+	@echo "Checking the merged manifest and FLAG_SECURE wiring..."
+	@$(PYTHON) tool/check_android_manifest.py
+	@echo "Checking the production build has no demo strings..."
+	@$(PYTHON) tool/check_demo_strings.py
+	@echo "Verifying the release documentation exists..."
+	@$(PYTHON) -c "import os; assert os.path.exists('docs/RELEASE.md') and os.path.getsize('docs/RELEASE.md') > 0, 'docs/RELEASE.md missing or empty'"
+	@echo "=== Gate 3b Verification PASSED ==="
 
 gate-4:
 	@echo "owned by Prompt 4"

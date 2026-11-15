@@ -6,6 +6,7 @@ import 'package:uuid/uuid.dart';
 
 import '../core/app_config.dart';
 import '../core/link_builder.dart';
+import '../core/secure_screen.dart';
 import '../core/share_service.dart';
 import '../design/dr_theme.dart';
 
@@ -28,6 +29,15 @@ final Provider<LinkBuilder> linkBuilderProvider = Provider<LinkBuilder>((Ref ref
 
 final Provider<ShareService> shareServiceProvider =
     Provider<ShareService>((Ref ref) => const PlatformShareService());
+
+/// FLAG_SECURE bridge. Tests replace this with a recording fake.
+final Provider<SecureScreen> secureScreenProvider =
+    Provider<SecureScreen>((Ref ref) => const PlatformSecureScreen());
+
+/// Language chosen for the current invite. Voice recognition and speech use
+/// it, and Hinglish maps to the Hindi voice because it has no separate model.
+final StateProvider<AppLanguage> sessionLanguageProvider =
+    StateProvider<AppLanguage>((Ref ref) => AppLanguage.en);
 
 /// The debrief poll delay is injectable so tests never wait in real time.
 final Provider<Future<void> Function(Duration)> pollDelayProvider =

@@ -29,6 +29,7 @@ class TryController extends StateNotifier<TryState> {
   final Ref _ref;
 
   void setLanguage(AppLanguage language) {
+    _ref.read(sessionLanguageProvider.notifier).state = language;
     state = TryState(language: language);
   }
 

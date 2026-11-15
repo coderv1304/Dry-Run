@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app.dart';
+import 'core/app_config.dart';
 import 'core/initial_link.dart';
 import 'core/initial_link_platform.dart';
 import 'core/url_strategy.dart';
+import 'features/demo/demo_mode.dart';
 import 'routing/app_router.dart';
 import 'state/token_store.dart';
 
@@ -21,6 +23,9 @@ Future<void> main() async {
             reportToken: link.reportToken,
           ),
         ),
+        // kDemoMode is a const, so a production compiler removes this branch
+        // and every demo string it reaches.
+        if (kDemoMode) ...demoOverrides(),
       ],
       child: const _Bootstrap(),
     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/secure_screen_scope.dart';
 import '../features/about/about_screen.dart';
 import '../features/consent/consent_screen.dart';
 import '../features/debrief/debrief_screen.dart';
@@ -10,12 +11,17 @@ import '../features/home/home_screen.dart';
 import '../features/join/join_screen.dart';
 import '../features/report/report_screen.dart';
 import '../features/try/try_screen.dart';
+import '../features/voice/voice_readiness_screen.dart';
+import '../state/providers.dart';
 import '../state/token_store.dart';
 
 /// The seven routes the product review approved. Path URLs on web, so every
 /// route is a real address.
 final Provider<GoRouter> routerProvider = Provider<GoRouter>((Ref ref) {
   final InitialTokens initial = ref.watch(initialTokensProvider);
+  if (ref.watch(appConfigProvider).demoMode) {
+    return createAppRouter(initialLocation: '/drill');
+  }
   return createAppRouter(initialLocation: _initialLocation(initial));
 });
 
@@ -56,12 +62,17 @@ GoRouter createAppRouter({String initialLocation = '/'}) {
       GoRoute(
         path: '/debrief',
         builder: (BuildContext context, GoRouterState state) =>
-            const DebriefScreen(),
+            const SecureScreenScope(child: DebriefScreen()),
       ),
       GoRoute(
         path: '/report',
         builder: (BuildContext context, GoRouterState state) =>
-            const ReportScreen(),
+            const SecureScreenScope(child: ReportScreen()),
+      ),
+      GoRoute(
+        path: '/voice',
+        builder: (BuildContext context, GoRouterState state) =>
+            const VoiceReadinessScreen(),
       ),
       GoRoute(
         path: '/about',

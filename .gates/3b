@@ -1,0 +1,46 @@
+{
+  "gate": "3b",
+  "commit": "tbd-after-commit",
+  "timestamp": "2026-11-15T05:27:18.925656+00:00",
+  "commands": [
+    "make lint-ui",
+    "cd app && flutter analyze",
+    "cd app && flutter test",
+    "make keystore",
+    "make apk",
+    "make manifest-check",
+    "make demo-check"
+  ],
+  "results": [
+    {
+      "command": "lint-ui",
+      "status": "passed",
+      "detail": "design token generation, font coverage, contrast, design lint and lint unit tests all green"
+    },
+    {
+      "command": "flutter_analyze",
+      "status": "passed",
+      "detail": "No issues found"
+    },
+    {
+      "command": "flutter_test",
+      "status": "passed",
+      "detail": "77 tests: flow E2E, voice disclosure/fallback/ready, demo mode, secure screen, plus design goldens and unit controllers tests"
+    },
+    {
+      "command": "apk",
+      "status": "passed",
+      "detail": "Signed release APK built at app/build/app/outputs/flutter-apk/app-release.apk with --obfuscate and --split-debug-info; keystore already existed from an earlier run"
+    },
+    {
+      "command": "manifest_check",
+      "status": "passed",
+      "detail": "Compiled manifest has allowBackup=false, usesCleartextTraffic=false, networkSecurityConfig, INTERNET, RECORD_AUDIO; FLAG_SECURE channel present in MainActivity.kt and SecureScreenScope/SecureScreen"
+    },
+    {
+      "command": "demo_check",
+      "status": "passed",
+      "detail": "Release AOT build contains none of the demo-only strings or DemoSessionController/DemoDebriefController/symbol names"
+    }
+  ]
+}

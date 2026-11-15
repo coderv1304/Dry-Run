@@ -1,19 +1,26 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../core/app_config.dart';
 import '../../core/failure_copy.dart';
 import '../../design/components/dr_banner.dart';
 import '../../design/components/dr_button.dart';
 import '../../design/components/dr_data_views.dart';
 import '../../design/space_tokens.g.dart';
 import '../../l10n/app_localizations.dart';
+import '../../state/providers.dart';
 import '../../ui/shared/dr_page.dart';
 import '../../ui/shared/dr_page_header.dart';
 import '../../ui/shared/dr_confirm_dialog.dart';
 import '../debrief/debrief_controller.dart';
 import '../session/drill_models.dart';
 import '../session/session_controller.dart';
+import '../voice/voice_bar.dart';
+import '../voice/voice_controller.dart';
+import '../voice/voice_disclosure.dart';
 import 'drill_composer.dart';
 import 'drill_widgets.dart';
 
@@ -27,6 +34,18 @@ class DrillScreen extends ConsumerStatefulWidget {
 class _DrillScreenState extends ConsumerState<DrillScreen> {
   final TextEditingController _composer = TextEditingController();
   final ScrollController _scroll = ScrollController();
+
+  @override
+  void deactivate() {
+    // Leaving the drill stops any microphone or speech. The state reset is
+    // deferred by one microtask because deactivate runs during a build, and
+    // Riverpod cannot notify listeners mid build. End drill calls halt
+    // synchronously before it navigates, so that path is never delayed.
+    final VoiceController voice =
+        ref.read(voiceControllerProvider.notifier);
+    scheduleMicrotask(voice.halt);
+    super.deactivate();
+  }
 
   @override
   void dispose() {
@@ -71,10 +90,12 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
     if (!confirmed) {
       return;
     }
+    ref.read(voiceControllerProvider.notifier).halt();
     await _finish();
   }
 
   Future<void> _finish() async {
+    ref.read(voiceControllerProvider.notifier).halt();
     final bool ok = await ref.read(sessionControllerProvider.notifier).end();
     if (!mounted) {
       return;
@@ -85,14 +106,48 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
     }
   }
 
+  Future<void> _openVoice() async {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    final VoiceDisclosureChoice choice = await showVoiceDisclosure(context, l10n);
+    if (!mounted || choice == VoiceDisclosureChoice.cancel) {
+      return;
+    }
+    if (choice == VoiceDisclosureChoice.test) {
+      ref.read(voiceControllerProvider.notifier).halt();
+      context.push('/voice');
+      return;
+    }
+    await ref.read(voiceControllerProvider.notifier).enable(
+          ref.read(sessionLanguageProvider),
+        );
+  }
+
+  Future<void> _voiceTurn() async {
+    final AppLocalizations l10n = AppLocalizations.of(context);
+    await ref.read(voiceControllerProvider.notifier).listenTurn(
+          language: ref.read(sessionLanguageProvider),
+          fillerLine: l10n.voiceFiller,
+        );
+  }
+
+  void _openVoiceCheck() {
+    ref.read(voiceControllerProvider.notifier).halt();
+    context.push('/voice');
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations l10n = AppLocalizations.of(context);
     final DrillState state = ref.watch(sessionControllerProvider);
+    final VoiceState voice = ref.watch(voiceControllerProvider);
+    final AppConfig config = ref.watch(appConfigProvider);
     ref.listen<DrillState>(sessionControllerProvider, (DrillState? previous, DrillState next) {
       if (previous?.messages.length != next.messages.length ||
           previous?.sending != next.sending) {
         _scrollToEnd();
+      }
+      if (next.ended && previous?.ended != true) {
+        ref.read(voiceControllerProvider.notifier).halt();
       }
     });
     if (!state.hasSession || state.unauthorized) {
@@ -111,11 +166,25 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.all(DrSpace.s16),
-                  child: DrillHeader(
-                    l10n: l10n,
-                    turnCount: l10n.drillTurnCount(current, maxTurns),
-                    onEnd: _end,
-                    ending: state.ending,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      if (config.demoMode) ...<Widget>[
+                        DrBanner(
+                          message: l10n.demoBanner,
+                          badgeLabel: l10n.demoBadge,
+                          variant: DrBannerVariant.info,
+                        ),
+                        const SizedBox(height: DrSpace.s12),
+                      ],
+                      DrillHeader(
+                        l10n: l10n,
+                        turnCount: l10n.drillTurnCount(current, maxTurns),
+                        onEnd: _end,
+                        ending: state.ending,
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -150,17 +219,38 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
                   ),
                 Padding(
                   padding: const EdgeInsets.all(DrSpace.s16),
-                  child: state.ended && !state.ending
-                      ? DrillEndedPanel(l10n: l10n, onDebrief: _finish)
-                      : DrillComposer(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      if (!state.ended && !state.ending) ...<Widget>[
+                        DrillVoiceBar(
                           l10n: l10n,
-                          controller: _composer,
-                          sending: state.sending,
-                          retrying: pending && !state.sending,
-                          onSend: _send,
-                          onRetry: _retrySend,
-                          onChanged: (_) {},
+                          state: voice,
+                          onEnable: _openVoice,
+                          onListen: _voiceTurn,
+                          onStop: () => ref
+                              .read(voiceControllerProvider.notifier)
+                              .stopListening(),
+                          onDisable: () =>
+                              ref.read(voiceControllerProvider.notifier).halt(),
+                          onOpenCheck: _openVoiceCheck,
                         ),
+                        const SizedBox(height: DrSpace.s8),
+                      ],
+                      state.ended && !state.ending
+                          ? DrillEndedPanel(l10n: l10n, onDebrief: _finish)
+                          : DrillComposer(
+                              l10n: l10n,
+                              controller: _composer,
+                              sending: state.sending,
+                              retrying: pending && !state.sending,
+                              onSend: _send,
+                              onRetry: _retrySend,
+                              onChanged: (_) {},
+                            ),
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -127,6 +128,13 @@ class FakeApi implements DryRunApi {
   Object? debriefError;
   Object? reportError;
 
+  /// Held open to simulate a reply that never arrives. Tests complete it to
+  /// release the request.
+  Completer<void>? turnGate;
+
+  /// Artificial delay before a turn response resolves.
+  Duration? turnDelay;
+
   final List<RecordedTurn> submittedTurns = <RecordedTurn>[];
   final List<RecordedSession> createdSessions = <RecordedSession>[];
   int debriefCalls = 0;
@@ -185,6 +193,14 @@ class FakeApi implements DryRunApi {
         text: text,
       ),
     );
+    final Completer<void>? gate = turnGate;
+    if (gate != null) {
+      await gate.future;
+    }
+    final Duration? delay = turnDelay;
+    if (delay != null) {
+      await Future<void>.delayed(delay);
+    }
     final Object? failure = turnError;
     if (failure != null) {
       turnError = null;

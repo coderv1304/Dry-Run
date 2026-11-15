@@ -266,6 +266,213 @@ class AppLocalizationsHi extends AppLocalizations {
   String get drillErrorRetry => 'फिर भेजने की कोशिश करें';
 
   @override
+  String get voiceUse => 'आवाज़ का इस्तेमाल करें';
+
+  @override
+  String get voiceBadge => 'आवाज़';
+
+  @override
+  String get voiceHelper => 'वैकल्पिक। चैट हमेशा उपलब्ध रहती है।';
+
+  @override
+  String get voiceCheckLink => 'आवाज़ की जाँच';
+
+  @override
+  String get voiceDisclosureTitle =>
+      'इस अभ्यास कॉल में आवाज़ का इस्तेमाल करें?';
+
+  @override
+  String get voiceDisclosureBody =>
+      'आपके फ़ोन की वाक् सेवा आपकी आवाज़ को पाठ में बदलती है। यह ऑडियो अपने प्रदाता को भेज सकती है। ड्राई रन ऑडियो संग्रहित नहीं करता। पाठ चैट हमेशा काम करती है और आप किसी भी समय ड्रिल समाप्त कर सकते हैं।';
+
+  @override
+  String get voiceDisclosureConfirm => 'आवाज़ चालू करें';
+
+  @override
+  String get voiceDisclosureCancel => 'चैट जारी रखें';
+
+  @override
+  String get voiceDisclosureTest => 'पहले फ़ोन जाँचें';
+
+  @override
+  String get voiceReady => 'आवाज़ चालू है। बोलने के लिए दबाएँ।';
+
+  @override
+  String get voiceSpeak => 'अपना जवाब बोलें';
+
+  @override
+  String get voiceStop => 'सुनना बंद करें';
+
+  @override
+  String get voiceListening => 'सुन रहे हैं। अब बोलें।';
+
+  @override
+  String get voiceThinking => 'अधिकारी की प्रतीक्षा है।';
+
+  @override
+  String get voiceSpeaking => 'अधिकारी बोल रहे हैं।';
+
+  @override
+  String get voiceTurnOff => 'आवाज़ बंद करें';
+
+  @override
+  String get voiceFiller => 'एक क्षण।';
+
+  @override
+  String get voiceProblemPermission =>
+      'माइक्रोफ़ोन की अनुमति बंद है। आप लिखते रह सकते हैं।';
+
+  @override
+  String get voiceProblemRecognizer =>
+      'इस फ़ोन पर वाक् पहचान उपलब्ध नहीं है। आप लिखते रह सकते हैं।';
+
+  @override
+  String get voiceProblemLanguage =>
+      'इस फ़ोन पर हिंदी वाक् पहचान नहीं है। आप लिखते रह सकते हैं।';
+
+  @override
+  String get voiceProblemTts =>
+      'इस भाषा के लिए फ़ोन की आवाज़ उपलब्ध नहीं है। आप लिखते रह सकते हैं।';
+
+  @override
+  String get voiceProblemListen =>
+      'मैं समझ नहीं पाया। फिर कोशिश करें या जवाब लिखें।';
+
+  @override
+  String get voiceProblemReply =>
+      'जवाब नहीं आया। लिखते रहें या आवाज़ फिर आज़माएँ।';
+
+  @override
+  String get voiceProblemTimeout =>
+      'आवाज़ में बहुत समय लगा। लिखते रहें या आवाज़ फिर आज़माएँ।';
+
+  @override
+  String get voiceProblemSpeech => 'आवाज़ रुक गई। आपकी चैट अभी भी काम करती है।';
+
+  @override
+  String get voiceProblemUnavailable =>
+      'इस फ़ोन पर आवाज़ तैयार नहीं है। आप लिखते रह सकते हैं।';
+
+  @override
+  String get voiceRetry => 'आवाज़ फिर आज़माएँ';
+
+  @override
+  String get voiceKeepTyping => 'लिखते रहें';
+
+  @override
+  String voiceRoundTrip(int ms) {
+    return 'जवाब में $ms मि.से. लगे';
+  }
+
+  @override
+  String get voiceOverBudget =>
+      'इस जवाब में 2 सेकंड की सीमा से अधिक समय लगा। चैट अभी भी उपलब्ध है।';
+
+  @override
+  String get voiceCheckTitle => 'आवाज़ की जाँच';
+
+  @override
+  String get voiceCheckIntro =>
+      'माइक्रोफ़ोन, अंग्रेज़ी और हिंदी की पहचान, और फ़ोन की आवाज़ जाँचें। ऑडियो संग्रहित नहीं होता।';
+
+  @override
+  String get voiceCheckStart => 'आवाज़ की जाँच शुरू करें';
+
+  @override
+  String get voiceCheckMicrophone => 'माइक्रोफ़ोन';
+
+  @override
+  String get voiceCheckMicrophoneOn => 'माइक्रोफ़ोन की अनुमति चालू है।';
+
+  @override
+  String get voiceCheckMicrophoneOff =>
+      'माइक्रोफ़ोन की अनुमति बंद है। फ़ोन की सेटिंग में अनुमति दें।';
+
+  @override
+  String get voiceCheckRecognition => 'वाक् पहचान';
+
+  @override
+  String voiceCheckLanguageTest(String language) {
+    return '$language पहचान जाँचें';
+  }
+
+  @override
+  String voiceCheckHeard(String text) {
+    return 'सुना: $text';
+  }
+
+  @override
+  String get voiceCheckNothingHeard => 'कुछ सुनाई नहीं दिया। फिर कोशिश करें।';
+
+  @override
+  String get voiceCheckTts => 'फ़ोन की आवाज़';
+
+  @override
+  String voiceCheckTtsTest(String language) {
+    return '$language आवाज़ जाँचें';
+  }
+
+  @override
+  String voiceCheckTtsOn(String language) {
+    return 'फ़ोन $language बोल सकता है।';
+  }
+
+  @override
+  String voiceCheckTtsOff(String language) {
+    return 'फ़ोन $language नहीं बोल सकता।';
+  }
+
+  @override
+  String get voiceCheckRoundTrip => 'पूरा चक्र';
+
+  @override
+  String get voiceCheckRoundTripTest => 'पूरे चक्र की जाँच करें';
+
+  @override
+  String voiceCheckRoundTripResult(int ms) {
+    return 'पूरे चक्र में $ms मि.से.';
+  }
+
+  @override
+  String voiceCheckRoundTripSlow(int ms) {
+    return 'पूरे चक्र में $ms मि.से. लगे। यह 2 सेकंड की सीमा से अधिक है।';
+  }
+
+  @override
+  String get voiceCheckPass => 'इस फ़ोन पर आवाज़ तैयार है।';
+
+  @override
+  String get voiceCheckFail => 'इस फ़ोन पर आवाज़ चैट में ही रहेगी।';
+
+  @override
+  String get voiceCheckBadge => 'जाँच';
+
+  @override
+  String get voiceCheckPending => 'अभी जाँच नहीं हुई';
+
+  @override
+  String get voiceCheckTesting => 'जाँच हो रही है';
+
+  @override
+  String get voiceCheckPassShort => 'सफल';
+
+  @override
+  String get voiceCheckFailShort => 'असफल';
+
+  @override
+  String get voiceCheckNote =>
+      'ऑडियो आपके फ़ोन की वाक् सेवा संभालती है और उसे अपने प्रदाता को भेज सकती है। ड्राई रन उसे संग्रहित नहीं करता।';
+
+  @override
+  String get voiceCheckBack => 'ड्रिल पर वापस जाएँ';
+
+  @override
+  String get demoBadge => 'डेमो';
+
+  @override
+  String get demoBanner => 'रिकॉर्डेड वॉकथ्रू। कोई नेटवर्क इस्तेमाल नहीं होता।';
+
+  @override
   String get debriefTitle => 'आपकी समीक्षा';
 
   @override
@@ -581,7 +788,8 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get aboutChatOnly => 'केवल चैट। इस बिल्ड में आवाज़ बंद है।';
+  String get aboutChatOnly =>
+      'आवाज़ वैकल्पिक है और डिफ़ॉल्ट में बंद है। चैट हमेशा काम करती है।';
 
   @override
   String get aboutBackHome => 'शुरुआत पर वापस';

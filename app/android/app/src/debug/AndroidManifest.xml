@@ -1,6 +1,11 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <!-- Debug builds talk to the Dry Run backend on the development machine.
          The Flutter tool also needs INTERNET to attach for breakpoints and hot reload.
-    -->
+         RECORD_AUDIO comes from the main manifest and is still requested at runtime
+         only after the voice disclosure. -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:networkSecurityConfig="@xml/network_security_config_debug"
+        tools:replace="android:networkSecurityConfig" />
 </manifest>

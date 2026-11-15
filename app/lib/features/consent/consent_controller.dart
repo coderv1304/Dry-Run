@@ -66,6 +66,7 @@ class ConsentController extends StateNotifier<ConsentState> {
     try {
       final CurrentInviteResponse invite =
           await _ref.read(apiProvider).getCurrentInvite(token);
+      _ref.read(sessionLanguageProvider.notifier).state = invite.language;
       state = ConsentState(
         token: token,
         language: invite.language,

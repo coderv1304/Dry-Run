@@ -110,6 +110,121 @@
   "drillSessionGoneBody": "Your session was cleared when the page reloaded. Your invite link is still the way back in.",
   "drillSessionGoneTry": "Try it yourself instead",
   "drillErrorRetry": "Try sending again",
+  "voiceUse": "Use voice",
+  "voiceBadge": "Voice",
+  "voiceHelper": "Optional. Chat stays available.",
+  "voiceCheckLink": "Voice check",
+  "voiceDisclosureTitle": "Use voice for this practice call?",
+  "voiceDisclosureBody": "Your phone's speech service turns your voice into text. It may send audio to its provider. Dry Run does not store audio. Text chat always works, and you can end the drill at any time.",
+  "voiceDisclosureConfirm": "Turn on voice",
+  "voiceDisclosureCancel": "Keep chatting",
+  "voiceDisclosureTest": "Test my phone",
+  "voiceReady": "Voice is on. Tap to speak.",
+  "voiceSpeak": "Speak your reply",
+  "voiceStop": "Stop listening",
+  "voiceListening": "Listening. Speak now.",
+  "voiceThinking": "Waiting for the officer.",
+  "voiceSpeaking": "The officer is speaking.",
+  "voiceTurnOff": "Turn off voice",
+  "voiceFiller": "One moment.",
+  "voiceProblemPermission": "Microphone access is off. You can keep typing.",
+  "voiceProblemRecognizer": "Speech recognition is not available on this phone. You can keep typing.",
+  "voiceProblemLanguage": "Hindi speech recognition is not installed on this phone. You can keep typing.",
+  "voiceProblemTts": "The phone voice is not available for this language. You can keep typing.",
+  "voiceProblemListen": "I did not catch that. Try again or type your reply.",
+  "voiceProblemReply": "The reply did not arrive. Keep typing or try voice again.",
+  "voiceProblemTimeout": "Voice took too long. Keep typing or try voice again.",
+  "voiceProblemSpeech": "Voice stopped. Your chat still works.",
+  "voiceProblemUnavailable": "Voice is not ready on this phone. You can keep typing.",
+  "voiceRetry": "Try voice again",
+  "voiceKeepTyping": "Keep typing",
+  "voiceRoundTrip": "Reply took {ms} ms",
+  "@voiceRoundTrip": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceOverBudget": "This reply took longer than the 2 second target. Chat is still available.",
+  "voiceCheckTitle": "Voice check",
+  "voiceCheckIntro": "Test the microphone, recognition in English and Hindi, and the phone voice. Audio is not recorded.",
+  "voiceCheckStart": "Start voice check",
+  "voiceCheckMicrophone": "Microphone",
+  "voiceCheckMicrophoneOn": "Microphone access is on.",
+  "voiceCheckMicrophoneOff": "Microphone access is off. Allow it in phone settings.",
+  "voiceCheckRecognition": "Speech recognition",
+  "voiceCheckLanguageTest": "Test {language} recognition",
+  "@voiceCheckLanguageTest": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceCheckHeard": "Heard: {text}",
+  "@voiceCheckHeard": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceCheckNothingHeard": "Nothing was heard. Try again.",
+  "voiceCheckTts": "Phone voice",
+  "voiceCheckTtsTest": "Test {language} voice",
+  "@voiceCheckTtsTest": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceCheckTtsOn": "The phone can speak {language}.",
+  "@voiceCheckTtsOn": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceCheckTtsOff": "The phone cannot speak {language}.",
+  "@voiceCheckTtsOff": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "voiceCheckRoundTrip": "Round trip",
+  "voiceCheckRoundTripTest": "Run round trip test",
+  "voiceCheckRoundTripResult": "Round trip {ms} ms",
+  "@voiceCheckRoundTripResult": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceCheckRoundTripSlow": "Round trip {ms} ms. That is over the 2 second target.",
+  "@voiceCheckRoundTripSlow": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceCheckPass": "Voice is ready on this phone.",
+  "voiceCheckFail": "Voice will stay in chat on this phone.",
+  "voiceCheckBadge": "Check",
+  "voiceCheckPending": "Not tested yet",
+  "voiceCheckTesting": "Testing",
+  "voiceCheckPassShort": "Pass",
+  "voiceCheckFailShort": "Fail",
+  "voiceCheckNote": "Audio is handled by your phone's speech service and may be sent to its provider. Dry Run does not store it.",
+  "voiceCheckBack": "Back to the drill",
+  "demoBadge": "DEMO",
+  "demoBanner": "Recorded walkthrough. No network is used.",
   "debriefTitle": "Your debrief",
   "debriefQuickLabel": "Quick debrief",
   "debriefFullLabel": "Full debrief",
@@ -266,7 +381,7 @@
       }
     }
   },
-  "aboutChatOnly": "Chat only. Voice is off in this build.",
+  "aboutChatOnly": "Voice is optional and off by default. Chat always works.",
   "aboutBackHome": "Back to start",
   "graphLoading": "Loading the drill map",
   "graphFailed": "The drill map could not be loaded.",

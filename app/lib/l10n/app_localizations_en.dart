@@ -267,6 +267,212 @@ class AppLocalizationsEn extends AppLocalizations {
   String get drillErrorRetry => 'Try sending again';
 
   @override
+  String get voiceUse => 'Use voice';
+
+  @override
+  String get voiceBadge => 'Voice';
+
+  @override
+  String get voiceHelper => 'Optional. Chat stays available.';
+
+  @override
+  String get voiceCheckLink => 'Voice check';
+
+  @override
+  String get voiceDisclosureTitle => 'Use voice for this practice call?';
+
+  @override
+  String get voiceDisclosureBody =>
+      'Your phone\'s speech service turns your voice into text. It may send audio to its provider. Dry Run does not store audio. Text chat always works, and you can end the drill at any time.';
+
+  @override
+  String get voiceDisclosureConfirm => 'Turn on voice';
+
+  @override
+  String get voiceDisclosureCancel => 'Keep chatting';
+
+  @override
+  String get voiceDisclosureTest => 'Test my phone';
+
+  @override
+  String get voiceReady => 'Voice is on. Tap to speak.';
+
+  @override
+  String get voiceSpeak => 'Speak your reply';
+
+  @override
+  String get voiceStop => 'Stop listening';
+
+  @override
+  String get voiceListening => 'Listening. Speak now.';
+
+  @override
+  String get voiceThinking => 'Waiting for the officer.';
+
+  @override
+  String get voiceSpeaking => 'The officer is speaking.';
+
+  @override
+  String get voiceTurnOff => 'Turn off voice';
+
+  @override
+  String get voiceFiller => 'One moment.';
+
+  @override
+  String get voiceProblemPermission =>
+      'Microphone access is off. You can keep typing.';
+
+  @override
+  String get voiceProblemRecognizer =>
+      'Speech recognition is not available on this phone. You can keep typing.';
+
+  @override
+  String get voiceProblemLanguage =>
+      'Hindi speech recognition is not installed on this phone. You can keep typing.';
+
+  @override
+  String get voiceProblemTts =>
+      'The phone voice is not available for this language. You can keep typing.';
+
+  @override
+  String get voiceProblemListen =>
+      'I did not catch that. Try again or type your reply.';
+
+  @override
+  String get voiceProblemReply =>
+      'The reply did not arrive. Keep typing or try voice again.';
+
+  @override
+  String get voiceProblemTimeout =>
+      'Voice took too long. Keep typing or try voice again.';
+
+  @override
+  String get voiceProblemSpeech => 'Voice stopped. Your chat still works.';
+
+  @override
+  String get voiceProblemUnavailable =>
+      'Voice is not ready on this phone. You can keep typing.';
+
+  @override
+  String get voiceRetry => 'Try voice again';
+
+  @override
+  String get voiceKeepTyping => 'Keep typing';
+
+  @override
+  String voiceRoundTrip(int ms) {
+    return 'Reply took $ms ms';
+  }
+
+  @override
+  String get voiceOverBudget =>
+      'This reply took longer than the 2 second target. Chat is still available.';
+
+  @override
+  String get voiceCheckTitle => 'Voice check';
+
+  @override
+  String get voiceCheckIntro =>
+      'Test the microphone, recognition in English and Hindi, and the phone voice. Audio is not recorded.';
+
+  @override
+  String get voiceCheckStart => 'Start voice check';
+
+  @override
+  String get voiceCheckMicrophone => 'Microphone';
+
+  @override
+  String get voiceCheckMicrophoneOn => 'Microphone access is on.';
+
+  @override
+  String get voiceCheckMicrophoneOff =>
+      'Microphone access is off. Allow it in phone settings.';
+
+  @override
+  String get voiceCheckRecognition => 'Speech recognition';
+
+  @override
+  String voiceCheckLanguageTest(String language) {
+    return 'Test $language recognition';
+  }
+
+  @override
+  String voiceCheckHeard(String text) {
+    return 'Heard: $text';
+  }
+
+  @override
+  String get voiceCheckNothingHeard => 'Nothing was heard. Try again.';
+
+  @override
+  String get voiceCheckTts => 'Phone voice';
+
+  @override
+  String voiceCheckTtsTest(String language) {
+    return 'Test $language voice';
+  }
+
+  @override
+  String voiceCheckTtsOn(String language) {
+    return 'The phone can speak $language.';
+  }
+
+  @override
+  String voiceCheckTtsOff(String language) {
+    return 'The phone cannot speak $language.';
+  }
+
+  @override
+  String get voiceCheckRoundTrip => 'Round trip';
+
+  @override
+  String get voiceCheckRoundTripTest => 'Run round trip test';
+
+  @override
+  String voiceCheckRoundTripResult(int ms) {
+    return 'Round trip $ms ms';
+  }
+
+  @override
+  String voiceCheckRoundTripSlow(int ms) {
+    return 'Round trip $ms ms. That is over the 2 second target.';
+  }
+
+  @override
+  String get voiceCheckPass => 'Voice is ready on this phone.';
+
+  @override
+  String get voiceCheckFail => 'Voice will stay in chat on this phone.';
+
+  @override
+  String get voiceCheckBadge => 'Check';
+
+  @override
+  String get voiceCheckPending => 'Not tested yet';
+
+  @override
+  String get voiceCheckTesting => 'Testing';
+
+  @override
+  String get voiceCheckPassShort => 'Pass';
+
+  @override
+  String get voiceCheckFailShort => 'Fail';
+
+  @override
+  String get voiceCheckNote =>
+      'Audio is handled by your phone\'s speech service and may be sent to its provider. Dry Run does not store it.';
+
+  @override
+  String get voiceCheckBack => 'Back to the drill';
+
+  @override
+  String get demoBadge => 'DEMO';
+
+  @override
+  String get demoBanner => 'Recorded walkthrough. No network is used.';
+
+  @override
   String get debriefTitle => 'Your debrief';
 
   @override
@@ -584,7 +790,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get aboutChatOnly => 'Chat only. Voice is off in this build.';
+  String get aboutChatOnly =>
+      'Voice is optional and off by default. Chat always works.';
 
   @override
   String get aboutBackHome => 'Back to start';

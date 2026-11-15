@@ -572,6 +572,360 @@ abstract class AppLocalizations {
   /// **'Try sending again'**
   String get drillErrorRetry;
 
+  /// No description provided for @voiceUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Use voice'**
+  String get voiceUse;
+
+  /// No description provided for @voiceBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice'**
+  String get voiceBadge;
+
+  /// No description provided for @voiceHelper.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. Chat stays available.'**
+  String get voiceHelper;
+
+  /// No description provided for @voiceCheckLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice check'**
+  String get voiceCheckLink;
+
+  /// No description provided for @voiceDisclosureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use voice for this practice call?'**
+  String get voiceDisclosureTitle;
+
+  /// No description provided for @voiceDisclosureBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your phone\'s speech service turns your voice into text. It may send audio to its provider. Dry Run does not store audio. Text chat always works, and you can end the drill at any time.'**
+  String get voiceDisclosureBody;
+
+  /// No description provided for @voiceDisclosureConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on voice'**
+  String get voiceDisclosureConfirm;
+
+  /// No description provided for @voiceDisclosureCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep chatting'**
+  String get voiceDisclosureCancel;
+
+  /// No description provided for @voiceDisclosureTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test my phone'**
+  String get voiceDisclosureTest;
+
+  /// No description provided for @voiceReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice is on. Tap to speak.'**
+  String get voiceReady;
+
+  /// No description provided for @voiceSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak your reply'**
+  String get voiceSpeak;
+
+  /// No description provided for @voiceStop.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop listening'**
+  String get voiceStop;
+
+  /// No description provided for @voiceListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening. Speak now.'**
+  String get voiceListening;
+
+  /// No description provided for @voiceThinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for the officer.'**
+  String get voiceThinking;
+
+  /// No description provided for @voiceSpeaking.
+  ///
+  /// In en, this message translates to:
+  /// **'The officer is speaking.'**
+  String get voiceSpeaking;
+
+  /// No description provided for @voiceTurnOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off voice'**
+  String get voiceTurnOff;
+
+  /// No description provided for @voiceFiller.
+  ///
+  /// In en, this message translates to:
+  /// **'One moment.'**
+  String get voiceFiller;
+
+  /// No description provided for @voiceProblemPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access is off. You can keep typing.'**
+  String get voiceProblemPermission;
+
+  /// No description provided for @voiceProblemRecognizer.
+  ///
+  /// In en, this message translates to:
+  /// **'Speech recognition is not available on this phone. You can keep typing.'**
+  String get voiceProblemRecognizer;
+
+  /// No description provided for @voiceProblemLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Hindi speech recognition is not installed on this phone. You can keep typing.'**
+  String get voiceProblemLanguage;
+
+  /// No description provided for @voiceProblemTts.
+  ///
+  /// In en, this message translates to:
+  /// **'The phone voice is not available for this language. You can keep typing.'**
+  String get voiceProblemTts;
+
+  /// No description provided for @voiceProblemListen.
+  ///
+  /// In en, this message translates to:
+  /// **'I did not catch that. Try again or type your reply.'**
+  String get voiceProblemListen;
+
+  /// No description provided for @voiceProblemReply.
+  ///
+  /// In en, this message translates to:
+  /// **'The reply did not arrive. Keep typing or try voice again.'**
+  String get voiceProblemReply;
+
+  /// No description provided for @voiceProblemTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice took too long. Keep typing or try voice again.'**
+  String get voiceProblemTimeout;
+
+  /// No description provided for @voiceProblemSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice stopped. Your chat still works.'**
+  String get voiceProblemSpeech;
+
+  /// No description provided for @voiceProblemUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice is not ready on this phone. You can keep typing.'**
+  String get voiceProblemUnavailable;
+
+  /// No description provided for @voiceRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Try voice again'**
+  String get voiceRetry;
+
+  /// No description provided for @voiceKeepTyping.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep typing'**
+  String get voiceKeepTyping;
+
+  /// No description provided for @voiceRoundTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Reply took {ms} ms'**
+  String voiceRoundTrip(int ms);
+
+  /// No description provided for @voiceOverBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'This reply took longer than the 2 second target. Chat is still available.'**
+  String get voiceOverBudget;
+
+  /// No description provided for @voiceCheckTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice check'**
+  String get voiceCheckTitle;
+
+  /// No description provided for @voiceCheckIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'Test the microphone, recognition in English and Hindi, and the phone voice. Audio is not recorded.'**
+  String get voiceCheckIntro;
+
+  /// No description provided for @voiceCheckStart.
+  ///
+  /// In en, this message translates to:
+  /// **'Start voice check'**
+  String get voiceCheckStart;
+
+  /// No description provided for @voiceCheckMicrophone.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone'**
+  String get voiceCheckMicrophone;
+
+  /// No description provided for @voiceCheckMicrophoneOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access is on.'**
+  String get voiceCheckMicrophoneOn;
+
+  /// No description provided for @voiceCheckMicrophoneOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access is off. Allow it in phone settings.'**
+  String get voiceCheckMicrophoneOff;
+
+  /// No description provided for @voiceCheckRecognition.
+  ///
+  /// In en, this message translates to:
+  /// **'Speech recognition'**
+  String get voiceCheckRecognition;
+
+  /// No description provided for @voiceCheckLanguageTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test {language} recognition'**
+  String voiceCheckLanguageTest(String language);
+
+  /// No description provided for @voiceCheckHeard.
+  ///
+  /// In en, this message translates to:
+  /// **'Heard: {text}'**
+  String voiceCheckHeard(String text);
+
+  /// No description provided for @voiceCheckNothingHeard.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was heard. Try again.'**
+  String get voiceCheckNothingHeard;
+
+  /// No description provided for @voiceCheckTts.
+  ///
+  /// In en, this message translates to:
+  /// **'Phone voice'**
+  String get voiceCheckTts;
+
+  /// No description provided for @voiceCheckTtsTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test {language} voice'**
+  String voiceCheckTtsTest(String language);
+
+  /// No description provided for @voiceCheckTtsOn.
+  ///
+  /// In en, this message translates to:
+  /// **'The phone can speak {language}.'**
+  String voiceCheckTtsOn(String language);
+
+  /// No description provided for @voiceCheckTtsOff.
+  ///
+  /// In en, this message translates to:
+  /// **'The phone cannot speak {language}.'**
+  String voiceCheckTtsOff(String language);
+
+  /// No description provided for @voiceCheckRoundTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Round trip'**
+  String get voiceCheckRoundTrip;
+
+  /// No description provided for @voiceCheckRoundTripTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Run round trip test'**
+  String get voiceCheckRoundTripTest;
+
+  /// No description provided for @voiceCheckRoundTripResult.
+  ///
+  /// In en, this message translates to:
+  /// **'Round trip {ms} ms'**
+  String voiceCheckRoundTripResult(int ms);
+
+  /// No description provided for @voiceCheckRoundTripSlow.
+  ///
+  /// In en, this message translates to:
+  /// **'Round trip {ms} ms. That is over the 2 second target.'**
+  String voiceCheckRoundTripSlow(int ms);
+
+  /// No description provided for @voiceCheckPass.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice is ready on this phone.'**
+  String get voiceCheckPass;
+
+  /// No description provided for @voiceCheckFail.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice will stay in chat on this phone.'**
+  String get voiceCheckFail;
+
+  /// No description provided for @voiceCheckBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Check'**
+  String get voiceCheckBadge;
+
+  /// No description provided for @voiceCheckPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Not tested yet'**
+  String get voiceCheckPending;
+
+  /// No description provided for @voiceCheckTesting.
+  ///
+  /// In en, this message translates to:
+  /// **'Testing'**
+  String get voiceCheckTesting;
+
+  /// No description provided for @voiceCheckPassShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Pass'**
+  String get voiceCheckPassShort;
+
+  /// No description provided for @voiceCheckFailShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Fail'**
+  String get voiceCheckFailShort;
+
+  /// No description provided for @voiceCheckNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio is handled by your phone\'s speech service and may be sent to its provider. Dry Run does not store it.'**
+  String get voiceCheckNote;
+
+  /// No description provided for @voiceCheckBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the drill'**
+  String get voiceCheckBack;
+
+  /// No description provided for @demoBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'DEMO'**
+  String get demoBadge;
+
+  /// No description provided for @demoBanner.
+  ///
+  /// In en, this message translates to:
+  /// **'Recorded walkthrough. No network is used.'**
+  String get demoBanner;
+
   /// No description provided for @debriefTitle.
   ///
   /// In en, this message translates to:
@@ -1133,7 +1487,7 @@ abstract class AppLocalizations {
   /// No description provided for @aboutChatOnly.
   ///
   /// In en, this message translates to:
-  /// **'Chat only. Voice is off in this build.'**
+  /// **'Voice is optional and off by default. Chat always works.'**
   String get aboutChatOnly;
 
   /// No description provided for @aboutBackHome.
