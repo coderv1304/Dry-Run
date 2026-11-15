@@ -1,6 +1,6 @@
 .PHONY: all test lint ci preflight gate-0 gate-1 gate-2 gate-3 gate-3b gate-4 gate-4b gate-5 \
 	audit backend-audit backend-lint backend-test contract-check drill-check bench \
-	lint-ui design-tokens design-assets goldens pg-check pg-live
+	lint-ui design-tokens design-assets goldens pg-check pg-live web
 
 PYTHON ?= python
 DART ?= dart
@@ -99,14 +99,25 @@ goldens:
 	@echo "Regenerating component and gallery goldens..."
 	@cd app && $(FLUTTER) test --update-goldens
 
+web:
+	@echo "Building the web app with self-hosted engine files and bundled fonts..."
+	@cd app && $(FLUTTER) build web --release --no-web-resources-cdn --base-href /
+	@$(PYTHON) -c "import os; assert os.path.exists('app/build/web/canvaskit/canvaskit.wasm'), 'CanvasKit was not self-hosted'; assert os.path.exists('app/build/web/assets/assets/fonts/Poppins-Regular.ttf'), 'Fonts were not bundled'; assert os.path.exists('app/build/web/_headers'), '_headers was not copied'; print('Web build ready at app/build/web')"
+
 gate-2: lint-ui lint
 	@echo "Running Flutter design system tests and goldens..."
 	@cd app && $(FLUTTER) test
 	@echo "=== Gate 2 Verification PASSED ==="
 
-gate-3:
-	@echo "owned by Prompt 3"
-	@exit 1
+gate-3: lint-ui lint test
+	@echo "Running the full Flutter app suite, including flow and golden tests..."
+	@cd app && $(FLUTTER) analyze
+	@cd app && $(FLUTTER) test
+	@echo "Verifying web hardening files exist..."
+	@$(PYTHON) -c "import os; [os.path.exists('app/web/' + name) or (_ for _ in ()).throw(AssertionError('app/web/' + name + ' missing')) for name in ('_headers', '_redirects', 'manifest.json', 'index.html')]"
+	@echo "Verifying performance notes exist..."
+	@$(PYTHON) -c "import os; assert os.path.exists('docs/PERF.md') and os.path.getsize('docs/PERF.md') > 0, 'docs/PERF.md missing or empty'"
+	@echo "=== Gate 3 Verification PASSED ==="
 
 gate-3b:
 	@echo "owned by Prompt 3b"
