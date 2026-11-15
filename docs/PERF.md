@@ -133,3 +133,57 @@ node tool/measure_web_perf.mjs http://127.0.0.1:8080/ 5
 
 Set `DR_NO_THROTTLE=1` for the unthrottled baseline. Set `CHROME_PATH` if Chrome
 is not at the default Windows path.
+
+## Landing page, gate 4b
+
+The static page in `landing/` is measured on its own, over loopback, with the
+headers file that ships to the host (`landing/_headers`). Lighthouse 12.8.2,
+mobile emulation, cold cache, 390 x 844, 2026-11-15.
+
+| Category | Score |
+| :--- | :--- |
+| Performance | 100 |
+| Accessibility | 100 |
+| Best practices | 100 |
+| SEO | 100 |
+
+| Metric | Measured |
+| :--- | :--- |
+| First contentful paint | 1.4 s |
+| Largest contentful paint | 1.5 s |
+| Total blocking time | 0 ms |
+| Cumulative layout shift | 0.011 |
+| Speed index | 1.4 s |
+| First load transfer | 77 KiB |
+
+- Copy is pre-rendered into the HTML, so the heading, the three steps and the ten
+  questions are readable before any script runs.
+- The page loads three stylesheets, one deferred script and four self hosted
+  WOFF2 faces; the two faces used above the fold are preloaded.
+- No third party request is made. Fonts, icons and the share image come from the
+  same origin, and `landing/_headers` declares `default-src 'self'`.
+- Lighthouse found no failing accessibility audit, so contrast, names, roles and
+  the landmark order all passed at runtime as well as in the token check.
+
+### Width check at 390 px
+
+Measured in Chrome at a 390 px wide viewport: `document.documentElement`
+reported `scrollWidth` 374 and `clientWidth` 374, and no element reached past
+either edge, so the page does not scroll sideways. The 374 figure is the
+viewport minus its scrollbar.
+
+### Tagline reveal check
+
+The words activate on scroll and never rely on animation alone. A headless
+render with a tall window showed all 15 words reach `is-on` through the
+IntersectionObserver, and a render forced into reduced motion showed all 15
+words on at once, with no transition.
+
+### Reproduce
+
+```
+cd landing && python -m http.server 8099 --bind 127.0.0.1
+node "$LIGHTHOUSE/cli/index.js" http://127.0.0.1:8099/index.html \
+  --chrome-flags="--headless=new" \
+  --only-categories=performance,accessibility,best-practices,seo
+```

@@ -177,3 +177,21 @@
 - **Decision:** the six evidence screens are home, consent, drill, debrief, about and report.
 - **Rationale:** they cover the arc a judge walks: the promise, the consent, the call, the debrief, the limits and the family report. Voice readiness is a diagnostic and stays in the release notes.
 - **Date:** 2026-11-15
+
+## D-028: Landing copy is generated into static HTML
+
+- **Decision:** `tool/build_landing.py` renders `landing/index.html`, `privacy.html`, `terms.html` and `404.html` from `landing/content.json`, and `make gate-4b` fails when a page no longer matches the copy source.
+- **Rationale:** the single source of copy rule and a page that works before JavaScript pull in opposite directions. Generating the page keeps one source and still ships real HTML to a crawler or a reader with scripts off.
+- **Date:** 2026-11-15
+
+## D-029: The primary action points at /try on the app origin
+
+- **Decision:** both primary actions link to `/try`, served from the same origin as the landing page.
+- **Rationale:** the drill is one tap from the hero with no redirect and no guessed domain name. If the app ever moves, one value in `content.json` changes.
+- **Date:** 2026-11-15
+
+## D-030: The reveal starts from the tertiary text token
+
+- **Decision:** unrevealed words use `Text/Tertiary` rather than an opacity in the 25 to 35 percent range, and reach `Text/Primary` word by word. Reduced motion shows the final text at once.
+- **Rationale:** opacity that low drops contrast under WCAG AA while the sentence is on screen. The token keeps the muted look and passes the contrast check, so the reveal never relies on unreadable text.
+- **Date:** 2026-11-15
