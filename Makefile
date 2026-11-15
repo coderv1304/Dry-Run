@@ -10,8 +10,7 @@ FLUTTER ?= flutter
 all: gate-0
 
 preflight:
-	@echo "Running environment doctor..."
-	@$(PYTHON) scripts/doctor.py
+	@$(PYTHON) scripts/preflight.py
 
 test:
 	@echo "Running backend skeleton tests..."
