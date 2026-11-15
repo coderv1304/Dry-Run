@@ -1,0 +1,318 @@
+{
+  "@@locale": "en",
+  "appTitle": "Dry Run",
+  "appTagline": "Practice, not protection",
+  "homeTitle": "Practice a digital arrest scam call",
+  "homeTagline": "A calm practice drill, not a real call",
+  "homeIntro": "Learn what a digital arrest scam sounds like. You can stop at any time. This is practice, not protection.",
+  "organizerSectionTitle": "Create an invite",
+  "organizerSectionBody": "Choose a language, then share a plain link with your group.",
+  "languageLabel": "Language",
+  "languageEnglish": "English",
+  "languageHindi": "हिन्दी",
+  "languageHinglish": "Hinglish",
+  "cohortLabel": "Cohort label (optional)",
+  "cohortHint": "e.g. ward-4",
+  "cohortHelper": "Lowercase letters, numbers, and hyphens. Up to 24 characters.",
+  "cohortInvalid": "Use lowercase letters, numbers, and hyphens only.",
+  "createInviteButton": "Create invite link",
+  "creatingInvite": "Creating invite",
+  "inviteCreatedTitle": "Invite ready",
+  "inviteLinkLabel": "Invite link",
+  "inviteLinkHelper": "Anyone with this link can start a practice drill. It expires on {date}.",
+  "@inviteLinkHelper": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "shareInviteButton": "Share link",
+  "copyInviteButton": "Copy link",
+  "inviteShareMessage": "Practise spotting a digital arrest scam with Dry Run: {url}",
+  "@inviteShareMessage": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "openReportSectionTitle": "Open a family report",
+  "openReportSectionBody": "Paste the report link you received.",
+  "reportLinkLabel": "Report link",
+  "reportLinkHint": "Paste a link or report token",
+  "openReportButton": "Open report",
+  "reportLinkInvalid": "That does not look like a report link.",
+  "tryItYourself": "Try it yourself",
+  "tryItYourselfBody": "Start a solo practice call. No invite needed.",
+  "aboutLink": "About and limits",
+  "howItWorksLink": "How it works",
+  "tryTitle": "Try it yourself",
+  "tryBody": "Start a solo practice call. Choose a language.",
+  "tryStartButton": "Start practice call",
+  "tryStarting": "Starting practice call",
+  "joinTitle": "Join a practice call",
+  "joinTokenLabel": "Invite token",
+  "joinTokenHint": "Paste the token from your invite",
+  "joinContinueButton": "Continue",
+  "joinValidating": "Checking invite",
+  "joinInvalid": "This invite is not valid or has expired. Ask for a new link.",
+  "consentTitle": "Before we start",
+  "consentPracticeLine1": "This is a practice call.",
+  "consentPracticeLine2": "Nothing real is needed. Do not share a real OTP, card number, PIN, or account detail.",
+  "consentPracticeLine3": "You can stop at any time.",
+  "consentStatsOptInLabel": "Share anonymous counts",
+  "consentStatsOptInHelp": "Optional. Only aggregate counts, never your words or personal details.",
+  "consentStartButton": "Start practice call",
+  "consentStarting": "Starting",
+  "consentDecline": "Not now",
+  "consentPrivacyNote": "No account, no payment, no history.",
+  "consentInviteMeta": "Invite language: {language}",
+  "@consentInviteMeta": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "drillTitle": "Practice call",
+  "drillBadge": "DRILL",
+  "drillBadgeMessage": "This is a practice drill. No real agency is involved.",
+  "drillEnd": "End drill",
+  "drillEndConfirmTitle": "End this drill?",
+  "drillEndConfirmBody": "You will go straight to your debrief. You can start again later.",
+  "drillEndConfirmButton": "End and see debrief",
+  "drillEndCancelButton": "Keep going",
+  "drillWaiting": "The officer is considering your reply.",
+  "drillWaitingShort": "Waiting",
+  "drillYourTurn": "Your reply",
+  "drillInputHint": "Type what you would say",
+  "drillSend": "Send",
+  "drillSending": "Sending",
+  "drillPiiWarning": "Do not share real OTPs, card numbers, PINs, or account details. This is a practice drill.",
+  "drillOfficer": "Officer",
+  "drillYou": "You",
+  "drillSystem": "Drill",
+  "drillTurnCount": "Turn {current} of {max}",
+  "@drillTurnCount": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "drillEnded": "This drill has ended.",
+  "drillGoToDebrief": "See your debrief",
+  "drillSessionGoneTitle": "Open your link again",
+  "drillSessionGoneBody": "Your session was cleared when the page reloaded. Your invite link is still the way back in.",
+  "drillSessionGoneTry": "Try it yourself instead",
+  "drillErrorRetry": "Try sending again",
+  "debriefTitle": "Your debrief",
+  "debriefQuickLabel": "Quick debrief",
+  "debriefFullLabel": "Full debrief",
+  "debriefRefining": "Putting together the full debrief. The quick version is ready below.",
+  "debriefRefiningShort": "Refining",
+  "debriefPending": "Preparing your debrief",
+  "debriefLowConfidence": "We may have misjudged some moments. Treat this as a guide, not a verdict.",
+  "debriefStatePathTitle": "How the conversation moved",
+  "debriefTimelineTitle": "Moments that mattered",
+  "debriefNoEvents": "No labelled moments were recorded.",
+  "debriefFirstComplianceTitle": "First compliance",
+  "debriefFirstComplianceBody": "This was the first moment where a request was followed.",
+  "debriefDidWellTitle": "What you did well",
+  "debriefHabitTitle": "A habit to practise",
+  "debriefConfidence": "Confidence {percent} percent",
+  "@debriefConfidence": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "debriefQuote": "You said: {quote}",
+  "@debriefQuote": {
+    "placeholders": {
+      "quote": {
+        "type": "String"
+      }
+    }
+  },
+  "debriefQuoteMissing": "No quote was recorded for this moment.",
+  "debriefTurnLabel": "Turn {number}",
+  "@debriefTurnLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "debriefQualityQuick": "Quick",
+  "debriefQualityFull": "Full",
+  "debriefShareButton": "Send report to my family",
+  "debriefShareDialogTitle": "Share this report?",
+  "debriefShareDialogBody": "A link will be created. Anyone with the link can read this debrief until it expires.",
+  "debriefShareConfirm": "Create link and share",
+  "debriefShareCancel": "Cancel",
+  "debriefSharing": "Creating link",
+  "debriefShareFailed": "The report could not be shared. Try again.",
+  "debriefDeleteButton": "Delete my session",
+  "debriefDeleteDialogTitle": "Delete this session?",
+  "debriefDeleteDialogBody": "This permanently deletes the drill, transcript, and debrief. A shared report link stops working. This cannot be undone.",
+  "debriefDeleteConfirm": "Delete session",
+  "debriefDeleteCancel": "Keep session",
+  "debriefDeleting": "Deleting",
+  "debriefDeletedTitle": "Session deleted",
+  "debriefDeletedBody": "The transcript and debrief are gone. The report link no longer works.",
+  "debriefBackHome": "Back to start",
+  "debriefRetry": "Try again",
+  "habitHangUpTitle": "Hang up",
+  "habitHangUpBody": "End the call, then check the number through an official channel.",
+  "habitCallBackTitle": "Call back on an official number",
+  "habitCallBackBody": "Use the number on your bank card or the official website, never a number from the caller.",
+  "habitTellFamilyTitle": "Tell someone you trust",
+  "habitTellFamilyBody": "Say it out loud to a family member before you do anything.",
+  "didWellRefusedPrivateCall": "You did not keep the call private just because you were asked.",
+  "didWellAskedBadgeNumber": "You asked for a badge number or identity check.",
+  "didWellRecognizedUrgencyTactic": "You noticed the urgency and did not rush.",
+  "didWellRefusedMoneyTransfer": "You did not send money.",
+  "didWellToldFamily": "You involved someone you trust.",
+  "didWellGeneric": "You stayed in the practice and finished the drill.",
+  "stageContact": "Contact",
+  "stageAccusation": "Accusation",
+  "stageIsolation": "Isolation",
+  "stageUrgency": "Urgency",
+  "stageTransfer": "Transfer",
+  "labelP1": "Stayed in the call",
+  "labelP2": "Asked for identity",
+  "labelP3": "Shared a detail",
+  "labelP4": "Noticed the pressure",
+  "labelC1": "Followed a request",
+  "labelC2": "Followed a request",
+  "labelC3": "Followed a request",
+  "labelC4": "Sent money",
+  "labelUnknown": "Moment",
+  "reportTitle": "Shared debrief",
+  "reportIntro": "This debrief was shared by the participant.",
+  "reportSharedAt": "Shared {date}",
+  "@reportSharedAt": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "reportLoading": "Loading the shared debrief",
+  "reportGoneTitle": "This report is not available",
+  "reportGoneBody": "The participant may have deleted the session, or the link has expired.",
+  "reportOpenAgain": "Open the report link again",
+  "reportBackHome": "Back to start",
+  "aboutTitle": "About and limits",
+  "aboutWhatTitle": "What Dry Run is",
+  "aboutWhatBody": "A short practice drill for spotting a digital arrest scam call. The officer is scripted.",
+  "aboutNotTitle": "What it is not",
+  "aboutNotBody": "It is not a real agency, not a test of you, and not protection from fraud.",
+  "aboutStorageTitle": "What is stored",
+  "aboutStorageBody": "The drill transcript and debrief are kept for up to {days} days, then deleted.",
+  "@aboutStorageBody": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutDeletionTitle": "Deletion",
+  "aboutDeletionBody": "You can delete the session and debrief from the debrief screen at any time.",
+  "aboutAnalyticsTitle": "No tracking",
+  "aboutAnalyticsBody": "There is no analytics or advertising tracking. Anonymous counts are optional and off by default.",
+  "aboutPracticeTitle": "Practice, not protection",
+  "aboutPracticeBody": "This drill cannot stop a real scam. If a real call feels wrong, hang up and use an official number.",
+  "aboutHowItWorksTitle": "How it works",
+  "aboutHowItWorksBody": "The drill follows five scam stages. The officer adapts a little to your replies.",
+  "aboutLimitsTitle": "Session limits",
+  "aboutLimitsLoading": "Loading limits",
+  "aboutLimitsFailed": "Limits could not be loaded.",
+  "aboutMaxTurns": "Up to {count} turns",
+  "@aboutMaxTurns": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutMaxDuration": "Up to {minutes} minutes",
+  "@aboutMaxDuration": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutIdleTimeout": "Idle timeout {minutes} minutes",
+  "@aboutIdleTimeout": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutRetention": "Retention {days} days",
+  "@aboutRetention": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "aboutChatOnly": "Chat only. Voice is off in this build.",
+  "aboutBackHome": "Back to start",
+  "graphLoading": "Loading the drill map",
+  "graphFailed": "The drill map could not be loaded.",
+  "graphStage": "Stage {number}: {name}",
+  "@graphStage": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "errorTitle": "Something went wrong",
+  "errorNetwork": "Check your connection and try again.",
+  "errorServer": "The server had a problem. Try again in a moment.",
+  "errorUnauthorized": "Your session has ended. Open your link again.",
+  "errorTurnMismatch": "The conversation went out of sync. Try sending again.",
+  "errorRateLimited": "Too many requests. Wait a moment, then try again.",
+  "errorSessionLimit": "This invite has reached its session limit.",
+  "errorConsent": "Consent is needed before starting.",
+  "errorUnknown": "An unexpected problem occurred.",
+  "retry": "Try again",
+  "cancel": "Cancel",
+  "close": "Close",
+  "copyLink": "Copy link",
+  "linkCopied": "Link copied",
+  "shareUnavailable": "Sharing is not available here. The link was copied instead.",
+  "shareReportMessage": "Dry Run practice debrief: {url}",
+  "@shareReportMessage": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "reportShareSubject": "Dry Run practice debrief",
+  "a11ySend": "Send reply",
+  "a11yEnd": "End practice drill",
+  "a11yShare": "Share the report",
+  "a11yDelete": "Delete the session",
+  "a11yBack": "Go back",
+  "a11yDrillBadge": "Practice drill badge",
+  "a11yLoading": "Loading",
+  "a11yInviteLink": "Invite link",
+  "a11yReportLink": "Report link",
+  "a11yLanguageSelector": "Choose a language"
+}

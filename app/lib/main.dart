@@ -1,24 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'design/design_gallery.dart';
-import 'design/dr_theme.dart';
+import 'app.dart';
+import 'core/initial_link.dart';
+import 'core/initial_link_platform.dart';
+import 'core/url_strategy.dart';
+import 'routing/app_router.dart';
+import 'state/token_store.dart';
 
-void main() {
-  runApp(const DryRunApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureUrlStrategy();
+  final InitialLink link = takeInitialLink();
+  runApp(
+    ProviderScope(
+      overrides: <Override>[
+        initialTokensProvider.overrideWithValue(
+          InitialTokens(
+            inviteToken: link.inviteToken,
+            reportToken: link.reportToken,
+          ),
+        ),
+      ],
+      child: const _Bootstrap(),
+    ),
+  );
 }
 
-class DryRunApp extends StatelessWidget {
-  const DryRunApp({super.key});
+/// Reads the router once so a token change never rebuilds navigation.
+class _Bootstrap extends ConsumerWidget {
+  const _Bootstrap();
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Dry Run',
-      debugShowCheckedModeBanner: false,
-      theme: drThemeData(brightness: Brightness.light),
-      darkTheme: drThemeData(brightness: Brightness.dark),
-      themeMode: ThemeMode.system,
-      home: const DesignGallery(),
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
+    return DryRunApp(routerConfig: router);
   }
 }
