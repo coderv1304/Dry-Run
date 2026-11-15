@@ -1,64 +1,57 @@
-// Dry Run landing page. Copy comes from content.json; strings are never built by hand.
+/* Dry Run landing behaviour: the tagline reveal, and nothing else.
+   Words reach full colour one at a time as they enter the viewport.
+   With reduced motion, or without IntersectionObserver, the copy is static. */
 
-document.addEventListener('DOMContentLoaded', function () {
-  fetch('content.json')
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (content) {
-      document.getElementById('disclaimer-banner').textContent = content.disclaimer;
-      document.getElementById('hero-headline').textContent = content.hero.headline;
-      document.getElementById('hero-subheadline').textContent = content.hero.subheadline;
-      document.getElementById('btn-try').textContent = content.hero.cta_try;
-      document.getElementById('btn-invite').textContent = content.hero.cta_invite;
+(function () {
+  'use strict';
 
-      document.getElementById('how-headline').textContent = content.how_it_works.headline;
-      var steps = document.getElementById('how-steps');
-      content.how_it_works.steps.forEach(function (step) {
-        var item = document.createElement('li');
-        item.className = 'list-item';
+  var tagline = document.querySelector('.tagline');
+  if (!tagline) {
+    return;
+  }
 
-        var title = document.createElement('h3');
-        title.className = 'title-3 list-title';
+  var words = Array.prototype.slice.call(tagline.querySelectorAll('.word'));
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-        var number = document.createElement('span');
-        number.className = 'step-number caption-1';
-        number.textContent = step.number + '.';
-        title.appendChild(number);
-        title.appendChild(document.createTextNode(step.title));
-
-        var detail = document.createElement('p');
-        detail.className = 'body-6 list-detail';
-        detail.textContent = step.description;
-
-        item.appendChild(title);
-        item.appendChild(detail);
-        steps.appendChild(item);
-      });
-
-      document.getElementById('habits-headline').textContent = content.habits.headline;
-      var habits = document.getElementById('habits-items');
-      content.habits.items.forEach(function (habit) {
-        var item = document.createElement('li');
-        item.className = 'list-item';
-
-        var title = document.createElement('h3');
-        title.className = 'title-3 list-title';
-        title.textContent = habit.title;
-
-        var detail = document.createElement('p');
-        detail.className = 'body-6 list-detail';
-        detail.textContent = habit.description;
-
-        item.appendChild(title);
-        item.appendChild(detail);
-        habits.appendChild(item);
-      });
-
-      document.getElementById('footer-notice').textContent = content.footer.notice;
-    })
-    .catch(function () {
-      var banner = document.getElementById('disclaimer-banner');
-      banner.textContent = 'Copy could not load. Reload the page to try again.';
+  function showEverything() {
+    tagline.classList.remove('reveal-armed');
+    words.forEach(function (word) {
+      word.classList.add('is-on');
     });
-});
+  }
+
+  if (!words.length) {
+    return;
+  }
+
+  if (reduced.matches || !('IntersectionObserver' in window)) {
+    showEverything();
+    return;
+  }
+
+  tagline.classList.add('reveal-armed');
+
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        entry.target.classList.add('is-on');
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -30% 0px', threshold: 0 }
+  );
+
+  words.forEach(function (word) {
+    observer.observe(word);
+  });
+
+  reduced.addEventListener('change', function (event) {
+    if (event.matches) {
+      observer.disconnect();
+      showEverything();
+    }
+  });
+})();

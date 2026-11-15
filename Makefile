@@ -166,9 +166,16 @@ gate-4: lint-ui lint
 	@$(PYTHON) -c "import os; [os.path.exists('docs/' + name) or (_ for _ in ()).throw(AssertionError('docs/' + name + ' missing')) for name in ('CHECKLIST_4.md', 'design/DESIGN_DECISIONS.md')]"
 	@echo "=== Gate 4 Verification PASSED ==="
 
-gate-4b:
-	@echo "owned by Prompt 4b"
-	@exit 1
+gate-4b: lint-ui
+	@echo "Checking landing pages are built from content.json..."
+	@$(PYTHON) tool/build_landing.py --check
+	@echo "Checking landing structure, copy, assets and headers..."
+	@$(PYTHON) tool/check_landing.py
+	@echo "Checking the branded share image..."
+	@$(PYTHON) tool/make_og_image.py --check
+	@echo "Checking the Lighthouse and overflow record..."
+	@$(PYTHON) -c "import pathlib; text = pathlib.Path('docs/PERF.md').read_text(encoding='utf-8'); assert 'Lighthouse' in text, 'Lighthouse record missing from docs/PERF.md'; assert '390' in text, '390 px overflow record missing from docs/PERF.md'; print('Lighthouse and 390 px records present in docs/PERF.md')"
+	@echo "=== Gate 4b Verification PASSED ==="
 
 gate-5:
 	@echo "owned by Prompt 5"

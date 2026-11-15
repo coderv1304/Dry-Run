@@ -1,53 +1,230 @@
 {
-  "title": "Dry Run, practice drill for digital arrest scam calls",
-  "disclaimer": "This is practice, not protection. It does not measure your risk or prevent fraud.",
-  "hero": {
-    "headline": "Practice before you get the call",
-    "subheadline": "A kind and realistic drill for digital arrest scam calls. Hear the intimidation in a safe space, then keep the one habit that helps.",
-    "cta_try": "Try the drill yourself",
-    "cta_invite": "Send an invite to a family member"
+  "site": {
+    "name": "Dry Run",
+    "lang": "en",
+    "title": "Dry Run: practise a digital arrest scam call",
+    "description": "A 90 second practice drill for digital arrest scam calls. A fictional officer calls, you answer in chat, then a kind debrief shows the one habit to keep.",
+    "og_title": "Dry Run: practise a digital arrest scam call",
+    "og_description": "A 90 second practice drill for digital arrest scam calls. Practice, not protection.",
+    "og_image": "og-image.png",
+    "app_try_href": "/try",
+    "skip_link": "Skip to content"
   },
-  "how_it_works": {
-    "headline": "How Dry Run works",
-    "steps": [
-      {
-        "number": 1,
-        "title": "Send a private link",
-        "description": "An organizer creates a private invite link for one family member."
-      },
-      {
-        "number": 2,
-        "title": "Take the drill call",
-        "description": "The participant takes a simulated call from a fictional officer of a fictional agency."
-      },
-      {
-        "number": 3,
-        "title": "Read the kind debrief",
-        "description": "The debrief shows where compliance happened and reinforces the safe habit to keep."
-      }
+  "nav": {
+    "label": "Main",
+    "links": [
+      { "label": "How it works", "href": "#how-it-works" },
+      { "label": "FAQ", "href": "#faq" }
     ]
   },
-  "habits": {
-    "headline": "Three safety habits",
+  "hero": {
+    "headline_lines": ["Rehearse the call", "before it finds you"],
+    "subheadline": "A 90 second practice drill for digital arrest scam calls. A fictional officer calls, you answer in chat, then a kind debrief shows the one habit to keep.",
+    "primary_cta": "Try a 90 second drill",
+    "secondary_cta": "How it works"
+  },
+  "notice": {
+    "badge": "DRILL",
+    "text": "This is a practice drill. The officer and the agency are fictional, and nothing here is a real call."
+  },
+  "tagline": {
+    "aria_label": "What the drill is for",
+    "lines": [
+      "A scam call is built to rush you",
+      "Rehearsal is how you slow it down"
+    ]
+  },
+  "benefits": {
+    "title": "What one drill leaves you with",
+    "lead": "Four things you meet in the order the drill gives them.",
     "items": [
       {
-        "id": "hang_up",
-        "title": "Hang up immediately",
-        "description": "Real officers never hold court or threaten arrest over a video call."
+        "title": "Hear the pressure in a safe place",
+        "body": "The officer pushes for secrecy and urgency on purpose. You feel the shape of the call without any of the risk."
       },
       {
-        "id": "call_back_official",
-        "title": "Verify through official channels",
-        "description": "Call the national cybercrime helpline 1930 or walk into a police station."
+        "title": "See the moment you complied",
+        "body": "The debrief marks the first request you followed, with the words you actually used."
       },
       {
-        "id": "tell_family",
-        "title": "Talk to family",
-        "description": "Scammers demand secrecy. Breaking the isolation immediately breaks the scam."
+        "title": "Leave with one habit",
+        "body": "Every drill closes on a single habit, such as hanging up and calling the number on your card."
+      },
+      {
+        "title": "Bring a family member",
+        "body": "Create a private link for one person and take the same drill together."
       }
     ]
   },
+  "how": {
+    "title": "How it works",
+    "steps": [
+      {
+        "title": "Open the drill",
+        "body": "Choose a language and tap Try a 90 second drill. There is no account, no payment and no microphone needed."
+      },
+      {
+        "title": "Answer the call in chat",
+        "body": "A fictional officer of a fictional agency asks for secrecy, then for money. Type what you would really say."
+      },
+      {
+        "title": "Read the debrief",
+        "body": "The debrief shows the moments that mattered, the first request you followed, and the one habit to practise."
+      }
+    ]
+  },
+  "truth": {
+    "title": "What this is and is not",
+    "is_title": "What it is",
+    "is": [
+      "A practice drill for spotting a digital arrest scam call",
+      "A short, kind debrief written from the rules of the drill, not from a guess",
+      "Free, with no account, no payment and no microphone needed"
+    ],
+    "is_not_title": "What it is not",
+    "is_not": [
+      "Not protection from fraud, and not a measure of your risk",
+      "Not a test of you. There is no pass and no fail",
+      "Not official advice from any agency, bank or telecom"
+    ]
+  },
+  "risk": {
+    "title": "Nothing real is needed",
+    "items": [
+      {
+        "title": "No real details",
+        "body": "Never share an OTP, card number, PIN or account detail. The drill warns you when a message looks like personal data."
+      },
+      {
+        "title": "Stop any time",
+        "body": "End drill stays on screen for the whole call, and chat stays available if the microphone is not."
+      },
+      {
+        "title": "Delete when you like",
+        "body": "Delete the transcript and the debrief from the debrief screen. Anything left is removed after seven days."
+      }
+    ]
+  },
+  "faq": {
+    "title": "Questions people ask",
+    "items": [
+      {
+        "question": "What is a digital arrest scam?",
+        "answer": "Someone claims to be from the police, the CBI, the ED or customs and says you are under digital arrest. No agency asks you to stay on a video call or to move money to prove your innocence."
+      },
+      {
+        "question": "Is any of this real?",
+        "answer": "No. The officer, the agency and the case are fictional. The drill exists so you can hear the pressure once without any risk."
+      },
+      {
+        "question": "Do I need to give a phone number or an email address?",
+        "answer": "No. There is no account. A drill needs only the link you opened, and the browser tab can be closed at any time."
+      },
+      {
+        "question": "What does the drill keep?",
+        "answer": "Your messages and the debrief, so the debrief can be shown back to you. Anything left is removed after seven days, and you can delete the session from the debrief screen."
+      },
+      {
+        "question": "Will this stop a scammer?",
+        "answer": "No. Practice is not protection. It may help you notice the pressure sooner and reach the habit that ends the call."
+      },
+      {
+        "question": "Is it free?",
+        "answer": "Yes. There is no price, no plan and nothing to buy."
+      },
+      {
+        "question": "Does it work on my phone?",
+        "answer": "Yes. The drill runs in a browser and in the Android app. If the microphone is unavailable, the chat still works."
+      },
+      {
+        "question": "What if I type something real, like an OTP?",
+        "answer": "The drill flags messages that look like personal data and reminds you not to share them. In a real call, never share an OTP, a card number, a PIN or an account detail."
+      },
+      {
+        "question": "Can I take the drill with my family?",
+        "answer": "Yes. Create a private link and send it to one person. The link expires on the date shown when you create it, and the debrief can be shared with a report link."
+      },
+      {
+        "question": "Who made this?",
+        "answer": "Dry Run is a small practice project. It is not run by any agency, bank or telecom."
+      }
+    ]
+  },
+  "final": {
+    "title": "Start with one short drill",
+    "body": "Ninety seconds, one fictional officer, and one habit to keep.",
+    "cta": "Try a 90 second drill"
+  },
   "footer": {
-    "notice": "Dry Run is an educational practice drill. It does not certify safety or guarantee that fraud is prevented."
+    "notice": "Dry Run is a practice drill. It is not protection from fraud and it does not certify safety.",
+    "privacy_link": "Privacy",
+    "terms_link": "Terms",
+    "tagline": "Practice, not protection."
+  },
+  "privacy": {
+    "title": "Privacy",
+    "updated": "Last updated 15 November 2026",
+    "sections": [
+      {
+        "heading": "What the drill keeps",
+        "body": "The drill keeps your messages and the debrief so it can show them back to you. A session is deleted automatically after seven days."
+      },
+      {
+        "heading": "What it never asks for",
+        "body": "There is no account, no email address and no phone number. The drill never asks for an OTP, a card number, a PIN or an account detail, and it warns you if a message looks like one."
+      },
+      {
+        "heading": "Who can read a session",
+        "body": "Only someone holding the session link or the report link can read it. A report link stops working when it expires, and you can delete the session at any time."
+      },
+      {
+        "heading": "What a family member sees",
+        "body": "When you create a report link, that person sees the debrief and the transcript. Nothing else is shared."
+      },
+      {
+        "heading": "What is not collected",
+        "body": "There are no analytics, no advertising trackers and no third party scripts on this page or in the drill."
+      },
+      {
+        "heading": "If something looks wrong",
+        "body": "Delete the session from the debrief screen and stop using the page. The drill is optional at every step."
+      }
+    ]
+  },
+  "terms": {
+    "title": "Terms",
+    "updated": "Last updated 15 November 2026",
+    "sections": [
+      {
+        "heading": "What Dry Run is",
+        "body": "A free practice drill for digital arrest scam calls. The officer, the agency and the case in every drill are fictional."
+      },
+      {
+        "heading": "What it is not",
+        "body": "It is not legal, financial or security advice, and it is not a substitute for official guidance from a bank, a police service or a government helpline."
+      },
+      {
+        "heading": "No guarantee",
+        "body": "Practising a call does not prevent fraud. Use the drill as one small rehearsal, not as a promise of safety."
+      },
+      {
+        "heading": "Your session",
+        "body": "You can delete your session and its debrief at any time. Sessions are removed automatically after seven days."
+      },
+      {
+        "heading": "Fair use",
+        "body": "Use the drill for yourself and your family. Do not use it to impersonate an agency or to help anyone defraud."
+      },
+      {
+        "heading": "Changes",
+        "body": "If these terms change, the date at the top of this page changes with them."
+      }
+    ]
+  },
+  "not_found": {
+    "title": "That page is not here",
+    "body": "The link may be old, or the address may have a typo. The drill is one tap from the start.",
+    "cta": "Go to the start",
+    "href": "index.html"
   }
 }
