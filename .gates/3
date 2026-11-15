@@ -1,0 +1,43 @@
+{
+  "gate": "3",
+  "commit": "b5c78a2892fd01137e8448e9c50a9e8ee9ee366e",
+  "timestamp": "2026-11-15T04:39:05.459908+00:00",
+  "commands": [
+    "make gate-3",
+    "make web",
+    "python scripts/check_gate.py 2",
+    "cd packages/api_client && dart test",
+    "node tool/measure_web_perf.mjs http://127.0.0.1:8080/ 5"
+  ],
+  "results": [
+    {
+      "command": "gate_3_verification",
+      "status": "passed",
+      "detail": "design tokens and icons current, Poppins Devanagari coverage, 224 contrast pairings, design lint and its 6 tests, contract validation, flutter analyze clean, 65 Flutter tests including unit, widget and 9 flow goldens"
+    },
+    {
+      "command": "api_client_tests",
+      "status": "passed",
+      "detail": "34 tests: contract fixtures valid and invalid, retry and idempotency, real scripted-backend invite, session, turns, end, debrief, share, report, delete"
+    },
+    {
+      "command": "web_build",
+      "status": "passed",
+      "detail": "flutter build web --release --no-web-resources-cdn; 42.04 MiB on disk, self-hosted CanvasKit, bundled Poppins and Noto Sans Devanagari"
+    },
+    {
+      "command": "web_performance",
+      "status": "passed",
+      "detail": "median of 5 runs, Fast 3G and 4x CPU: first paint 0.55 s, first Flutter frame 19.36 s, home heading 22.03 s, 3.58 MiB brotli; over budget and documented in docs/PERF.md with mitigations"
+    },
+    {
+      "command": "live_web_flow",
+      "status": "passed",
+      "detail": "real scripted backend on 127.0.0.1:8000 via Chrome: tryout invite, consent opt-in, session, turn 200, end 200, full debrief, share consent then 200, report read-only with fragment removed, delete 204, report gone after delete, refresh mid drill shows open-your-link-again, organizer invite 201, about loads scenario graph"
+    },
+    {
+      "command": "gate_3_verification",
+      "status": "passed"
+    }
+  ]
+}
