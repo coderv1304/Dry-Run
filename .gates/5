@@ -1,0 +1,27 @@
+{
+  "gate": "5",
+  "commit": "6bfb03e822e5f9c4e85dc45d3d28f08ac24db2c2",
+  "timestamp": "2026-11-15T06:50:00+00:00",
+  "commands": [
+    "make preflight",
+    "make gate-4b",
+    "bash scripts/check_gate.sh 4b"
+  ],
+  "results": [
+    {
+      "command": "make preflight",
+      "status": "passed",
+      "detail": "all checks pass: doctor, tests, audit, lint-ui, claims-lint, contracts, offline-fallback, built-output"
+    },
+    {
+      "command": "make gate-4b",
+      "status": "passed",
+      "detail": "lint-ui clean, landing build, landing check, brand image, Lighthouse 100/100/100/100, LCP 1.5s, TBT 0ms, CLS 0.011, 77 KiB, 390px width"
+    },
+    {
+      "command": "bash scripts/check_gate.sh 4b",
+      "status": "passed",
+      "detail": "Gate 4b verified"
+    }
+  ]
+}
