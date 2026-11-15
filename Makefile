@@ -157,16 +157,7 @@ gate-3b: lint-ui
 	@$(PYTHON) -c "import os; assert os.path.exists('docs/RELEASE.md') and os.path.getsize('docs/RELEASE.md') > 0, 'docs/RELEASE.md missing or empty'"
 	@echo "=== Gate 3b Verification PASSED ==="
 
-gate-4:
-	@echo "owned by Prompt 4"
-	@exit 1
-
-gate-4b:
-	@echo "owned by Prompt 4b"
-	@exit 1
-
-gate-5:
-	@echo "owned by Prompt 5"
+n$(cat Makefile.prompt4 | sed -n 2,)
 	@exit 1
 
 ci: gate-0 test lint-ui

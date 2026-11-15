@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Release network policy: no cleartext traffic at all. The app talks to the
+  Dry Run API over HTTPS. Debug builds replace this file with a policy that
+  permits only the local development hosts.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

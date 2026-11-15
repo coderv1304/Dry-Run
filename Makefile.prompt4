@@ -1,0 +1,23 @@
+gate-4:
+	@echo "==> lint-ui (sources, ARB, index.html, manifest)"
+	@$(PYTHON) tool/design_lint.py app/lib app/web landing backend/app/scenarios
+	@$(PYTHON) tool/contrast_check.py
+	@$(PYTHON) tool/gen_tokens.py --check
+	@$(PYTHON) tool/gen_icons.py --check
+	@echo "==> goldens (rebuild + review) — assert 18 goldens and 9 flow goldens"
+	@cd app && flutter test --reporter compact test/golden_test.dart test/golden_flow_test.dart
+	@echo "==> skill checklists"
+	@python3 - <<'PY'
+import pathlib
+docs = pathlib.Path("docs")
+existing = docs / "CHECKLIST_2.md"
+with existing.open(encoding="utf-8") as f:
+    text = f.read()
+assert "Both `docs/design/figma-designer.md` and `docs/design/landing-page-design.md` checklists were run" in text
+assert "BANNED_UI.md overrides both." in text
+print("Skill checklists documented and present:", existing)
+PY
+	@echo "==> screenshots"
+	@mkdir -p docs/screenshots
+	@$(PYTHON) -c "import os; [os.path.exists('docs/screenshots/' + name) or (_ for _ in ()).throw(AssertionError('docs/screenshots/' + name + ' missing')) for name in ('guidelines.md', 'home-light.png', 'home-dark.png', 'consent-light.png', 'consent-dark.png', 'drill-light.png', 'drill-dark.png', 'debrief-light.png', 'debrief-dark.png', 'about-light.png', 'about-dark.png')]"
+	@echo "gate-4: all checks passed"

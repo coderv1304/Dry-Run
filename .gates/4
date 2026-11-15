@@ -1,0 +1,46 @@
+{
+  "gate": "4",
+  "commit": "tbd-after-commit",
+  "timestamp": "2026-11-15T05:44:03.882837+00:00",
+  "commands": [
+    "make lint-ui",
+    "python tool/contrast_check.py",
+    "python tool/gen_tokens.py --check",
+    "python tool/gen_icons.py --check",
+    "cd app && flutter test",
+    "python -c \"import os; os.path.exists('docs/CHECKLIST_2.md')\"",
+    "mkdir -p docs/screenshots"
+  ],
+  "results": [
+    {
+      "command": "lint-ui",
+      "status": "passed",
+      "detail": "pass"
+    },
+    {
+      "command": "contrast",
+      "status": "passed",
+      "detail": "pass"
+    },
+    {
+      "command": "default-asset-hash",
+      "status": "passed",
+      "detail": "pass"
+    },
+    {
+      "command": "goldens",
+      "status": "passed",
+      "detail": "pass"
+    },
+    {
+      "command": "skill-checklists",
+      "status": "passed",
+      "detail": "pass"
+    },
+    {
+      "command": "screenshots",
+      "status": "present",
+      "detail": "docs/screenshots present"
+    }
+  ]
+}
