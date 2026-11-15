@@ -10,9 +10,9 @@ Per Standing Rule 3 (CLAUDE.md), no TODOs, stubs, `pass` bodies, fake data, or c
 | `0` | `gate-0` | Prompt 0 | Scaffolding, contracts, gates, docs, doctor, skeleton tests | PASSED |
 | `1` | `gate-1` | Prompt 1 | Pure engine state machine, deterministic rules, replay without LLM | PASSED |
 | `2` | `gate-2` | Prompt 2 | Design system: tokens, generated code, component library, contrast and design lint | PASSED |
-| `3` | `gate-3` | Prompt 3 | LLM provider adapters, fallback lines, daily budget enforcement | Owned by Prompt 3 |
-| `3b` | `gate-3b` | Prompt 3b | Debrief scoring engine, quote extraction, rule vs LLM agreement | Owned by Prompt 3b |
-| `4` | `gate-4` | Prompt 4 | Flutter app (Android + Web), pure Dart API client, UI flows | Owned by Prompt 4 |
+| `3` | `gate-3` | Prompt 3 | LLM provider adapters, fallback lines, daily budget enforcement | PASSED |
+| `3b` | `gate-3b` | Prompt 3b | Debrief scoring engine, quote extraction, rule vs LLM agreement | PASSED |
+| `4` | `gate-4` | Prompt 4 | Flutter app (Android + Web), pure Dart API client, UI flows, polish and evidence screenshots | PASSED |
 | `4b` | `gate-4b` | Prompt 4b | Voice input/output integration, OS share sheet, Web SPA token cleanup | Owned by Prompt 4b |
 | `5` | `gate-5` | Prompt 5 | Landing page, self-serve drill runner, end-to-end integration | Owned by Prompt 5 |
 

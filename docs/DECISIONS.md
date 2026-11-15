@@ -141,3 +141,39 @@
 - **Decision:** `app/web/manifest.json` repeats `#181818` for theme and background colours.
 - **Rationale:** the web manifest format cannot reference CSS custom properties. Everything visible in the page uses generated tokens; this is the only duplication and it is recorded here.
 - **Date:** 2026-11-14
+## D-022: The debrief reveal is one controller with a 50 ms overlap
+
+- **Decision:** `DrRevealGroup` owns a single controller. Each item runs a 500 ms interval on `DrMotion.curve` and starts 50 ms after the previous one, so nothing animates for less than the 200 ms floor while the group still reads as a sequence.
+- **Rationale:** per item timers would leave frames and tests unsettled; one controller keeps the reveal deterministic, and only opacity and transform are animated so the layout never moves.
+- **Deviation:** the 50 ms is an offset between items, not a transition time. Recorded here because it is below the motion floor by design.
+- **Date:** 2026-11-15
+
+## D-023: The call waveform is still, not streaming
+
+- **Decision:** `DrCallStatus` draws a fixed bar pattern per state (ringing, answering, live). Nothing pulses, and every state keeps the same height.
+- **Rationale:** a pulsing waveform would imply a live microphone we do not have, would cost frames on a low end phone, and would make every golden and screenshot flaky. The state label, the amplitude and the colour carry the change instead.
+- **Date:** 2026-11-15
+
+## D-024: Screenshots are generated goldens, not hand captures
+
+- **Decision:** `app/test/screenshots_test.dart` renders home, consent, drill, debrief, about and report at 390 wide in both modes and writes `docs/screenshots/<screen>-<mode>.png`; `tool/check_screenshots.py` proves twelve real 390x844 PNGs exist and that light and dark differ.
+- **Rationale:** the evidence cannot drift from the product. A hand capture would be stale after the first copy change, and the gate would pass on an old picture.
+- **Date:** 2026-11-15
+
+## D-025: The drill page scrolls at large text scales
+
+- **Decision:** above roughly 135 percent text scale the drill body becomes one scrollable column with the chat rendered inline; below it the chat keeps its own list. The drill header stacks End drill under the title when the width or the text scale cannot hold both.
+- **Rationale:** Hindi at 200 percent on a 390 wide phone made the fixed header plus composer taller than the screen, which clipped content. Scrolling is the honest fix and keeps the practice badge at the top of the page.
+- **Date:** 2026-11-15
+
+## D-026: Android haptics cover four moments
+
+- **Decision:** `DrHaptics` fires a selection click on send, a medium impact when an officer line arrives, a heavy impact when the drill ends, and a medium impact when the debrief is ready. It no ops off Android.
+- **Rationale:** four physical cues are enough to make the drill feel answered; more would be noise, and the iOS and web builds are not reviewed targets.
+- **Date:** 2026-11-15
+
+## D-027: Gate 4 evidence screens cover the whole arc
+
+- **Decision:** the six evidence screens are home, consent, drill, debrief, about and report.
+- **Rationale:** they cover the arc a judge walks: the promise, the consent, the call, the debrief, the limits and the family report. Voice readiness is a diagnostic and stays in the release notes.
+- **Date:** 2026-11-15

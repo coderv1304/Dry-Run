@@ -96,3 +96,9 @@ Tasks that require human credentials, physical hardware, or manual account confi
 - [ ] **Visual pass of the landing page** at 390, 768 and 1440 px, checking no horizontal overflow and that the primary action sits in the first screen.
 - [ ] **Review the design gallery** on a phone and on desktop (`flutter run` opens it): it is the visual spec for every token and state.
 - [ ] **CI golden image**: goldens were generated on Windows and are compared on `windows-latest`. If CI moves to another OS, run `make goldens` on that image and commit the result.
+
+## Gate 4
+
+- Review `docs/screenshots/` on a real phone in both modes; the committed set was rasterised on Windows.
+- Confirm the four haptics moments feel right on an Android device: send, officer reply, end of drill, debrief ready.
+- Walk the drill once with system text at 200 percent in Hindi and check the scrolling page feels natural.

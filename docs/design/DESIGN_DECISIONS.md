@@ -176,3 +176,28 @@ locale by `drThemeData(devanagari: true)`.
 - Goldens are rasterised per platform and were generated on Windows; CI runs the design gate on
   `windows-latest`, and another OS needs `make goldens` there before it can compare.
 - A 390 px visual pass of the landing page is human work, listed in `docs/HUMAN_TODO.md`.
+## Gate 4 components
+
+### S-22: `DrRevealGroup` is the only reveal in the app
+
+- **Shape:** one `AnimationController` for the group, one interval per item, `FadeTransition` plus
+  `SlideTransition` of `DrSpace.s8 / 100`, base curve, 500 ms, 50 ms overlap (D-022).
+- **Reduced motion:** when `MediaQuery.disableAnimations` is true the controller starts at 1, so the
+  content is simply present.
+- **Where:** debrief timeline rows and the state path diagram through `DrNodeLineDiagram(reveal: true)`.
+  Transforms never affect layout, so connector lines do not move.
+
+### S-23: `DrCallStatus` replaces the plain drill banner
+
+- **Shape:** full border card on `surfaceSecondary`, badge on `surfaceInfoSubtle` with `borderAction`,
+  state label in `caption2`, practice sentence in `caption2` tertiary, waveform at the left.
+- **Waveform:** static, 44 by 32, bars of `DrSize.strokeStrong` and token heights, colour by state
+  (tertiary, secondary, action). Same height in every state, so the header never jumps.
+- **Badge:** always present, in ringing, answering and live, because the drill must never look like a
+  real agency call.
+
+### S-24: The gallery canvas grew once
+
+- The Call status specimen added about 250 px, so the fixed gallery canvas in `design_system_test.dart`
+  and `golden_test.dart` grew from 5800 to 6100 and still asserts a layout with no overflow. No
+  assertion was removed.
