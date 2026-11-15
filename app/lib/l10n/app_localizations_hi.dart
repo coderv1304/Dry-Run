@@ -195,6 +195,15 @@ class AppLocalizationsHi extends AppLocalizations {
       'यह एक अभ्यास ड्रिल है। इसमें कोई असली एजेंसी शामिल नहीं है।';
 
   @override
+  String get drillCallRinging => 'घंटी बज रही है';
+
+  @override
+  String get drillCallAnswering => 'कॉल जुड़ रही है';
+
+  @override
+  String get drillCallLive => 'कॉल चालू है';
+
+  @override
   String get drillEnd => 'ड्रिल समाप्त करें';
 
   @override
@@ -509,7 +518,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get debriefFirstComplianceBody =>
-      'यह पहला मौका था जब किसी मांग का पालन हुआ।';
+      'यह पहला मौका था जब आपने कोई मांग मान ली। दबाव में ऐसा सामान्य है, और इसे पहचानना ही इस अभ्यास का मकसद है।';
 
   @override
   String get debriefDidWellTitle => 'आपने क्या अच्छा किया';

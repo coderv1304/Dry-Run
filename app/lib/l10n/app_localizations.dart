@@ -440,6 +440,24 @@ abstract class AppLocalizations {
   /// **'This is a practice drill. No real agency is involved.'**
   String get drillBadgeMessage;
 
+  /// No description provided for @drillCallRinging.
+  ///
+  /// In en, this message translates to:
+  /// **'Ringing'**
+  String get drillCallRinging;
+
+  /// No description provided for @drillCallAnswering.
+  ///
+  /// In en, this message translates to:
+  /// **'Answering'**
+  String get drillCallAnswering;
+
+  /// No description provided for @drillCallLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live'**
+  String get drillCallLive;
+
   /// No description provided for @drillEnd.
   ///
   /// In en, this message translates to:
@@ -995,7 +1013,7 @@ abstract class AppLocalizations {
   /// No description provided for @debriefFirstComplianceBody.
   ///
   /// In en, this message translates to:
-  /// **'This was the first moment where a request was followed.'**
+  /// **'This was the first request you followed. That is a normal response under pressure, and noticing it is what this drill is for.'**
   String get debriefFirstComplianceBody;
 
   /// No description provided for @debriefDidWellTitle.

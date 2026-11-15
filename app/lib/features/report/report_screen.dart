@@ -56,7 +56,7 @@ class _ReportScreenState extends ConsumerState<ReportScreen> {
               onAction: () => context.go('/'),
             )
           else if (state.loading && state.report == null) ...<Widget>[
-            Text(l10n.reportLoading, style: Theme.of(context).textTheme.bodyMedium),
+            Text(l10n.reportLoading, style: context.drType.body3.copyWith(color: context.drColors.textSecondary)),
             const SizedBox(height: DrSpace.s16),
             const DrSkeleton(lines: 5),
           ] else if (state.error != null && state.report == null)

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +18,7 @@ import 'debrief_actions.dart';
 import 'debrief_body.dart';
 import 'debrief_controller.dart';
 import 'debrief_copy.dart';
+import '../../design/dr_theme.dart';
 
 class DebriefScreen extends ConsumerStatefulWidget {
   const DebriefScreen({super.key});
@@ -89,6 +92,12 @@ class _DebriefScreenState extends ConsumerState<DebriefScreen> {
     final AppLocalizations l10n = AppLocalizations.of(context);
     final DebriefState state = ref.watch(debriefControllerProvider);
     final bool hasContent = state.content != null;
+    ref.listen<DebriefState>(debriefControllerProvider,
+        (DebriefState? previous, DebriefState next) {
+      if (next.content != null && previous?.content == null) {
+        unawaited(ref.read(hapticsProvider).success());
+      }
+    });
     return DrPage(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -118,7 +127,7 @@ class _DebriefScreenState extends ConsumerState<DebriefScreen> {
               onAction: () => context.go('/try'),
             )
           else if (state.loading && !hasContent) ...<Widget>[
-            Text(l10n.debriefPending, style: Theme.of(context).textTheme.bodyMedium),
+            Text(l10n.debriefPending, style: context.drType.body3.copyWith(color: context.drColors.textSecondary)),
             const SizedBox(height: DrSpace.s16),
             const DrSkeleton(lines: 5),
           ] else if (state.error != null && !hasContent)

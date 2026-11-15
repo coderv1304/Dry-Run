@@ -219,7 +219,7 @@ void main() {
 
   testWidgets('gallery renders every section in both modes', (WidgetTester tester) async {
     tester.view.devicePixelRatio = 1.0;
-    tester.view.physicalSize = const Size(1120, 5800);
+    tester.view.physicalSize = const Size(1120, 6100);
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 

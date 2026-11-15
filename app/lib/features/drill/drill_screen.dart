@@ -63,6 +63,7 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
   }
 
   Future<void> _send() async {
+    unawaited(ref.read(hapticsProvider).tap());
     final bool ok = await ref
         .read(sessionControllerProvider.notifier)
         .send(_composer.text);
@@ -146,8 +147,13 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
           previous?.sending != next.sending) {
         _scrollToEnd();
       }
+      if (next.messages.length > (previous?.messages.length ?? 0) &&
+          next.messages.last.speaker == ChatSpeaker.officer) {
+        unawaited(ref.read(hapticsProvider).success());
+      }
       if (next.ended && previous?.ended != true) {
         ref.read(voiceControllerProvider.notifier).halt();
+        unawaited(ref.read(hapticsProvider).warn());
       }
     });
     if (!state.hasSession || state.unauthorized) {
@@ -156,108 +162,129 @@ class _DrillScreenState extends ConsumerState<DrillScreen> {
     final bool pending = state.pending != null;
     final int maxTurns = state.session!.limits.maxTurns;
     final int current = state.expectedTurnIndex.clamp(1, maxTurns).toInt();
+    final bool largeText = MediaQuery.textScalerOf(context).scale(16) > 20;
+    final Widget header = Padding(
+      padding: const EdgeInsets.all(DrSpace.s16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (config.demoMode) ...<Widget>[
+            DrBanner(
+              message: l10n.demoBanner,
+              badgeLabel: l10n.demoBadge,
+              variant: DrBannerVariant.info,
+            ),
+            const SizedBox(height: DrSpace.s12),
+          ],
+          DrillHeader(
+            l10n: l10n,
+            turnCount: l10n.drillTurnCount(current, maxTurns),
+            callState: callStateFor(
+              sending: state.sending || pending,
+              messageCount: state.messages.length,
+            ),
+            onEnd: _end,
+            ending: state.ending,
+          ),
+        ],
+      ),
+    );
+    final Widget chat = Padding(
+      padding: const EdgeInsets.symmetric(horizontal: DrSpace.s16),
+      child: ChatList(
+        l10n: l10n,
+        messages: state.messages,
+        sending: state.sending,
+        controller: _scroll,
+        shrink: largeText,
+      ),
+    );
+    final List<Widget> notices = <Widget>[
+      if (state.lastTurn?.piiWarning ?? false)
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: DrSpace.s16),
+          child: DrBanner(
+            message: l10n.drillPiiWarning,
+            badgeLabel: l10n.drillBadge,
+            variant: DrBannerVariant.warning,
+          ),
+        ),
+      if (state.error != null)
+        Padding(
+          padding: const EdgeInsets.all(DrSpace.s16),
+          child: DrErrorView(
+            title: l10n.errorTitle,
+            message: failureMessage(l10n, state.error),
+            retryLabel: l10n.retry,
+            onRetry: pending ? _retrySend : _finish,
+          ),
+        ),
+    ];
+    final Widget composer = Padding(
+      padding: const EdgeInsets.all(DrSpace.s16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (!state.ended && !state.ending) ...<Widget>[
+            DrillVoiceBar(
+              l10n: l10n,
+              state: voice,
+              onEnable: _openVoice,
+              onListen: _voiceTurn,
+              onStop: () =>
+                  ref.read(voiceControllerProvider.notifier).stopListening(),
+              onDisable: () => ref.read(voiceControllerProvider.notifier).halt(),
+              onOpenCheck: _openVoiceCheck,
+            ),
+            const SizedBox(height: DrSpace.s8),
+          ],
+          state.ended && !state.ending
+              ? DrillEndedPanel(l10n: l10n, onDebrief: _finish)
+              : DrillComposer(
+                  l10n: l10n,
+                  controller: _composer,
+                  sending: state.sending,
+                  retrying: pending && !state.sending,
+                  onSend: _send,
+                  onRetry: _retrySend,
+                  onChanged: (_) {},
+                ),
+        ],
+      ),
+    );
+    // At large text scales the header and the composer can be taller than the
+    // phone. The page then scrolls as one column instead of clipping, and the
+    // practice badge stays at the top of that column.
+    final Widget body = largeText
+        ? SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[header, chat, ...notices, composer],
+            ),
+          )
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              header,
+              Expanded(child: chat),
+              ...notices,
+              composer,
+            ],
+          );
     return Scaffold(
       body: SafeArea(
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 880),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(DrSpace.s16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      if (config.demoMode) ...<Widget>[
-                        DrBanner(
-                          message: l10n.demoBanner,
-                          badgeLabel: l10n.demoBadge,
-                          variant: DrBannerVariant.info,
-                        ),
-                        const SizedBox(height: DrSpace.s12),
-                      ],
-                      DrillHeader(
-                        l10n: l10n,
-                        turnCount: l10n.drillTurnCount(current, maxTurns),
-                        onEnd: _end,
-                        ending: state.ending,
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: DrSpace.s16),
-                    child: ChatList(
-                      l10n: l10n,
-                      messages: state.messages,
-                      sending: state.sending,
-                      controller: _scroll,
-                    ),
-                  ),
-                ),
-                if (state.lastTurn?.piiWarning ?? false)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: DrSpace.s16),
-                    child: DrBanner(
-                      message: l10n.drillPiiWarning,
-                      badgeLabel: l10n.drillBadge,
-                      variant: DrBannerVariant.warning,
-                    ),
-                  ),
-                if (state.error != null)
-                  Padding(
-                    padding: const EdgeInsets.all(DrSpace.s16),
-                    child: DrErrorView(
-                      title: l10n.errorTitle,
-                      message: failureMessage(l10n, state.error),
-                      retryLabel: l10n.retry,
-                      onRetry: pending ? _retrySend : _finish,
-                    ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.all(DrSpace.s16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      if (!state.ended && !state.ending) ...<Widget>[
-                        DrillVoiceBar(
-                          l10n: l10n,
-                          state: voice,
-                          onEnable: _openVoice,
-                          onListen: _voiceTurn,
-                          onStop: () => ref
-                              .read(voiceControllerProvider.notifier)
-                              .stopListening(),
-                          onDisable: () =>
-                              ref.read(voiceControllerProvider.notifier).halt(),
-                          onOpenCheck: _openVoiceCheck,
-                        ),
-                        const SizedBox(height: DrSpace.s8),
-                      ],
-                      state.ended && !state.ending
-                          ? DrillEndedPanel(l10n: l10n, onDebrief: _finish)
-                          : DrillComposer(
-                              l10n: l10n,
-                              controller: _composer,
-                              sending: state.sending,
-                              retrying: pending && !state.sending,
-                              onSend: _send,
-                              onRetry: _retrySend,
-                              onChanged: (_) {},
-                            ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            child: body,
           ),
         ),
       ),
     );
+
   }
 }
 

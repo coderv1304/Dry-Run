@@ -64,7 +64,7 @@ void main() {
 
     testWidgets('design gallery $mode', (WidgetTester tester) async {
       tester.view.devicePixelRatio = 1.0;
-      tester.view.physicalSize = const Size(1120, 5800);
+      tester.view.physicalSize = const Size(1120, 6100);
       addTearDown(tester.view.resetPhysicalSize);
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpWidget(

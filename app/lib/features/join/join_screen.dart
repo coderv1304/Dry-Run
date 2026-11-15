@@ -12,6 +12,7 @@ import '../../state/token_store.dart';
 import '../../ui/shared/dr_page.dart';
 import '../../ui/shared/dr_page_header.dart';
 import 'join_controller.dart';
+import '../../design/dr_theme.dart';
 
 class JoinScreen extends ConsumerStatefulWidget {
   const JoinScreen({super.key});
@@ -73,7 +74,7 @@ class _JoinScreenState extends ConsumerState<JoinScreen> {
           if (state.validating) ...<Widget>[
             Text(
               l10n.joinValidating,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: context.drType.body3.copyWith(color: context.drColors.textSecondary),
             ),
             const SizedBox(height: DrSpace.s16),
             const DrSkeleton(lines: 2),

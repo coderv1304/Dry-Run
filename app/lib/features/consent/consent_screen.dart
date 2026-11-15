@@ -80,7 +80,7 @@ class _ConsentScreenState extends ConsumerState<ConsentScreen> {
               onAction: () => context.go('/try'),
             )
           else if (state.loading) ...<Widget>[
-            Text(l10n.joinValidating, style: Theme.of(context).textTheme.bodyMedium),
+            Text(l10n.joinValidating, style: context.drType.body3.copyWith(color: context.drColors.textSecondary)),
             const SizedBox(height: DrSpace.s16),
             const DrSkeleton(lines: 3),
           ] else if (state.loadError != null)

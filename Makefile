@@ -157,7 +157,21 @@ gate-3b: lint-ui
 	@$(PYTHON) -c "import os; assert os.path.exists('docs/RELEASE.md') and os.path.getsize('docs/RELEASE.md') > 0, 'docs/RELEASE.md missing or empty'"
 	@echo "=== Gate 3b Verification PASSED ==="
 
-n$(cat Makefile.prompt4 | sed -n 2,)
+gate-4: lint-ui lint
+	@echo "Running the full Flutter app suite, screenshots and goldens..."
+	@cd app && $(FLUTTER) test
+	@echo "Checking the evidence screenshots..."
+	@$(PYTHON) tool/check_screenshots.py
+	@echo "Verifying the gate 4 records exist..."
+	@$(PYTHON) -c "import os; [os.path.exists('docs/' + name) or (_ for _ in ()).throw(AssertionError('docs/' + name + ' missing')) for name in ('CHECKLIST_4.md', 'design/DESIGN_DECISIONS.md')]"
+	@echo "=== Gate 4 Verification PASSED ==="
+
+gate-4b:
+	@echo "owned by Prompt 4b"
+	@exit 1
+
+gate-5:
+	@echo "owned by Prompt 5"
 	@exit 1
 
 ci: gate-0 test lint-ui

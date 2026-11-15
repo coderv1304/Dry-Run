@@ -9,6 +9,7 @@ import '../../l10n/app_localizations.dart';
 import '../../ui/shared/dr_section.dart';
 import '../debrief/debrief_copy.dart';
 import 'about_providers.dart';
+import '../../design/dr_theme.dart';
 
 class AboutLimitsSection extends ConsumerWidget {
   const AboutLimitsSection({super.key});
@@ -54,7 +55,7 @@ class AboutLimitsSection extends ConsumerWidget {
               const SizedBox(height: DrSpace.s8),
               Text(
                 l10n.aboutChatOnly,
-                style: Theme.of(context).textTheme.bodySmall,
+                style: context.drType.body6.copyWith(color: context.drColors.textSecondary),
               ),
             ],
           ),
@@ -127,14 +128,14 @@ class _Point extends StatelessWidget {
               width: DrSpace.s4,
               height: DrSpace.s4,
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
+                color: context.drColors.textTertiary,
                 shape: BoxShape.circle,
               ),
             ),
           ),
           const SizedBox(width: DrSpace.s8),
           Expanded(
-            child: Text(text, style: Theme.of(context).textTheme.bodyMedium),
+            child: Text(text, style: context.drType.body3.copyWith(color: context.drColors.textSecondary)),
           ),
         ],
       ),

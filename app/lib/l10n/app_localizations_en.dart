@@ -196,6 +196,15 @@ class AppLocalizationsEn extends AppLocalizations {
       'This is a practice drill. No real agency is involved.';
 
   @override
+  String get drillCallRinging => 'Ringing';
+
+  @override
+  String get drillCallAnswering => 'Answering';
+
+  @override
+  String get drillCallLive => 'Live';
+
+  @override
   String get drillEnd => 'End drill';
 
   @override
@@ -509,7 +518,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get debriefFirstComplianceBody =>
-      'This was the first moment where a request was followed.';
+      'This was the first request you followed. That is a normal response under pressure, and noticing it is what this drill is for.';
 
   @override
   String get debriefDidWellTitle => 'What you did well';

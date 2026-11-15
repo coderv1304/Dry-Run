@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../design/color_tokens.g.dart';
-import '../../design/components/dr_banner.dart';
 import '../../design/components/dr_button.dart';
+import '../../design/components/dr_call_status.dart';
 import '../../design/components/dr_data_views.dart';
 import '../../design/components/dr_icon.dart';
 import '../../design/icons.g.dart';
@@ -12,17 +12,28 @@ import '../../design/type_tokens.g.dart';
 import '../../l10n/app_localizations.dart';
 import '../session/drill_models.dart';
 
+/// The call reads as ringing while the first line is in flight, answering
+/// while a reply is in flight, and live once the conversation is open.
+DrCallState callStateFor({required bool sending, required int messageCount}) {
+  if (sending) {
+    return messageCount == 0 ? DrCallState.ringing : DrCallState.answering;
+  }
+  return DrCallState.live;
+}
+
 class DrillHeader extends StatelessWidget {
   const DrillHeader({
     super.key,
     required this.l10n,
     required this.turnCount,
+    required this.callState,
     required this.onEnd,
     required this.ending,
   });
 
   final AppLocalizations l10n;
   final String turnCount;
+  final DrCallState callState;
   final VoidCallback onEnd;
   final bool ending;
 
@@ -30,38 +41,40 @@ class DrillHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final DrColors colors = context.drColors;
     final DrTypeTheme type = context.drType;
+    final String stateLabel = switch (callState) {
+      DrCallState.ringing => l10n.drillCallRinging,
+      DrCallState.answering => l10n.drillCallAnswering,
+      DrCallState.live => l10n.drillCallLive,
+    };
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        DrBanner(
-          message: l10n.drillBadgeMessage,
+        DrCallStatus(
+          state: callState,
           badgeLabel: l10n.drillBadge,
-          variant: DrBannerVariant.warning,
+          stateLabel: stateLabel,
+          message: l10n.drillBadgeMessage,
         ),
         const SizedBox(height: DrSpace.s12),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(
-                    l10n.drillTitle,
-                    style: type.title2.copyWith(color: colors.textPrimary),
-                  ),
-                  const SizedBox(height: DrSpace.s2),
-                  Text(
-                    turnCount,
-                    style: type.caption2.copyWith(color: colors.textTertiary),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(width: DrSpace.s8),
-            DrButton(
+        LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            final Widget title = Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text(
+                  l10n.drillTitle,
+                  style: type.title2.copyWith(color: colors.textPrimary),
+                ),
+                const SizedBox(height: DrSpace.s2),
+                Text(
+                  turnCount,
+                  style: type.caption2.copyWith(color: colors.textTertiary),
+                ),
+              ],
+            );
+            final Widget end = DrButton(
               label: ending ? l10n.drillSending : l10n.drillEnd,
               onPressed: ending ? null : onEnd,
               type: DrButtonType.tertiary,
@@ -71,8 +84,31 @@ class DrillHeader extends StatelessWidget {
                 size: DrSize.iconSm,
                 color: colors.textPrimary,
               ),
-            ),
-          ],
+            );
+            // Stack once the title and the control cannot share a line, so
+            // large text never clips. The badge above stays put either way.
+            final bool stack = constraints.maxWidth < 340 ||
+                MediaQuery.textScalerOf(context).scale(16) > 20;
+            if (stack) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  title,
+                  const SizedBox(height: DrSpace.s8),
+                  Align(alignment: Alignment.centerLeft, child: end),
+                ],
+              );
+            }
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(child: title),
+                const SizedBox(width: DrSpace.s8),
+                end,
+              ],
+            );
+          },
         ),
       ],
     );
@@ -86,6 +122,7 @@ class ChatList extends StatelessWidget {
     required this.messages,
     required this.sending,
     required this.controller,
+    this.shrink = false,
   });
 
   final AppLocalizations l10n;
@@ -93,8 +130,26 @@ class ChatList extends StatelessWidget {
   final bool sending;
   final ScrollController controller;
 
+  /// Used when the whole drill page scrolls, which happens at large text
+  /// scales. The list then grows with its content instead of scrolling twice.
+  final bool shrink;
+
   @override
   Widget build(BuildContext context) {
+    if (shrink) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          for (final ChatMessage message in messages)
+            Padding(
+              padding: const EdgeInsets.only(bottom: DrSpace.s12),
+              child: ChatBubble(message: message, l10n: l10n),
+            ),
+          if (sending) WaitingRow(l10n: l10n),
+        ],
+      );
+    }
     return ListView(
       controller: controller,
       padding: const EdgeInsets.symmetric(vertical: DrSpace.s16),

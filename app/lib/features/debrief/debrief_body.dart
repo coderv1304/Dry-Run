@@ -5,6 +5,7 @@ import '../../design/color_tokens.g.dart';
 import '../../design/components/dr_banner.dart';
 import '../../design/components/dr_icon.dart';
 import '../../design/components/dr_node_line_diagram.dart';
+import '../../design/components/dr_reveal.dart';
 import '../../design/components/dr_timeline_row.dart';
 import '../../design/icons.g.dart';
 import '../../design/dr_theme.dart';
@@ -43,6 +44,7 @@ class DebriefBody extends StatelessWidget {
             title: l10n.debriefStatePathTitle,
             child: DrNodeLineDiagram(
               elder: true,
+              reveal: true,
               nodes: <DrDiagramNode>[
                 for (int index = 0; index < content.statePath.length; index++)
                   DrDiagramNode(
@@ -99,50 +101,55 @@ class DebriefTimeline extends StatelessWidget {
     }
     final List<DebriefEvent> events = <DebriefEvent>[...content.events]
       ..sort((DebriefEvent a, DebriefEvent b) => a.turnIndex.compareTo(b.turnIndex));
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        for (int index = 0; index < events.length; index++) ...<Widget>[
-          DrTimelineRow(
-            title: labelName(l10n, events[index].label),
-            detail: _detail(events[index]),
-            trailingLabel:
-                _isFirstCompliance(events[index]) ? l10n.debriefFirstComplianceTitle : null,
-            status: index == events.length - 1
-                ? DrTimelineStatus.current
-                : DrTimelineStatus.complete,
-            isLast: index == events.length - 1,
-            elder: true,
-          ),
-          if (_isFirstCompliance(events[index]))
-            Padding(
-              padding: const EdgeInsets.only(
-                left: DrSpace.s44,
-                top: DrSpace.s4,
-                bottom: DrSpace.s8,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  DrIcon(
-                    data: DrIcons.checkCircle,
-                    size: DrSize.iconMd,
-                    color: context.drColors.iconWarning,
-                  ),
-                  const SizedBox(width: DrSpace.s8),
-                  Expanded(
-                    child: Text(
-                      l10n.debriefFirstComplianceBody,
-                      style: context.drType.caption2
-                          .copyWith(color: context.drColors.textSecondary),
-                    ),
-                  ),
-                ],
-              ),
+    final List<Widget> rows = <Widget>[];
+    for (int index = 0; index < events.length; index++) {
+      rows.add(
+        DrTimelineRow(
+          title: labelName(l10n, events[index].label),
+          detail: _detail(events[index]),
+          trailingLabel: _isFirstCompliance(events[index])
+              ? l10n.debriefFirstComplianceTitle
+              : null,
+          status: index == events.length - 1
+              ? DrTimelineStatus.current
+              : DrTimelineStatus.complete,
+          isLast: index == events.length - 1,
+          elder: true,
+        ),
+      );
+      if (_isFirstCompliance(events[index])) {
+        rows.add(
+          Padding(
+            padding: const EdgeInsets.only(
+              left: DrSpace.s44,
+              top: DrSpace.s4,
+              bottom: DrSpace.s8,
             ),
-        ],
-      ],
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                DrIcon(
+                  data: DrIcons.checkCircle,
+                  size: DrSize.iconMd,
+                  color: context.drColors.iconWarning,
+                ),
+                const SizedBox(width: DrSpace.s8),
+                Expanded(
+                  child: Text(
+                    l10n.debriefFirstComplianceBody,
+                    style: context.drType.caption2
+                        .copyWith(color: context.drColors.textSecondary),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }
+    }
+    return DrRevealGroup(
+      itemCount: rows.length,
+      builder: (BuildContext context, int index) => rows[index],
     );
   }
 

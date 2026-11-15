@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 import '../core/app_config.dart';
+import '../core/haptics.dart';
 import '../core/link_builder.dart';
 import '../core/secure_screen.dart';
 import '../core/share_service.dart';
@@ -33,6 +34,10 @@ final Provider<ShareService> shareServiceProvider =
 /// FLAG_SECURE bridge. Tests replace this with a recording fake.
 final Provider<SecureScreen> secureScreenProvider =
     Provider<SecureScreen>((Ref ref) => const PlatformSecureScreen());
+
+/// Short Android haptics at key drill moments. Tests replace this with a fake.
+final Provider<DrHaptics> hapticsProvider =
+    Provider<DrHaptics>((Ref ref) => const PlatformDrHaptics());
 
 /// Language chosen for the current invite. Voice recognition and speech use
 /// it, and Hinglish maps to the Hindi voice because it has no separate model.

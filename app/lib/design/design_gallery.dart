@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'color_tokens.g.dart';
 import 'components/dr_banner.dart';
 import 'components/dr_button.dart';
+import 'components/dr_call_status.dart';
 import 'components/dr_data_views.dart';
 import 'components/dr_hero_heading.dart';
 import 'components/dr_icon.dart';
@@ -84,6 +85,7 @@ class _DesignGalleryState extends State<DesignGallery> {
                   const _TimelineSection(),
                   const _DiagramSection(),
                   const _BannerSection(),
+                  const _CallStatusSection(),
                   const _DataViewSection(),
                   const _IconSection(),
                   const _HeroSection(),
@@ -775,6 +777,38 @@ class _BannerSection extends StatelessWidget {
             message: 'Nothing here is recorded beyond the session you delete.',
             variant: DrBannerVariant.info,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CallStatusSection extends StatelessWidget {
+  const _CallStatusSection();
+
+  @override
+  Widget build(BuildContext context) {
+    const List<(DrCallState, String)> states = <(DrCallState, String)>[
+      (DrCallState.ringing, 'Ringing'),
+      (DrCallState.answering, 'Answering'),
+      (DrCallState.live, 'Live'),
+    ];
+    return _Section(
+      title: 'Call status',
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          for (final (DrCallState state, String label) in states)
+            Padding(
+              padding: const EdgeInsets.only(bottom: DrSpace.s12),
+              child: DrCallStatus(
+                state: state,
+                badgeLabel: 'DRILL',
+                stateLabel: label,
+                message:
+                    'This is a practice drill. No real agency is involved.',
+              ),
+            ),
         ],
       ),
     );

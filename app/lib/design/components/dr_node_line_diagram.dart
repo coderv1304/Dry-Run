@@ -6,6 +6,7 @@ import '../dr_theme.dart';
 import '../space_tokens.g.dart';
 import '../type_tokens.g.dart';
 import 'dr_icon.dart';
+import 'dr_reveal.dart';
 
 enum DrDiagramStatus { done, active, pending }
 
@@ -28,29 +29,37 @@ class DrNodeLineDiagram extends StatelessWidget {
     super.key,
     required this.nodes,
     this.elder = false,
+    this.reveal = false,
   });
 
   final List<DrDiagramNode> nodes;
   final bool elder;
+
+  /// Reveals the nodes in order on the base curve. Transforms never move
+  /// layout, so the connector lines stay exactly where they were.
+  final bool reveal;
 
   @override
   Widget build(BuildContext context) {
     final DrColors colors = context.drColors;
     final DrTypeTheme type = context.drType;
 
+    Widget row(BuildContext context, int index) => _DiagramRow(
+          node: nodes[index],
+          index: index,
+          isLast: index == nodes.length - 1,
+          colors: colors,
+          type: type,
+          elder: elder,
+        );
+    if (reveal) {
+      return DrRevealGroup(itemCount: nodes.length, builder: row);
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        for (int index = 0; index < nodes.length; index++)
-          _DiagramRow(
-            node: nodes[index],
-            index: index,
-            isLast: index == nodes.length - 1,
-            colors: colors,
-            type: type,
-            elder: elder,
-          ),
+        for (int index = 0; index < nodes.length; index++) row(context, index),
       ],
     );
   }
