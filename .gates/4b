@@ -1,0 +1,50 @@
+{
+  "gate": "4b",
+  "commit": "1cc828d",
+  "timestamp": "2026-11-15T06:41:03.891488+00:00",
+  "commands": [
+    "lint-ui",
+    "tool/build_landing.py --check",
+    "tool/check_landing.py",
+    "tool/make_og_image.py --check",
+    "lighthouse",
+    "width_390"
+  ],
+  "results": [
+    {
+      "command": "lint-ui",
+      "status": "passed",
+      "detail": "tokens and icons current, Poppins Devanagari coverage, 224 contrast pairings, design lint clean on landing, 6 lint unit tests"
+    },
+    {
+      "command": "tool/build_landing.py --check",
+      "status": "passed",
+      "detail": "four pages match landing/content.json exactly"
+    },
+    {
+      "command": "tool/check_landing.py",
+      "status": "passed",
+      "detail": "doctype, lang, skip link, main landmark, one h1, meta description, og tags, favicon and touch icon, no braces or placeholder text, no external URL, no inline script or style, no em or en dash, every local asset present, primary action to /try twice, 10 faq entries, risk reversal, no proof section, CSP default-src self with no third party"
+    },
+    {
+      "command": "tool/make_og_image.py --check",
+      "status": "passed",
+      "detail": "og image 1200x630, apple touch icon 180x180"
+    },
+    {
+      "command": "lighthouse",
+      "status": "passed",
+      "detail": "Lighthouse 12.8.2 mobile: performance 100, accessibility 100, best practices 100, seo 100; LCP 1.5 s, TBT 0 ms, CLS 0.011, 77 KiB first load; no failing accessibility audit"
+    },
+    {
+      "command": "width_390",
+      "status": "passed",
+      "detail": "390 px viewport: scrollWidth 374 equals clientWidth 374, no element past either edge"
+    },
+    {
+      "command": "tagline_reveal",
+      "status": "passed",
+      "detail": "headless render: 15 of 15 words reach is-on through IntersectionObserver; forced reduced motion shows all 15 at once"
+    }
+  ]
+}
